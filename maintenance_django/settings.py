@@ -30,6 +30,10 @@ CORS_ORIGIN_WHITELIST = ('http://localhost',)
 CORS_ALLOWED_ORIGINS = [
     "https://minha-aplicacao-route-django-core.master.ignetworks.com"]
 
+# settings.py
+
+ALLOWED_HOSTS = [
+    'minha-aplicacao-route-django-core.master.ignetworks.com', 'localhost', '127.0.0.1']
 
 # Application definition
 

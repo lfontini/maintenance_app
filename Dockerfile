@@ -12,6 +12,8 @@ RUN pip install -r requirements.txt
 COPY . /app/
 
 # Execute as migrações do Django
+RUN python manage.py makemigrations
+
 RUN python manage.py migrate
 
 # Exponha a porta em que o servidor Django será executado (por padrão, 8000)

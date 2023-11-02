@@ -1,0 +1,27 @@
+/* Estilos para a janela de diálogo no meio da tela */
+.dialog-box {
+    width: 500px;
+    /* Largura da janela de diálogo */
+    margin: 0 auto;
+    /* Centraliza horizontalmente */
+    background-color: #a9d8e4;
+    /* Cor de fundo da janela de diálogo */
+    border: 1px solid #fdfdfd;
+    /* Borda da janela de diálogo */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    /* Sombra */
+    padding: 20px;
+    /* Espaçamento interno */
+    text-align: center;
+    /* Alinhamento de texto no centro */
+    position: absolute;
+    top: 50%;
+    /* Centraliza verticalmente */
+    left: 50%;
+    /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%);
+    /* Centraliza vertical e horizontalmente */
+    z-index: 999;
+    /* Valor alto para colocar acima de outros elementos */
+
+}

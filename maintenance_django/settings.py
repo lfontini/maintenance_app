@@ -91,6 +91,11 @@ DATABASES = {
 }
 
 
+CORS_ALLOWED_ORIGINS = [
+    'https://minha-aplicacao-route-django-core.master.ignetworks.com/core/',
+    'https://minha-aplicacao-route-django-core.master.ignetworks.com'
+]
+
 # DATABASES = {
 #   "default": {
 #       "ENGINE": "django.db.backends.postgresql",

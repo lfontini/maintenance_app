@@ -89,9 +89,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-CORS_ALLOWED_ORIGINS = [
-    "https://minha-aplicacao-route-django-core.master.ignetworks.com",
-]
 
 
 # DATABASES = {

@@ -76,23 +76,23 @@ WSGI_APPLICATION = 'maintenance_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-# }
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "coreapp",
-        "USER": "coreapp",
-        "PASSWORD": os.getenv("DATABASE_PASSWORD"),
-        "HOST": os.getenv("DATABASE_SERVICE_NAME"),
-        "PORT": "",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+#DATABASES = {
+ #   "default": {
+ #       "ENGINE": "django.db.backends.postgresql",
+ #       "NAME": "coreapp",
+ #       "USER": "coreapp",
+ #       "PASSWORD": os.getenv("DATABASE_PASSWORD"),
+ #       "HOST": os.getenv("DATABASE_SERVICE_NAME"),
+ #       "PORT": "",
+ #   }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -147,4 +147,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-PORT = 8080

@@ -94,16 +94,7 @@ DATABASES = {
 }
 
 
-ALLOWED_HOSTS = ['minha-aplicacao-route-django-core.master.ignetworks.com']
-
-
-CORS_ORIGIN_ALLOW_ALL = False
-
-CORS_ORIGIN_WHITELIST = (
-
-    'http://localhost:8000',
-
-)
+ALLOWED_HOSTS = ['*']
 
 # DATABASES = {
 #   "default": {

@@ -25,9 +25,11 @@ SECRET_KEY = 'django-insecure-72p)n&n0ebwi0s3n^tw4+nna^k6(op_h#$8ah37+y-ln0oqve@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = ('http:localhost',)
+CORS_ORIGIN_WHITELIST = ('http://localhost',)
+CORS_ALLOWED_ORIGINS = [
+    "https://minha-aplicacao-route-django-core.master.ignetworks.com"]
+
 
 # Application definition
 

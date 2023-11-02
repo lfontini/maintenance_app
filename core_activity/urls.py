@@ -8,6 +8,8 @@ from . import views
 urlpatterns = [
     path('core/', views.core, name='core'),
 
+     path('', views.index, name='index'),
+
     path('get_device_list_pop/', views.get_device_list_pop,
          name='get_device_list_pop'),
 

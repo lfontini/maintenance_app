@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 
 # Create your views here.
 from django.http import JsonResponse
@@ -9,6 +9,10 @@ from .retrive_services import List_services, list_all_devices_pop
 from .quickbase_requests import get_paths_from_quickbase, get_serves_from_paths
 import re
 from .create_core_quickbase import Create_core_qb_main
+
+
+def index(request):
+    return HttpResponse("welcome!")
 
 
 def core(request):

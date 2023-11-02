@@ -82,6 +82,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+CORS_ALLOWED_ORIGINS = [
+    "https://minha-aplicacao-route-django-core.master.ignetworks.com",
+]
+
 
 # DATABASES = {
 #   "default": {
@@ -145,4 +149,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-PORT = 80

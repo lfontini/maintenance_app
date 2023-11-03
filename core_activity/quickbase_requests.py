@@ -104,4 +104,4 @@ def Get_service_info(service_id):
             city = field['465']['value']
             country = field['467']['value']
 
-    return id, address, end_customer, city, country
+    return {'id': id, 'address': address, 'end_customer': end_customer, 'city': city, 'country': country}

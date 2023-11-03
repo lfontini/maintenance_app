@@ -2,7 +2,7 @@ import requests
 from datetime import datetime
 import os
 from dotenv import load_dotenv
-from . quickbase_requests import Get_service_info
+from .quickbase_requests import Get_service_info
 import re
 
 # load enviroments variables
@@ -48,9 +48,10 @@ def Insert_services_into_existent_core(core_id, services_raw):
     }
 
     for service in services:
-        id = Get_service_info(service[0])
+        service_info = Get_service_info(service[0])
+        id = service_info['id']
         services_included_to_core = []
-        print(service)
+        print(service, id)
         if id:
             body = {"to": "bmniuvke2", "data": [
                 {"8": {"value": id}, "10": {"value": core_id}}], "fieldsToReturn": [10, 9]}
@@ -59,9 +60,11 @@ def Insert_services_into_existent_core(core_id, services_raw):
                 headers=headers,
                 json=body
             )
+            print(body)
+            response = r.json()
             if r.status_code == 200:
                 services_included_to_core.append(service)
-    return f'services included successfully {services_included_to_core}'
+    return f'services included successfully {services_included_to_core} {response}'
 
 
 def Ajust_Core_date(date):
@@ -164,8 +167,10 @@ def Create_core_qb_main(data):
                 "98": {"value": remote_hands_information}
             }
             core_id = Make_quickbase_request(core_data)
-
-            return core_id
+            if core_id:
+                SERVICES = Insert_services_into_existent_core(
+                    core_id, common_fields['affected_services'])
+            return core_id, SERVICES
 
         if activity_related_to == 'pop':
             pop = data.get('pop')
@@ -187,6 +192,9 @@ def Create_core_qb_main(data):
                 "98": {"value": remote_hands_information}
             }
             core_id = Make_quickbase_request(core_data)
-            return core_id
+            if core_id:
+                SERVICES = Insert_services_into_existent_core(
+                    core_id, common_fields['affected_services'])
+            return core_id, SERVICES
 
     return None

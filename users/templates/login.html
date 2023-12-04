@@ -1,0 +1,78 @@
+{% load static %}
+{% block conteudo %}
+
+
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(45deg, #39A7FF, #192655);
+
+        /* Tema azul claro */
+    }
+
+    .login-container {
+        text-align: center;
+        background: linear-gradient(45deg, #39A7FF, #192655);
+        padding: 50px;
+        border-radius: 10px;
+
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.857);
+    }
+
+    .login-form {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        background: rgba(0, 119, 255, 0.125), 0)
+    }
+
+    label {
+        margin-bottom: 8px;
+    }
+
+    input {
+        padding: 8px;
+        margin-bottom: 16px;
+        border: 1px solid #027af221;
+        border-radius: 4px;
+    }
+
+    button {
+        padding: 10px;
+        background-color: #2196F3;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #2196F3;
+    }
+</style>
+
+<body>
+
+
+    <div class="login-container">
+        <img src="https://static.wixstatic.com/media/7e4e6f_29d3996755c4460ab5fed99424c9db85~mv2.png/v1/crop/x_57,y_221,w_1446,h_369/fill/w_255,h_65,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Logotipo%20IG_Mesa%20de%20trabajo%201.png"
+            alt="">
+        <h3 style="color: #fcfcfc;">App Maintenance</h3>
+        <form action="/" class="login-form">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+    {% endblock %}

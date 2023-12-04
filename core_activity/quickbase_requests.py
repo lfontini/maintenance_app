@@ -30,15 +30,14 @@ def fetch_activity_data(database, fields, where):
 
 
 def get_paths_from_quickbase(netword_id):
-
+    print("nl ", netword_id)
     body = {
         "from": "bmh9sizyd",
         "select": [],
-        "where": "{3.CT.'" + netword_id + "'}AND{42.CT.'Active'}"
-    }
+        "where": "{9.CT." + f"'{netword_id}'"+"} AND {42.CT.'Active'}"}
     # body = {"from":"bmh9sizyd","select":[],"where":"{9.CT.'FOR1-BEL2-01'}AND{42.CT.'Active'}"}
 
-    print(body)
+    print("AAAAAAAAAAAAAAA PATH", body)
     r = requests.post(
         'https://api.quickbase.com/v1/records/query',
         headers=headers,
@@ -58,7 +57,6 @@ def get_paths_from_quickbase(netword_id):
 
 # com base no path ele retorna os servicos associados
 def get_serves_from_paths(path):
-
     body = {"from": "bfwgbisz4", "select": [
         7, 36, 409, 410, 334, 335], "where": "{'36'.EX.'delivered'}AND{335.CT." + f"'{path}'"+"}", "sortBy": [{"fieldId": 335, "order": "ASC"}]}
     # abaixo o que funciona

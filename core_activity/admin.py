@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Core, Core_registration
+from .models import Core, Troubleshooting_registration
 # Register your models here.
 
 
@@ -15,9 +15,10 @@ class CoreAdmin(admin.ModelAdmin):
     # list_editable = ('foto',)
 
 
-class Core_registration_Admin(admin.ModelAdmin):
-    list_display = ('name',)
+class Troubleshooting_registration_Admin(admin.ModelAdmin):
+    list_display = ('core_quickbase_id', 'date', 'circuito',)
 
 
 admin.site.register(Core, CoreAdmin)
-admin.site.register(Core_registration, Core_registration_Admin)
+admin.site.register(Troubleshooting_registration,
+                    Troubleshooting_registration_Admin)

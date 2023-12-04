@@ -29,23 +29,28 @@ ign_eng_values = fetch_activity_data(
 
 # pop list from quickbase para POP_ID_CHOICES
 POP_ID_CHOICES = []
+# create this tuples with empty values
+IGN_ENG_CHOICES = [(" ", " ")]
+POP_ID_CHOICES = [(" ", " ")]
+INTERNET_ID_CHOICES = [(" ", " ")]
+NETWORK_LINK_ID_CHOICES = [(" ", " ")]
 
 for id, name in zip(pop_values[0], pop_values[1]):
     POP_ID_CHOICES.append((str(id), name))
 
-INTERNET_ID_CHOICES = []
+
 for id, name in zip(internet_values[0], internet_values[1]):
     INTERNET_ID_CHOICES.append((str(id), name))
 
-NETWORK_LINK_ID_CHOICES = []
+
 for id, name in zip(network_link_values[0], network_link_values[1]):
     NETWORK_LINK_ID_CHOICES.append((str(id), name))
 
-IGN_ENG_CHOICES = [(" ", " ")]
+
 for value in ign_eng_values[1]:
     IGN_ENG_CHOICES.append((value['id'], value['name']))
 
-STATUS_CHOICES = [("not_started", "Not Started"),
+STATUS_CHOICES = [("Not Started", "Not Started"),
                   ("dismissed", "Dismissed"), ("completed", "Completed")]
 
 
@@ -76,20 +81,30 @@ class Core(models.Model):
 
     affected_services = models.TextField(max_length=10000, default='')
 
-    Description = models.TextField(max_length=100, default='')
+    Description = models.TextField(
+        max_length=100, default='', verbose_name="Core Description")
+    Description_to_customers = models.TextField(
+        max_length=100, default='', verbose_name="Description to customers")
 
     location = models.CharField(max_length=100, default='')
 
     remote_hands_information = models.TextField(max_length=100, default='')
 
+    core_quickbase_id = models.CharField(
+        max_length=6)
+    tickets_zendesk_generated = models.TextField(max_length=100, default='')
+
     def __str__(self):
         return self.activity_type
 
 
-class Core_registration(models.Model):
-    core = models.ForeignKey(Core, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-
-    def __str__(self):
-        return self.name
+class Troubleshooting_registration(models.Model):
+    core_quickbase_id = models.CharField(
+        max_length=6)
+    date = models.DateTimeField(auto_now_add=True)
+    circuito = models.CharField(
+        max_length=20)
+    resultadoping = models.TextField()
+    status = models.TextField()
+    interfacestatus = models.TextField()
+    statusquickbase = models.TextField()

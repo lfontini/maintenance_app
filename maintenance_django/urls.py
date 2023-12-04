@@ -21,6 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('maintenance.urls')),
     path('', include('core_activity.urls')),
+    path('', include('users.urls')),
+
 
     # Outras URLs do projeto podem ser definidas aqui
 ]

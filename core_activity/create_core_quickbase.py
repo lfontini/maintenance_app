@@ -4,6 +4,11 @@ import os
 from dotenv import load_dotenv
 from .quickbase_requests import Get_service_info
 import re
+import concurrent.futures
+from .generate_tickets_zendesk import generate_tickets_zendesk
+from .Send_emails import EmailNotification
+from .google_calendar_create_events import EventCreator
+from .quickbase_requests import fetch_activity_data
 
 # load enviroments variables
 load_dotenv()
@@ -16,16 +21,16 @@ def Make_quickbase_request(data):
     headers = {
         'QB-Realm-Hostname': HOSTNAME_QB,
         'User-Agent': '{User-Agent}',
-        'Authorization': f'QB-USER-TOKEN {TOKEN_QB}'
+        'Authorization': TOKEN_QB
     }
-
+    print(headers)
     body = {"to": "bk32qj72c", "data": [data], "fieldsToReturn": [3]}
     r = requests.post(
         'https://api.quickbase.com/v1/records',
         headers=headers,
         json=body
     )
-
+    print(r.json())
     if r.status_code == 200:
         response = r.json()
         if 'data' in response:
@@ -34,7 +39,7 @@ def Make_quickbase_request(data):
                     id = field['3']['value']
                     return id
 
-    return r.status_code, r.json()
+    return None
 
 
 def Insert_services_into_existent_core(core_id, services_raw):
@@ -44,27 +49,27 @@ def Insert_services_into_existent_core(core_id, services_raw):
     headers = {
         'QB-Realm-Hostname': HOSTNAME_QB,
         'User-Agent': '{User-Agent}',
-        'Authorization': f'QB-USER-TOKEN {TOKEN_QB}'
+        'Authorization': TOKEN_QB
     }
 
-    for service in services:
-        service_info = Get_service_info(service[0])
-        id = service_info['id']
-        services_included_to_core = []
-        print(service, id)
+    def process_service(service):
+        print("service", service)
+        service_info = Get_service_info(service)
+        print(service_info)
+        id = service_info.get('id')
+        print(id)
         if id:
-            body = {"to": "bmniuvke2", "data": [
-                {"8": {"value": id}, "10": {"value": core_id}}], "fieldsToReturn": [10, 9]}
-            r = requests.post(
-                'https://api.quickbase.com/v1/records',
-                headers=headers,
-                json=body
-            )
-            print(body)
-            response = r.json()
-            if r.status_code == 200:
-                services_included_to_core.append(service)
-    return f'services included successfully {services_included_to_core} {response}'
+            body = {"to": "bmniuvke2", "data": [{"8": {"value": id}, "10": {"value": core_id}}],
+                    "fieldsToReturn": [10, 9]}
+            response = requests.post(
+                'https://api.quickbase.com/v1/records', headers=headers, json=body).json()
+
+            return f'Service included successfully: {service}' if response.get('code') == 0 else None
+
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        results = list(filter(None, executor.map(process_service, services)))
+
+    return results
 
 
 def Ajust_Core_date(date):
@@ -95,7 +100,7 @@ def Calc_duration_time_core(start_date, end_date):
 
 
 def Create_core_qb_main(data):
-    print(data)
+    print('dadps recebidos ', data)
     '''
     This function receives data from the front end, validates it, and creates a core on Quickbase, returning the core number.
     '''
@@ -111,6 +116,7 @@ def Create_core_qb_main(data):
         'end_date': data.get('end_date'),
         'duration': data.get('duration'),
         'Description': data.get('Description'),
+        'Description_to_customers': data.get('Description_to_customers'),
         'affected_services': data.get('affected_services'),
         'location': data.get('location'),
     }
@@ -120,9 +126,12 @@ def Create_core_qb_main(data):
         common_fields['start_date'], common_fields['end_date'])
     remote_hands_information = data.get('remote_hands_information')
 
-    if activity_type == 'from_ign':
+    if activity_type == 'from_ign' or activity_type == 'from_vendor':
         if activity_related_to == 'internet_service':
             internet_id = data.get('internet_id')
+            internet_name = fetch_activity_data(database="bjx5t3hbx", fields=[
+                6], where="{3.EX." + f"'{internet_id}'"+"}")
+            print(internet_name)
             new_date_formatted = Ajust_Core_date(common_fields['start_date'])
             duration_activity = Calc_duration_time_core(
                 common_fields['start_date'], common_fields['end_date'])
@@ -143,12 +152,45 @@ def Create_core_qb_main(data):
             }
             core_id = Make_quickbase_request(core_data)
             if core_id:
-                SERVICES = Insert_services_into_existent_core(
-                    core_id, common_fields['affected_services'])
-            return core_id, SERVICES
+                if common_fields['affected_services']:
+                    services = Insert_services_into_existent_core(
+                        core_id, common_fields['affected_services'])
+                    tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
+                                                               common_fields['start_date'], common_fields['end_date'],
+                                                               common_fields['duration'], common_fields['location'], description=common_fields['Description_to_customers'])
+                    if tickets:
+                        email = EmailNotification()
+                        email.send_notification(
+                            core_id=core_id, tickets=tickets, date=common_fields['start_date'])
+
+                        description_calendar = f''' 
+                        Test Automation Event will affect services \n
+                        {common_fields['affected_services']}
+
+                        '''
+                        print(common_fields['start_date'],
+                              common_fields['end_date'])
+                        formated_start_data = Ajust_Core_date(
+                            common_fields['start_date'])
+                        formated_end_data = Ajust_Core_date(
+                            common_fields['end_date'])
+
+                        event_creator = EventCreator(calendar_title=f'Planned Work Maintenance DIA {internet_name[0][0]}',
+                                                     start_time=formated_start_data,
+                                                     end_time=formated_end_data,
+                                                     description=description_calendar)
+                        event_creator.create_event()
+
+                        return {'core_id': core_id, 'tickets': tickets,  'errors': errors}
+                else:
+                    return None
+            return None
 
         if activity_related_to == 'network_link':
             network_link = data.get('network_link')
+            network_link_name = fetch_activity_data(database="bjvepudtt", fields=[
+                7], where="{3.EX." + f"'{network_link}'"+"}")
+            print(network_link_name)
             new_date_formatted = Ajust_Core_date(common_fields['start_date'])
             duration_activity = Calc_duration_time_core(
                 common_fields['start_date'], common_fields['end_date'])
@@ -168,12 +210,45 @@ def Create_core_qb_main(data):
             }
             core_id = Make_quickbase_request(core_data)
             if core_id:
-                SERVICES = Insert_services_into_existent_core(
-                    core_id, common_fields['affected_services'])
-            return core_id, SERVICES
+                if common_fields['affected_services']:
+                    services = Insert_services_into_existent_core(
+                        core_id, common_fields['affected_services'])
+                    tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
+                                                               common_fields['start_date'], common_fields['end_date'],
+                                                               common_fields['duration'], common_fields['location'], description=common_fields['Description_to_customers'])
+                    if tickets:
+                        email = EmailNotification()
+                        email.send_notification(
+                            core_id=core_id, tickets=tickets, date=common_fields['start_date'])
+
+                        description_calendar = f''' 
+                        Test Automation Event will affect services \n
+                        {common_fields['affected_services']}
+
+                        '''
+                        print(common_fields['start_date'],
+                              common_fields['end_date'])
+                        formated_start_data = Ajust_Core_date(
+                            common_fields['start_date'])
+                        formated_end_data = Ajust_Core_date(
+                            common_fields['end_date'])
+
+                        event_creator = EventCreator(calendar_title=f'Planned Work Maintenance Network Link {network_link_name[0][0]}',
+                                                     start_time=formated_start_data,
+                                                     end_time=formated_end_data,
+                                                     description=description_calendar)
+                        event_creator.create_event()
+
+                        return {'core_id': core_id, 'tickets': tickets, 'errors': errors}
+                else:
+                    return None
+            return None
 
         if activity_related_to == 'pop':
             pop = data.get('pop')
+            pop_name = fetch_activity_data(database="bjvepsjqq", fields=[
+                8], where="{3.EX." + f"'{pop}'"+"}")
+            print(pop_name)
             new_date_formatted = Ajust_Core_date(common_fields['start_date'])
             duration_activity = Calc_duration_time_core(
                 common_fields['start_date'], common_fields['end_date'])
@@ -193,8 +268,38 @@ def Create_core_qb_main(data):
             }
             core_id = Make_quickbase_request(core_data)
             if core_id:
-                SERVICES = Insert_services_into_existent_core(
-                    core_id, common_fields['affected_services'])
-            return core_id, SERVICES
+                if common_fields['affected_services']:
+                    services = Insert_services_into_existent_core(
+                        core_id, common_fields['affected_services'])
+                    tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
+                                                               common_fields['start_date'], common_fields['end_date'],
+                                                               common_fields['duration'], common_fields['location'], description=common_fields['Description_to_customers'])
+                    if tickets:
+                        email = EmailNotification()
+                        email.send_notification(
+                            core_id=core_id, tickets=tickets, date=common_fields['start_date'])
+
+                        description_calendar = f'''A core maintenance will be perform \n
+                        <H1>Services that will be affected </H1>
+                        {common_fields['affected_services']}
+
+                        '''
+                        print(common_fields['start_date'],
+                              common_fields['end_date'])
+                        formated_start_data = Ajust_Core_date(
+                            common_fields['start_date'])
+                        formated_end_data = Ajust_Core_date(
+                            common_fields['end_date'])
+
+                        event_creator = EventCreator(calendar_title=f'Planned Work Maintenance POP {pop_name[0][0]}',
+                                                     start_time=formated_start_data,
+                                                     end_time=formated_end_data,
+                                                     description=description_calendar)
+                        event_creator.create_event()
+
+                        return {'core_id': core_id, 'tickets': tickets, 'errors': errors}
+                else:
+                    return None
+            return None
 
     return None

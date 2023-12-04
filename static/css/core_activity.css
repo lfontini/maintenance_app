@@ -4,7 +4,8 @@
     /* Largura da janela de diálogo */
     margin: 0 auto;
     /* Centraliza horizontalmente */
-    background-color: #a9d8e4;
+    background: white;
+    color: BLACK;
     /* Cor de fundo da janela de diálogo */
     border: 1px solid #fdfdfd;
     /* Borda da janela de diálogo */
@@ -24,4 +25,9 @@
     z-index: 999;
     /* Valor alto para colocar acima de outros elementos */
 
+}
+
+
+h5 {
+    color: white;
 }

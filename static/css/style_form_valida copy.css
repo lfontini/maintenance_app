@@ -1,0 +1,74 @@
+/* Estilos da tabela */
+.table {
+  width: 100%;
+  margin: 0 auto;
+  padding: 5px;
+  border-collapse: collapse;
+  text-align: justify;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  /* Add border-radius for outside borders */
+}
+
+.table th,
+.table td {
+  padding: 1em;
+  text-align: center;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  /* Add border-radius for inside borders */
+}
+
+.table th {
+  background-color: #f8f9fa;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.table tbody tr:hover {
+  background-color: #0d151e;
+}
+
+/* Adiciona bordas arredondadas para toda a tabela */
+.table-rounded {
+  border-radius: 0.25rem;
+}
+
+/* Estilos para caixas de texto */
+textarea {
+  padding: 1em;
+  border: 1px solid #ced4da;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  width: 100%;
+  min-height: 10px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para botões */
+.btn {
+  display: inline-block;
+  padding: 0.5em 1em;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  width: auto;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+  color: #fff;
+}

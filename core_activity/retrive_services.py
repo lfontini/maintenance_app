@@ -57,7 +57,6 @@ def Filter_services_by_category(get_services, host):
         all_services = Eliminate_Duplicated_Services(all_services_raw)
         return all_services
 
-
 def Get_pops_gogs(device_name):
     '''
     This function receive pop device name and return the services configured in it using gogs repo backup 
@@ -74,6 +73,7 @@ def Get_pops_gogs(device_name):
         return Filter_services_by_category(raw_data, device_name)
     else:
         print(f"Erro: Response code is  {response.status_code}")
+        return None
 
 
 def List_services(devices):

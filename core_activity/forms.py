@@ -17,7 +17,23 @@ class BootstrapSelect(forms.Select):
 class CoreForm(forms.ModelForm):
     class Meta:
         model = Core
-        fields = '__all__'
+        fields = [
+            'activity_type',
+            'activity_related_to',
+            'ign_engineer',
+            'internet_id',
+            'network_link',
+            'pop',
+            'status',
+            'duration',
+            'start_date',
+            'end_date',
+            'affected_services',
+            'Description',
+            'Description_to_customers',
+            'location',
+            'remote_hands_information',
+        ]
 
         widgets = {
             # Adicionando 'form-control-sm' para reduzir o tamanho
@@ -33,6 +49,7 @@ class CoreForm(forms.ModelForm):
             'end_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'datetime-local'}),
             'affected_services': forms.Textarea(attrs={'class': 'form-control', 'style': 'height: 90px;'}),
             'Description': forms.Textarea(attrs={'class': 'form-control', 'style': 'height: 90px;'}),
+            'Description_to_customers': forms.Textarea(attrs={'class': 'form-control', 'style': 'height: 90px;'}),
             'location': BootstrapTextInput,
             'remote_hands_information': forms.Textarea(attrs={'class': 'form-control', 'style': 'height: 90px;'}),
         }

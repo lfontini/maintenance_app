@@ -43,6 +43,9 @@ $(function () {
         return results;
     }
 
+
+
+
     // Send form
     $("#form-validacao").on("submit", function (event) {
         event.preventDefault();
@@ -69,26 +72,28 @@ $(function () {
         circuitos.forEach(circuito => {
             setTimeout(5000)
             $.ajax({
-                url: "/circuito_validacao",
+                url: "/perform_troubleshooting_services/",
                 method: "POST",
                 data: { circuitos: circuito },
+                headers: { "X-CSRFToken": csrftoken },
                 success: function (response) {
                     console.log("RESULTADO  :" + response)
                     console.log(response)
-                    var resultado = response['results'][0][0]
+                    var resultado = response['results']
                     console.log("RAW RESULT :", resultado)
                     // Add a new row for each circuit
                     for (var i = 0; i < resultado.length; i++) {
                         console.log(resultado[i]['circuito']);
                         var circuito = resultado[i]['circuito'];
-                        var trafego_rx = resultado[i]['interfacestatus']['Download'];
-                        var trafego_tx = resultado[i]['interfacestatus']['Upload'];
+                        var trafego_rx = resultado[i]['interfacestatus'];
+                        var trafego_tx = resultado[i]['interfacestatus'];
                         if (trafego_rx == undefined || trafego_tx == undefined) {
                             trafego_rx = "None data retrived";
                             trafego_tx = "None data retrived";
                         }
                         var ping = resultado[i]['resultadoping'];
                         var status = resultado[i]['status'];
+
                         var QB = resultado[i]
                         ['statusquickbase'];
                         var tr = $("<tr>");
@@ -99,6 +104,20 @@ $(function () {
                         tr.append($("<td>").text(ping));
                         tr.append($("<td>").text(status));
                         tr.append($("<td>").text(QB));
+
+                        if (!status.includes("UP") || !ping.includes("UP")) {
+                            tr.append($("<td>").append($("<i>").addClass('fas fa-times')));
+                            tr.css("background-color", "#6c757d96");
+                            tr.css("color", "white");
+
+
+                        } else {
+                            tr.append($("<td>").append($("<i>").addClass('fas fa-check')));
+                            tr.css("background-color", "rgb(38 223 116 / 56%)");
+                            tr.css("color", "white");
+
+                        }
+
                         tbody.append(tr);
                     }
 

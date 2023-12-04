@@ -1,0 +1,468 @@
+2023-11-30 12:48:12,245 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 12:48:21,450 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 12:48:55,363 - ERROR - the customer TSY is not registreted in quickbase
+2023-11-30 12:55:21,647 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 12:55:29,885 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 12:55:55,954 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 12:56:17,572 - ERROR - the customer TSY is not registreted in quickbase
+2023-11-30 14:15:26,661 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:22:21,746 - ERROR - the customer TSY is not registreted in quickbase
+2023-11-30 14:22:25,917 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 70, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 160, in Create_core_qb_main
+    tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 329, in generate_tickets_zendesk
+    ticket_numbers = create_tickets(data_tickets)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 289, in create_tickets
+    status_request = response.json()['job_status']['status']
+                     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+KeyError: 'job_status'
+2023-11-30 14:22:53,328 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:23:19,672 - ERROR - the customer TSY is not registreted in quickbase
+2023-11-30 14:23:27,719 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 70, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 160, in Create_core_qb_main
+    tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 326, in generate_tickets_zendesk
+    data_tickets = prepare_tickets(services_raw=services, start_date=start_date_zendesk_format,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 277, in prepare_tickets
+    print(results[1])
+          ~~~~~~~^^^
+IndexError: list index out of range
+2023-11-30 14:24:16,577 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:24:24,427 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:25:51,180 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:26:01,672 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:26:30,241 - ERROR - the customer TSY is not registreted in quickbase
+2023-11-30 14:26:30,920 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 70, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 160, in Create_core_qb_main
+    tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 335, in generate_tickets_zendesk
+    return ticket_numbers
+                     ^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 295, in create_tickets
+    request_url = response.json()['job_status']['url']
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'job_status'
+2023-11-30 14:26:44,072 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:27:05,510 - ERROR - the customer TSY is not registreted in quickbase
+2023-11-30 14:27:14,325 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 70, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 160, in Create_core_qb_main
+    tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 334, in generate_tickets_zendesk
+    ticket_numbers = create_tickets(data_tickets)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 294, in create_tickets
+    status_request = response.json()['job_status']['status']
+                     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+KeyError: 'job_status'
+2023-11-30 14:28:13,446 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:29:50,420 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:29:57,483 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:30:18,022 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:30:44,802 - ERROR - the customer TSY is not registreted in quickbase
+2023-11-30 14:30:52,509 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 70, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 160, in Create_core_qb_main
+    tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 338, in generate_tickets_zendesk
+    ticket_numbers = create_tickets(data_tickets)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 297, in create_tickets
+    status_request = response.json()['job_status']['status']
+                     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+KeyError: 'job_status'
+2023-11-30 14:31:18,297 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:31:33,263 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:31:39,905 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:32:49,831 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 70, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 160, in Create_core_qb_main
+    tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 334, in generate_tickets_zendesk
+    data_tickets, all_errors = prepare_tickets(services_raw=services, start_date=start_date_zendesk_format,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 275, in prepare_tickets
+    results = list(executor.map(prepare_tickets_worker, [
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 265, in prepare_tickets_worker
+    return tickets, errors
+                    ^^^^^^
+UnboundLocalError: cannot access local variable 'errors' where it is not associated with a value
+2023-11-30 14:33:47,278 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:33:57,235 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:34:05,540 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:35:12,772 - ERROR - the customer TSY is not registreted in quickbase
+2023-11-30 14:36:10,314 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:36:50,271 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:37:06,354 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:37:17,796 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 14:37:54,868 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 14:38:06,020 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 14:43:57,823 - ERROR - the customer TSY is not registreted in quickbase
+2023-11-30 14:44:13,016 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 14:44:23,564 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 14:44:32,877 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 14:44:42,040 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 14:45:18,890 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 14:45:40,483 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 14:46:19,353 - ERROR - the customer TSY is not registreted in quickbase
+2023-11-30 14:48:21,428 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 14:48:37,849 - ERROR - the customer TSY is not registreted in quickbase
+2023-11-30 14:50:48,012 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 14:51:02,489 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 14:51:11,232 - ERROR - the customer TSY is not registreted in quickbase
+2023-11-30 14:53:06,365 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:53:16,509 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 14:53:23,796 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 15:53:31,966 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 15:54:08,444 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 15:54:18,340 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 15:54:25,883 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 15:55:02,208 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 15:55:12,269 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 15:55:36,909 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 15:56:37,525 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 15:57:05,748 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 15:57:18,864 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 15:57:27,355 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 16:09:19,838 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 16:09:28,551 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 16:09:36,134 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 16:29:01,831 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 16:30:17,290 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:31:39,633 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:31:50,545 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:31:57,348 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:32:05,172 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:32:20,014 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:32:28,790 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:32:46,167 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:33:04,023 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:33:10,949 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:34:09,796 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:34:38,341 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:34:48,801 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:34:56,367 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:35:09,047 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:35:15,682 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:35:26,767 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:38:27,920 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:38:40,683 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:39:01,539 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 72, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 180, in Create_core_qb_main
+    tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 338, in generate_tickets_zendesk
+    start_date_zendesk_format = Ajust_date(start_date)
+                                ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 329, in Ajust_date
+    converted_date = datetime.strptime(current_data_format, entry_format_date)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\_strptime.py", line 568, in _strptime_datetime
+    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\_strptime.py", line 352, in _strptime
+    raise ValueError("unconverted data remains: %s" %
+ValueError: unconverted data remains: :00
+2023-11-30 16:39:52,788 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:40:01,158 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:40:50,582 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 72, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 180, in Create_core_qb_main
+    tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 338, in generate_tickets_zendesk
+    start_date_zendesk_format = Ajust_date(start_date)
+                                ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 329, in Ajust_date
+    converted_date = datetime.strptime(current_data_format, entry_format_date)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\_strptime.py", line 568, in _strptime_datetime
+    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\_strptime.py", line 352, in _strptime
+    raise ValueError("unconverted data remains: %s" %
+ValueError: unconverted data remains: :00
+2023-11-30 16:42:17,524 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:42:31,697 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 72, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 180, in Create_core_qb_main
+    tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 338, in generate_tickets_zendesk
+    start_date_zendesk_format = Ajust_date(start_date)
+                                ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 329, in Ajust_date
+    converted_date = datetime.strptime(current_data_format, entry_format_date)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\_strptime.py", line 568, in _strptime_datetime
+    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\_strptime.py", line 352, in _strptime
+    raise ValueError("unconverted data remains: %s" %
+ValueError: unconverted data remains: :00
+2023-11-30 16:44:19,690 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 16:44:35,735 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-11-30 16:44:54,457 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:45:01,617 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 16:45:11,422 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-11-30 17:25:29,688 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 17:30:39,422 - WARNING - Not Found: /favicon.ico
+2023-11-30 18:11:19,226 - WARNING - Not Found: /favicon.ico
+2023-11-30 18:14:58,229 - WARNING - Not Found: /favicon.ico
+2023-11-30 18:15:17,897 - WARNING - Not Found: /favicon.ico
+2023-11-30 18:15:59,521 - WARNING - Not Found: /favicon.ico
+2023-11-30 18:16:49,100 - WARNING - Not Found: /favicon.ico
+2023-11-30 18:20:00,947 - WARNING - Not Found: /favicon.ico
+2023-11-30 18:21:33,315 - WARNING - Not Found: /favicon.ico
+2023-11-30 18:26:04,197 - WARNING - Not Found: /favicon.ico
+2023-11-30 18:26:49,810 - WARNING - Not Found: /favicon.ico
+2023-11-30 18:27:27,012 - WARNING - Not Found: /favicon.ico
+2023-11-30 18:27:43,656 - WARNING - Not Found: /favicon.ico
+2023-11-30 18:28:00,477 - WARNING - Not Found: /favicon.ico
+2023-11-30 18:29:20,716 - WARNING - Not Found: /favicon.ico
+2023-11-30 22:04:13,893 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 22:04:43,204 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 22:04:51,792 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 22:06:23,015 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 22:06:38,330 - WARNING - Not Found: /favicon.ico
+2023-11-30 22:07:06,110 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 22:07:21,804 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 22:07:30,472 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 22:07:44,481 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 22:08:00,652 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 22:08:26,967 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 22:08:41,396 - WARNING - Not Found: /favicon.ico
+2023-11-30 22:08:54,926 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-11-30 22:09:04,180 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-01 11:20:41,163 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-01 11:21:53,511 - WARNING - Not Found: /favicon.ico
+2023-12-01 11:23:39,253 - WARNING - Not Found: /favicon.ico
+2023-12-01 11:41:06,579 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 11:41:46,229 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 13:50:39,791 - WARNING - Not Found: /favicon.ico
+2023-12-01 14:02:45,135 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:03:39,693 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:03:55,681 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:04:28,080 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:05:00,259 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:05:11,282 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:06:47,075 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:07:22,189 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:08:17,638 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:11:42,426 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:12:03,731 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:12:15,130 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:12:24,769 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:14:30,468 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:14:42,636 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:15:48,383 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:16:04,658 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:16:25,287 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:16:39,392 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:16:54,343 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:32:14,385 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 67, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 216, in Create_core_qb_main
+    tickets = generate_tickets_zendesk(common_fields['affected_services'],
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: generate_tickets_zendesk() missing 1 required positional argument: 'description'
+2023-12-01 14:36:10,042 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:36:29,911 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:36:43,179 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:37:13,840 - ERROR - the customer TSY is not registreted in quickbase
+2023-12-01 14:37:32,106 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 67, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 242, in Create_core_qb_main
+    return {'core_id': core_id, 'tickets': tickets, 'servcies': services, 'errors': errors}
+                                                                ^^^^^^^^
+UnboundLocalError: cannot access local variable 'services' where it is not associated with a value
+2023-12-01 14:42:21,027 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:42:42,204 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:43:07,757 - ERROR - the customer TSY is not registreted in quickbase
+2023-12-01 14:43:27,582 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 67, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 242, in Create_core_qb_main
+    return {'core_id': core_id, 'tickets': tickets, 'errors': errors}
+                                                              ^^^^^^
+UnboundLocalError: cannot access local variable 'errors' where it is not associated with a value
+2023-12-01 14:43:59,085 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:44:41,950 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:44:56,369 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:51:01,468 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:51:40,461 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:51:55,065 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:52:08,285 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:52:24,814 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:55:08,160 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:55:23,259 - ERROR - the customer TSY is not registreted in quickbase
+2023-12-01 14:57:23,003 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:58:37,414 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 14:59:03,261 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py changed, reloading.
+2023-12-01 15:14:00,015 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-01 15:14:17,566 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-01 15:14:34,152 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-01 15:14:57,154 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-01 16:08:21,503 - ERROR - Internal Server Error: /test_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 182, in test_services
+    status=result['status'],
+           ~~~~~~^^^^^^^^^^
+KeyError: 'status'
+2023-12-01 16:12:05,406 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
+2023-12-01 16:13:46,512 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
+2023-12-01 16:14:14,758 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
+2023-12-01 16:15:44,535 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
+2023-12-01 16:16:22,967 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
+2023-12-01 16:16:57,400 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
+2023-12-01 16:17:29,519 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
+2023-12-01 16:17:42,232 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
+2023-12-01 16:18:18,430 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
+2023-12-01 16:18:48,115 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
+2023-12-01 16:19:13,088 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
+2023-12-01 16:19:37,731 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
+2023-12-01 16:20:14,733 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
+2023-12-01 16:20:58,248 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
+2023-12-04 14:57:17,305 - WARNING - Not Found: /favicon.ico
+2023-12-04 14:58:46,002 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-04 14:58:52,415 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% block conteudo %}
+
+<link href="{% static 'css/core_activity.css' %}" rel="stylesheet">
+
+
+
+
+{% if messages %}
+{% for message in messages %}
+<div class="dialog-box alert {% if message.tags == 'error' %}alert-danger{% else %}dialog-box alert-success{% endif %}">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+
+<h1 style="text-align: center;">App Maintenance</h1>
+<div class="card" style="width: auto ;margin: auto; margin-top: 100px;">
+
+    <div class="card-body">
+        <h5 class="card-title">How does the software works? </h5>
+        <p class="card-text">"
+
+            This software empowers users to effortlessly initiate core activities. Moreover, it facilitates the testing
+            of these services and allows for a
+            streamlined comparison process. Once testing is complete, the software efficiently generates and closes
+            multiple tickets in Zendesk simultaneously, enhancing the overall efficiency of the workflow."</p>
+    </div>
+</div>
+
+<div style="display: flex; align-items: center; vertical-align: middle; margin-top: 100px;">
+
+
+    <div class="card" style="width: auto ;margin: auto;">
+        <div class="card-body">
+            <h5 class="card-title">Create Core Activity</h5>
+            <p class="card-text"> Create core and include services</p>
+            <a href="/core" class="btn btn-primary">Go </a>
+        </div>
+    </div>
+
+    <div class="card mr-3" style="width: auto ;margin: auto;">
+        <div class="card-body">
+            <h5 class="card-title">Cores Opened </h5>
+            <p class="card-text">Check and test services affecteds</p>
+            <a href="/validation_core/" class="btn btn-primary">Go </a>
+        </div>
+    </div>
+
+    <div class="card" style="width: auto ;margin: auto;">
+        <div class="card-body">
+            <h5 class="card-title">Close tickets </h5>
+            <p class="card-text">Close Zendesk Tickets by Core </p>
+            <a href="/close_tickets/" class="btn btn-primary">Go </a>
+        </div>
+    </div>
+    <div class="card" style="width: auto ;margin: auto;">
+        <div class="card-body">
+            <h5 class="card-title">Troubleshooting </h5>
+            <p class="card-text">Make Troubleshooting Tests </p>
+            <a href="/troubleshooting_results/" class="btn btn-primary">Go </a>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<script>
+    // use for fetch to post form 
+    var csrftoken = '{{ csrf_token }}';
+</script>
+{% endblock %}
+
+
+</html>

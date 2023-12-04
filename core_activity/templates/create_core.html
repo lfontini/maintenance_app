@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+{% block conteudo %}
+
+<link href="{% static 'css/core_activity.css' %}" rel="stylesheet">
+
+<body>
+
+
+    {% if messages %}
+    {% for message in messages %}
+    <div
+        class="dialog-box alert {% if message.tags == 'error' %}alert-danger{% else %}dialog-box alert-success{% endif %}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+    <!-- Modal para mostrar as opções -->
+    <div class="modal fade" id="optionsModal" tabindex="-1" role="dialog" aria-labelledby="optionsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="optionsModalLabel">Select device that you wish to get services </h5>
+                </div>
+                <div class="modal-body">
+                    <div> obs: In most of the cases devices who contains AR, LER, LSR , SW has customer services, But
+                        there is
+                        some expections</div>
+                    <div id="checkboxContainer" class="form-check"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    <div class="container-md text-justify">
+        <h5 style="text-align: center;">Core Activity Registration</h5>
+
+        <form action="{% url 'core' %}" method="post" class="form">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    {% for field in form.visible_fields|slice:":8" %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
+                        <div>{{ field }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="col-md-6">
+                    {% for field in form.visible_fields|slice:"8:" %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
+                        <div>{{ field }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <button type="submit " class="btn btn-primary" onclick="Click_button_submit_core()">Create Core</button>
+
+        </form>
+    </div>
+
+</body>
+
+<script>
+    // use for fetch to post form 
+    var csrftoken = '{{ csrf_token }}';
+</script>
+{% endblock %}
+
+
+</html>

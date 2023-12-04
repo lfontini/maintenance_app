@@ -188,6 +188,7 @@ checkboxContainer.addEventListener('change', function (event) {
                     return response.json();
                 } else {
                     // Caso contrário, rejeita a promessa com uma mensagem de erro
+                    alert("error to get services from gogs , NOTE: services are selected from devices`s backup in gogs")
                     throw new Error('Erro na solicitação da API');
                 }
             })
@@ -215,7 +216,7 @@ $(document).ready(function () {
     // Define um temporizador para ocultar o alerta após 3 segundos (3000 milissegundos)
     setTimeout(function () {
         $(".dialog-box").fadeOut();
-    }, 3000);
+    }, 10000);
 });
 
 
@@ -225,12 +226,16 @@ $(document).ready(function () {
 const id_network_link_field = document.getElementById('id_network_link');
 id_network_link_field.addEventListener('change', function (event) {
 
-    const id_network_link = document.getElementById('id_network_link').value;
+    const id_network_link = document.getElementById('id_network_link')
     console.log(id_network_link);
 
-    // Crie um objeto FormData para enviar os dados
+    var selectedIndex = id_network_link.selectedIndex;
+
+    var selectedText = id_network_link.options[selectedIndex].text;
+    console.log(selectedText);
+
     const formData = new FormData();
-    formData.append('data', id_network_link);
+    formData.append('data', selectedText);
 
     // Opções da solicitação, incluindo o método POST, cabeçalhos e corpo da solicitação
     const requestOptions = {
@@ -286,6 +291,8 @@ id_network_link_field.addEventListener('change', function (event) {
         .catch(error => {
             // Lida com erros, como falha na rede, erro na API ou erro de análise JSON
             console.error('Erro:', error);
+            alert.error('An error to get the service from gogs error code', error);
+
         });
 });
 
@@ -318,6 +325,7 @@ id_internet_id_field.addEventListener('change', function (event) {
             } else {
                 // Caso contrário, rejeita a promessa com uma mensagem de erro
                 throw new Error('Erro na solicitação da API');
+                alert.error('An error to get the service from gogs error code', error);
             }
         })
         .then(data => {
@@ -392,3 +400,7 @@ end_date_field.addEventListener('change', function (event) {
     durationField.value = Formated_duration;
 });
 
+
+function Click_button_submit_core() {
+    $('#spinner').addClass('show');
+};

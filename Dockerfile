@@ -1,23 +1,21 @@
-# Use a imagem base do Python como ponto de partida
+# Use a base image of Python
 FROM python:3.8
 
-# Defina o diretório de trabalho no contêiner
+# Set the working directory in the container
 WORKDIR /app
 
-# Copie os arquivos de requisitos para o contêiner e instale as dependências
+# Copy the requirements files into the container and install dependencies
 COPY requirements.txt /app/
 RUN pip install -r requirements.txt
 
-# Copie o código-fonte da aplicação para o contêiner
+# Copy the application source code into the container
 COPY . /app/
 
-# Execute as migrações do Django
-
-
+# Run Django migrations
 RUN python manage.py migrate
 
-# Exponha a porta em que o servidor Django será executado (por padrão, 8000)
+# Expose the port on which the Django server will run (default is 8000)
 EXPOSE 8000
 
-# Inicialize o servidor Django
+# Initialize the Django server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

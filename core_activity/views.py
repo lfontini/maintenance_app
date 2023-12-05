@@ -195,21 +195,31 @@ def test_services(request):
 
 
 def close_tickets_zendesk(request):
-    '''
-
-    This function will receive the core id and close all tickets zendesk
-
-    '''
     if request.method == 'POST':
-        print("entrou aqui")
         id = request.POST.get('id')
         query = Core.objects.filter(id=id)
-        for ticket in query:
-            tickets = ticket.tickets_zendesk_generated.strip().split(',')
 
-        result = close_ticket(tickets)
-        if result != None:
-            return JsonResponse({'success': 'Ticket(s) {} zendesk for core {} were closed'.format(result, id)})
+        # Check if the query returned any results
+        if query.exists():
+            # Retrieve the first instance from the query
+            core_instance = query.first()
+
+            # Process the tickets
+            tickets = core_instance.tickets_zendesk_generated.strip().split(',')
+
+            result = close_ticket(tickets)
+
+            if result is not None:
+                # Update the status of the retrieved instance
+                core_instance.status = "completed"
+
+                # Save the changes to the database
+                core_instance.save()
+
+                return JsonResponse({'success': 'Ticket(s) {} zendesk for core {} were closed'.format(result, id)})
+
+        return JsonResponse({'error': 'Core with ID {} not found'.format(id)}, status=404)
+
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
 

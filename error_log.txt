@@ -466,3 +466,306 @@ KeyError: 'status'
 2023-12-04 14:57:17,305 - WARNING - Not Found: /favicon.ico
 2023-12-04 14:58:46,002 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
 2023-12-04 14:58:52,415 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-05 13:55:35,366 - WARNING - Not Found: /favicon.ico
+2023-12-05 13:58:29,333 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 65, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 156, in Create_core_qb_main
+    services = Insert_services_into_existent_core(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 70, in Insert_services_into_existent_core
+    results = list(filter(None, executor.map(process_service, services)))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 57, in process_service
+    service_info = Get_service_info(service)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py", line 97, in Get_service_info
+    if result['data']:
+       ~~~~~~^^^^^^^^
+KeyError: 'data'
+2023-12-05 14:01:14,672 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-05 14:01:59,100 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-05 14:03:43,542 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 65, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 158, in Create_core_qb_main
+    tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 348, in generate_tickets_zendesk
+    data_tickets, all_errors = prepare_tickets(services_raw=services, start_date=start_date_zendesk_format,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 281, in prepare_tickets
+    results = list(executor.map(prepare_tickets_worker, [
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py", line 233, in prepare_tickets_worker
+    requester_id = contact_list[0]
+                   ~~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2023-12-05 14:05:20,532 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-05 14:05:31,988 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-05 14:06:10,261 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 65, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 156, in Create_core_qb_main
+    services = Insert_services_into_existent_core(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 70, in Insert_services_into_existent_core
+    results = list(filter(None, executor.map(process_service, services)))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 57, in process_service
+    service_info = Get_service_info(service)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py", line 97, in Get_service_info
+    if result['data']:
+       ~~~~~~^^^^^^^^
+KeyError: 'data'
+2023-12-05 14:08:48,988 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 65, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 156, in Create_core_qb_main
+    services = Insert_services_into_existent_core(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 70, in Insert_services_into_existent_core
+    results = list(filter(None, executor.map(process_service, services)))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 57, in process_service
+    service_info = Get_service_info(service)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py", line 97, in Get_service_info
+    if result['data']:
+       ~~~~~~^^^^^^^^
+KeyError: 'data'
+2023-12-05 14:13:42,474 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-05 14:14:39,178 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-05 14:17:47,539 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-05 14:18:18,172 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 65, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 156, in Create_core_qb_main
+    services = Insert_services_into_existent_core(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 70, in Insert_services_into_existent_core
+    results = list(filter(None, executor.map(process_service, services)))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 57, in process_service
+    service_info = Get_service_info(service)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py", line 103, in Get_service_info
+    if result['data']:
+       ~~~~~~^^^^^^^^
+KeyError: 'data'
+2023-12-05 14:18:41,990 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-05 14:18:50,602 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-05 14:19:14,477 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 65, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 156, in Create_core_qb_main
+    services = Insert_services_into_existent_core(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 70, in Insert_services_into_existent_core
+    results = list(filter(None, executor.map(process_service, services)))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 57, in process_service
+    service_info = Get_service_info(service)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py", line 104, in Get_service_info
+    if result['data']:
+       ~~~~~~^^^^^^^^
+KeyError: 'data'
+2023-12-05 14:19:49,526 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-05 14:20:15,784 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-05 14:20:30,733 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-05 14:20:41,837 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-05 14:21:42,973 - ERROR - the customer TSY is not registreted in quickbase
+2023-12-05 14:28:42,365 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-05 14:29:00,242 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-05 14:33:12,717 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-05 14:33:53,899 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-05 14:34:27,786 - ERROR - Internal Server Error: /close_tickets_zendesk/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 211, in close_tickets_zendesk
+    query.status.update(status='Completed')
+    ^^^^^^^^^^^^
+AttributeError: 'QuerySet' object has no attribute 'status'
+2023-12-05 14:36:30,118 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-05 14:36:41,372 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-05 14:37:10,731 - ERROR - Internal Server Error: /close_tickets_zendesk/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 212, in close_tickets_zendesk
+    query.save()
+    ^^^^^^^^^^
+AttributeError: 'QuerySet' object has no attribute 'save'
+2023-12-05 14:38:46,380 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-05 14:38:56,915 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-05 14:39:28,764 - ERROR - Internal Server Error: /close_tickets_zendesk/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 213, in close_tickets_zendesk
+    query.save()
+    ^^^^^^^^^^
+AttributeError: 'QuerySet' object has no attribute 'save'
+2023-12-05 14:40:59,076 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-05 14:41:08,497 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-05 14:41:32,464 - ERROR - Internal Server Error: /close_tickets_zendesk/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 214, in close_tickets_zendesk
+    query.save()
+    ^^^^^^^^^^
+AttributeError: 'QuerySet' object has no attribute 'save'
+2023-12-05 14:42:20,149 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-05 15:57:20,590 - WARNING - Not Found: /favicon.ico

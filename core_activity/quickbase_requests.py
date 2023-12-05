@@ -1,9 +1,16 @@
 import requests
+from dotenv import load_dotenv
+import os
+
+# Load vars from  .env file
+load_dotenv()
+HOSTNAME_QB = os.environ.get("HOSTNAME_QB")
+TOKEN_QB = os.environ.get("TOKEN_QB")
 
 headers = {
-    'QB-Realm-Hostname': 'ignetworks.quickbase.com',
+    'QB-Realm-Hostname': HOSTNAME_QB,
     'User-Agent': '{User-Agent}',
-    'Authorization': 'QB-USER-TOKEN b77d3x_w4i_0_b5vmciccskkpez3b6bnwbum2vpz'
+    'Authorization': TOKEN_QB
 }
 
 
@@ -37,7 +44,6 @@ def get_paths_from_quickbase(netword_id):
         "where": "{9.CT." + f"'{netword_id}'"+"} AND {42.CT.'Active'}"}
     # body = {"from":"bmh9sizyd","select":[],"where":"{9.CT.'FOR1-BEL2-01'}AND{42.CT.'Active'}"}
 
-    print("AAAAAAAAAAAAAAA PATH", body)
     r = requests.post(
         'https://api.quickbase.com/v1/records/query',
         headers=headers,
@@ -94,6 +100,7 @@ def Get_service_info(service_id):
         json=body
     )
     result = r.json()
+    print('result', result)
     if result['data']:
         for field in result['data']:
             id = field['3']['value']

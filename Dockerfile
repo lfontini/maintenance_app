@@ -11,6 +11,8 @@ WORKDIR /app
 # Copy the requirements files into the container and install dependencies
 COPY requirements.txt /app/
 RUN pip3 install -r requirements.txt
+# Installlping 
+RUN apt-get install -y iputils-ping
 
 # Copy the application source code into the container
 COPY . /app/

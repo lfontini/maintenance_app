@@ -226,4 +226,5 @@ def close_tickets_zendesk(request):
 def perform_troubleshooting_services(request):
     id = request.POST.get('circuitos')
     result = Service_Validation(id)
+    print(result)
     return JsonResponse({'results': result})

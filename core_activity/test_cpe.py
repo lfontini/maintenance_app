@@ -134,7 +134,7 @@ def TestService(circuito):
         if ip != 'none':
             ping = PingTest(ip)
             treated_ip = ip.split("/")[0]
-            if '4 packets transmitted, 4 received' in ping:
+            if '4 packets transmitted, 4 received,' in ping:
                 result['resultadoping'] = f'Ping to {treated_ip} UP'
 
             else:
@@ -147,6 +147,7 @@ def TestService(circuito):
         if net_connect:
             try:
                 if fabricante.lower() == 'mikrotik':
+                    print("entrou rotina mikrotik")
                     traffic_measure = net_connect.send_command(
                         "interface monitor-traffic ether5 once", use_textfsm=True)
                     treated_bandwidth = traffic_measure.split()
@@ -164,12 +165,12 @@ def TestService(circuito):
                     if rx_int == "0":
                         print("No Traffic")
                         print(f"traffic  RX: {rx}  TX: {tx} ")
-
                         result['status'] = "Mikrotik DOWN"
                         result['interfacestatus'] = f'Upload: {tx}, Download: {rx}'
 
                     else:
                         print(f"traffic  RX: {rx} e TX: {tx} ")
+                        print("entrou aqui mikrotik")
                         result['status'] = "Mikrotik UP"
                         result['interfacestatus'] = f'Upload: {tx}, Download: {rx}'
 
@@ -211,10 +212,11 @@ def TestService(circuito):
 
                         result['status'] = "Cisco Systems DOWN"
                         result['interfacestatus'] = "No Traffic"
-                else:
-                    result['circuito'] = f"{circuito}"
-                    result['status'] = "Equipment unreacheable or not in Netbox DOWN"
-                    result['interfacestatus'] = "None data retrived"
+                # else:
+                # if we have some problem with cisco we have to change this lines below
+                #     # result['circuito'] = f"{circuito}"
+                #     # result['status'] = "Equipment unreacheable or not in Netbox DOWN"
+                #     # result['interfacestatus'] = "None data retrived"
 
             except:
                 result['circuito'] = f"{circuito}"
@@ -227,6 +229,7 @@ def TestService(circuito):
 
         result['statusquickbase'] = status_qb(circuito)
         RESULTADO_FINAL.append(result)
+        print(RESULTADO_FINAL)
 
         return RESULTADO_FINAL
     else:
@@ -263,4 +266,5 @@ def Service_Validation(dados_raw):
             except Exception as e:
                 print(f"An error occurred: {e}")
 
+    print(full_result_list)
     return full_result_list

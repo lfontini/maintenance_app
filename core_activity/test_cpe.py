@@ -127,7 +127,6 @@ def TestService(circuito):
         ip_address = Get_Device_Data_From_Quickbase(circuito)
         print('ip_address', ip_address)
     if not 'none' in ip_address['ip'] and ip_address['manufacturer']:
-        print("entrou aqui ")
         ip = ip_address['ip']
         fabricante = ip_address['manufacturer']
         result['circuito'] = circuito

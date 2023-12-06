@@ -226,13 +226,14 @@ def prepare_tickets_worker(args):
     for customer in customers.keys():
         service = customers[customer][0]
         services = customers[customer]
-        print('custommmmmmmmmmmmmmmmmmmmmmmmers')
+        print('customers')
         customer_raw_data = get_customers_contact(customer)
         if customer_raw_data:
             contact_list, customer_name = get_customers_contact(customer)
             requester_id = contact_list[0]
             customer_info = Get_service_info(customers[customer][0])
             id = customer_info['id']
+            cc = customer_info
             address = customer_info['address']
             end_customer = customer_info['end_customer']
             city = customer_info['city']
@@ -251,8 +252,8 @@ def prepare_tickets_worker(args):
             ventana_body = generate_notification_template(context)
 
             data = {
-                "requester_id": 1266469881070,
-                "cc": 'cc',
+                "requester_id":id,
+                "cc": cc,
                 "end_date": end_date,
                 "start_date": start_date,
                 "city": city,

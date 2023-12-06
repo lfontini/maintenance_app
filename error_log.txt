@@ -1050,3 +1050,7 @@ RuntimeError: cannot schedule new futures after interpreter shutdown
 2023-12-06 10:01:25,060 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
 2023-12-06 10:01:50,788 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
 2023-12-06 10:02:27,699 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
+2023-12-06 10:16:35,406 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-12-06 10:16:47,717 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-12-06 10:16:56,829 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-12-06 10:17:07,969 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.

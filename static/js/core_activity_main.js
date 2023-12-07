@@ -404,3 +404,5 @@ end_date_field.addEventListener('change', function (event) {
 function Click_button_submit_core() {
     $('#spinner').addClass('show');
 };
+
+

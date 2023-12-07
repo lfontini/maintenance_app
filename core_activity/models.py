@@ -78,7 +78,8 @@ class Core(models.Model):
     start_date = models.DateTimeField(null=True, blank=True)
     end_date = models.DateTimeField(null=True, blank=True)
     duration = models.CharField(max_length=6, default='')
-
+    downtime = models.TextField(
+        max_length=6, default='', verbose_name="Downtime who will send to customer")
     affected_services = models.TextField(max_length=10000, default='')
 
     Description = models.TextField(

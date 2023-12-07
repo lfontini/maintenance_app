@@ -78,12 +78,15 @@ def core(request):
 
                     # Send success message to front end
                     messages.success(
-                        request, f'Data was received successfully. Core number in Quickbase is {core_id}')
+                        request, f'Data received successfully. Core number in Quickbase is {core_id}. Tickets generated: {tickets}')
 
                     if errors:
-                        messages.error(request=request, message=errors)
 
-                    return redirect('validation_core')
+                        messages.error(
+                            request=request, message=f"Errors occurred: {errors}")
+                        new_form = CoreForm()
+                        context = {'form': new_form}
+                        return render(request, 'create_core.html', context)
 
                 else:
                     messages.error(
@@ -98,7 +101,7 @@ def core(request):
             error_details = ', '.join(
                 [f'{field}: {error}' for field, error in form.errors.items()])
             messages.error(
-                request, f'Invalid form. Please check the following fields: {error_details}. None core was created')
+                request, f'Invalid form. Please check the following fields: {error_details}. No core was created')
 
     context = {'form': form}
     return render(request, 'create_core.html', context)

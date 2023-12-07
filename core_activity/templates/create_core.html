@@ -6,14 +6,15 @@
 
 <body>
 
-
     {% if messages %}
-    {% for message in messages %}
-    <div
-        class="dialog-box alert {% if message.tags == 'error' %}alert-danger{% else %}dialog-box alert-success{% endif %}">
-        {{ message }}
+    <div class="container mt-3">
+        {% for message in messages %}
+        <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %} alert-dismissible fade show"
+            role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
     {% endif %}
 
 
@@ -23,24 +24,23 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="optionsModalLabel">Select device that you wish to get services </h5>
+                    <h5 class="modal-title" id="optionsModalLabel">Select the device for which you want to get services
+                    </h5>
                 </div>
                 <div class="modal-body">
                     <div> obs: In most of the cases devices who contains AR, LER, LSR , SW has customer services, But
                         there is
-                        some expections</div>
+                        some exceptions</div>
                     <div id="checkboxContainer" class="form-check"></div>
                 </div>
             </div>
         </div>
     </div>
 
-
-    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
     <div class="container-md text-justify">
         <h5 style="text-align: center;">Core Activity Registration</h5>
 
-        <form action="{% url 'core' %}" method="post" class="form">
+        <form action="{% url 'core' %}" method="post" class="form" id="form_core">
             {% csrf_token %}
             <div class="row">
                 <div class="col-md-6">
@@ -60,8 +60,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <button type="submit " class="btn btn-primary" onclick="Click_button_submit_core()">Create Core</button>
-
+            <button type="submit" class="btn btn-primary" onclick="Click_button_submit_core()">Create Core</button>
         </form>
     </div>
 
@@ -72,6 +71,3 @@
     var csrftoken = '{{ csrf_token }}';
 </script>
 {% endblock %}
-
-
-</html>

@@ -115,6 +115,7 @@ def Create_core_qb_main(data):
         'start_date': data.get('start_date'),
         'end_date': data.get('end_date'),
         'duration': data.get('duration'),
+        'downtime': data.get('downtime'),
         'Description': data.get('Description'),
         'Description_to_customers': data.get('Description_to_customers'),
         'affected_services': data.get('affected_services'),
@@ -157,14 +158,14 @@ def Create_core_qb_main(data):
                         core_id, common_fields['affected_services'])
                     tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
                                                                common_fields['start_date'], common_fields['end_date'],
-                                                               common_fields['duration'], common_fields['location'], description=common_fields['Description_to_customers'])
+                                                               common_fields['downtime'],  common_fields['location'], description=common_fields['Description_to_customers'])
                     if tickets:
                         email = EmailNotification()
                         email.send_notification(
                             core_id=core_id, tickets=tickets, date=common_fields['start_date'])
 
                         description_calendar = f''' 
-                        Test Automation Event will affect services \n
+                        A core activity will be perform and will affect services below \n
                         {common_fields['affected_services']}
 
                         '''
@@ -215,7 +216,7 @@ def Create_core_qb_main(data):
                         core_id, common_fields['affected_services'])
                     tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
                                                                common_fields['start_date'], common_fields['end_date'],
-                                                               common_fields['duration'], common_fields['location'], description=common_fields['Description_to_customers'])
+                                                               common_fields['downtime'], common_fields['location'], description=common_fields['Description_to_customers'])
                     if tickets:
                         email = EmailNotification()
                         email.send_notification(
@@ -273,7 +274,7 @@ def Create_core_qb_main(data):
                         core_id, common_fields['affected_services'])
                     tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
                                                                common_fields['start_date'], common_fields['end_date'],
-                                                               common_fields['duration'], common_fields['location'], description=common_fields['Description_to_customers'])
+                                                               common_fields['downtime'], common_fields['location'], description=common_fields['Description_to_customers'])
                     if tickets:
                         email = EmailNotification()
                         email.send_notification(

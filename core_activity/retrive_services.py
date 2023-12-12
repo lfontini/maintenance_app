@@ -57,6 +57,7 @@ def Filter_services_by_category(get_services, host):
         all_services = Eliminate_Duplicated_Services(all_services_raw)
         return all_services
 
+
 def Get_pops_gogs(device_name):
     '''
     This function receive pop device name and return the services configured in it using gogs repo backup 
@@ -67,7 +68,10 @@ def Get_pops_gogs(device_name):
     raw_file_url = f'https://{user}:{password}@gogs.ignetworks.com/IG_Networks/POPs/raw/main/{device_name}'
 
     # get data from gogs
+    print(raw_file_url)
     response = requests.get(raw_file_url)
+    print("gogsss ", response)
+
     if response.status_code == 200:
         raw_data = response.text
         return Filter_services_by_category(raw_data, device_name)
@@ -88,6 +92,7 @@ def List_services(devices):
     result = []
 
     for device in devices:
+        print(device)
         result.append(Get_pops_gogs(device)
                       )
 

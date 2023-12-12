@@ -108,7 +108,8 @@ def core(request):
 
 
 def get_service_list(request):
-    DEVICE_NAME_STANDARD = r'^[A-Z0-9]{4}-[A-Z]{2}\d{1}$'
+
+    DEVICE_NAME_STANDARD = r'^[A-Z0-9]{3,}-[A-Z]+[0-9]{0,}$'
 
     DIA_STANDARD = r'[a-zA-Z0-9].{3,4}DIA[0-9]{1,2}'
     PATH_STANDARD = r'[a-zA-Z0-9]{4}(?:-[a-zA-Z0-9]{4})+'

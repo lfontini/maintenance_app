@@ -3484,3 +3484,73 @@ KeyError: 'data'
 2023-12-11 22:47:33,476 - WARNING - Not Found: /favicon.ico
 2023-12-11 22:48:14,893 - WARNING - Not Found: /favicon.ico
 2023-12-12 09:19:55,637 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\Send_emails.py changed, reloading.
+2023-12-12 10:17:29,577 - ERROR - the customer TSY is not registreted in quickbase
+2023-12-12 10:38:04,885 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py changed, reloading.
+2023-12-12 12:17:35,230 - ERROR - the customer TSY is not registreted in quickbase
+2023-12-12 12:26:52,657 - ERROR - Exception (client): Error reading SSH protocol banner[WinError 10038] Foi tentada uma operação em algum item que não é um soquete
+2023-12-12 12:26:53,390 - ERROR - Traceback (most recent call last):
+2023-12-12 12:26:53,390 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\transport.py", line 2292, in _check_banner
+2023-12-12 12:26:53,390 - ERROR -     buf = self.packetizer.readline(timeout)
+2023-12-12 12:26:53,391 - ERROR -           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2023-12-12 12:26:53,391 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\packet.py", line 374, in readline
+2023-12-12 12:26:53,391 - ERROR -     buf += self._read_timeout(timeout)
+2023-12-12 12:26:53,391 - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2023-12-12 12:26:53,391 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\packet.py", line 601, in _read_timeout
+2023-12-12 12:26:53,391 - ERROR -     x = self.__socket.recv(128)
+2023-12-12 12:26:53,391 - ERROR -         ^^^^^^^^^^^^^^^^^^^^^^^
+2023-12-12 12:26:53,391 - ERROR - OSError: [WinError 10038] Foi tentada uma operação em algum item que não é um soquete
+2023-12-12 12:26:53,391 - ERROR - 
+2023-12-12 12:26:53,391 - ERROR - During handling of the above exception, another exception occurred:
+2023-12-12 12:26:53,392 - ERROR - 
+2023-12-12 12:26:53,392 - ERROR - Traceback (most recent call last):
+2023-12-12 12:26:53,392 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\transport.py", line 2113, in run
+2023-12-12 12:26:53,392 - ERROR -     self._check_banner()
+2023-12-12 12:26:53,392 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\transport.py", line 2296, in _check_banner
+2023-12-12 12:26:53,392 - ERROR -     raise SSHException(
+2023-12-12 12:26:53,392 - ERROR - paramiko.ssh_exception.SSHException: Error reading SSH protocol banner[WinError 10038] Foi tentada uma operação em algum item que não é um soquete
+2023-12-12 12:26:53,392 - ERROR - 
+2023-12-12 12:27:33,184 - ERROR - Exception (client): Incompatible version (1.5 instead of 2.0)
+2023-12-12 12:27:33,186 - ERROR - Traceback (most recent call last):
+2023-12-12 12:27:33,186 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\transport.py", line 2113, in run
+2023-12-12 12:27:33,186 - ERROR -     self._check_banner()
+2023-12-12 12:27:33,186 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\transport.py", line 2321, in _check_banner
+2023-12-12 12:27:33,187 - ERROR -     raise IncompatiblePeer(msg.format(version))
+2023-12-12 12:27:33,187 - ERROR - paramiko.ssh_exception.IncompatiblePeer: Incompatible version (1.5 instead of 2.0)
+2023-12-12 12:27:33,187 - ERROR - 
+2023-12-12 16:28:28,807 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\retrive_services.py changed, reloading.
+2023-12-12 16:28:42,520 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\retrive_services.py changed, reloading.
+2023-12-12 16:30:18,862 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\retrive_services.py changed, reloading.
+2023-12-12 16:31:24,860 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\retrive_services.py changed, reloading.
+2023-12-12 16:31:34,789 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\retrive_services.py changed, reloading.
+2023-12-12 16:59:40,991 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-12 17:01:13,297 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py changed, reloading.
+2023-12-12 17:39:22,770 - ERROR - Internal Server Error: /get_service_list/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 127, in get_service_list
+    services = List_services([devices[0]])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\retrive_services.py", line 99, in List_services
+    return result[0]
+           ~~~~~~^^^
+IndexError: list index out of range
+2023-12-12 17:39:35,136 - ERROR - Internal Server Error: /get_service_list/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 127, in get_service_list
+    services = List_services([devices[0]])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\retrive_services.py", line 99, in List_services
+    return result[0]
+           ~~~~~~^^^
+IndexError: list index out of range

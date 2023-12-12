@@ -1,7 +1,7 @@
 import requests
 from dotenv import load_dotenv
 import os
-
+import time
 # Load vars from  .env file
 load_dotenv()
 HOSTNAME_QB = os.environ.get("HOSTNAME_QB")
@@ -85,6 +85,7 @@ def get_serves_from_paths(path):
 
 
 def Get_service_info(service_id):
+    time.sleep(1)
     '''
 
     That Function receive the service_id and return quickbase id and service id

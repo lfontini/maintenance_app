@@ -44,7 +44,8 @@
             {% csrf_token %}
             <div class="row">
                 <div class="col-md-6">
-                    {% for field in form.visible_fields|slice:":8" %}
+
+                    {% for field in form.visible_fields|slice:":11" %}
                     <div class="form-group">
                         <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
                         <div>{{ field }}</div>
@@ -52,7 +53,8 @@
                     {% endfor %}
                 </div>
                 <div class="col-md-6">
-                    {% for field in form.visible_fields|slice:"8:" %}
+                    <div id="services_affected_counter">SERVICES AFFECTED COUNTER: 0</div>
+                    {% for field in form.visible_fields|slice:"11:" %}
                     <div class="form-group">
                         <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
                         <div>{{ field }}</div>

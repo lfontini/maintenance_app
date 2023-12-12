@@ -94,7 +94,6 @@ pop.addEventListener('change', function (event) {
     // this var get pop name and it will get the devices inside this pop 
     var poptext = pop.options[pop.selectedIndex].text;
 
-    console.log(poptext);
 
     // create a from data 
     const formData = new FormData();
@@ -194,14 +193,12 @@ checkboxContainer.addEventListener('change', function (event) {
             })
             .then(data => {
                 const results = data.services.replace(/[\[\],'']/g, " ");
-                console.log(results)
                 id_affected_services.value += ` ${results}`;
 
 
             });
 
 
-        console.log(id);
     } else {
         console.log(`O checkbox com id '${id}' foi desmarcado.`);
     }
@@ -227,12 +224,10 @@ const id_network_link_field = document.getElementById('id_network_link');
 id_network_link_field.addEventListener('change', function (event) {
 
     const id_network_link = document.getElementById('id_network_link')
-    console.log(id_network_link);
 
     var selectedIndex = id_network_link.selectedIndex;
 
     var selectedText = id_network_link.options[selectedIndex].text;
-    console.log(selectedText);
 
     const formData = new FormData();
     formData.append('data', selectedText);
@@ -406,3 +401,33 @@ function Click_button_submit_core() {
 };
 
 
+
+
+id_affected_services.addEventListener('change', function (event) {
+    var padrao = /\b[0-9A-Z]{3}\.[0-9]{3,6}\.[A-Z0-9]{4}\b/g;
+
+    var correspondencias = this.value.match(padrao);
+
+    // Converte o array de correspondências em um conjunto para eliminar duplicatas
+    var conjuntoCorrespondencias = new Set(correspondencias);
+
+    // Cria um elemento div
+    var contadorDiv = document.getElementById('services_affected_counter');
+
+
+    if (correspondencias) {
+        console.log(conjuntoCorrespondencias.size);
+
+        // Define o conteúdo e o estilo do elemento div
+        contadorDiv.textContent = 'SERVICES AFFECTED COUNTER: ' + conjuntoCorrespondencias.size;
+        contadorDiv.style.color = 'white';
+    } else {
+        console.log("Nenhuma correspondência encontrada.");
+
+        // Se não houver correspondências, ajusta o conteúdo e o estilo do elemento div para 0
+        contadorDiv.textContent = 'Contador: 0';
+        contadorDiv.style.color = 'white';
+    }
+
+
+});

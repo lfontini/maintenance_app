@@ -1187,3 +1187,2300 @@ KeyError: 'data'
 2023-12-07 14:14:46,236 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
 2023-12-07 14:14:56,189 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
 2023-12-07 14:17:38,813 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\Send_emails.py changed, reloading.
+2023-12-11 17:05:00,172 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-12-11 17:05:18,006 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 65, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 273, in Create_core_qb_main
+    services = Insert_services_into_existent_core(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 70, in Insert_services_into_existent_core
+    results = list(filter(None, executor.map(process_service, services)))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 57, in process_service
+    service_info = Get_service_info(service)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py", line 104, in Get_service_info
+    if result['data']:
+       ~~~~~~^^^^^^^^
+KeyError: 'data'
+2023-12-11 17:13:17,158 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-11 17:14:26,981 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-11 17:14:35,331 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-11 17:14:52,847 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-11 17:15:34,523 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 65, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 273, in Create_core_qb_main
+    services = Insert_services_into_existent_core(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 70, in Insert_services_into_existent_core
+    results = list(filter(None, executor.map(process_service, services)))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 57, in process_service
+    service_info = Get_service_info(service)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py", line 112, in Get_service_info
+    return {'id': id, 'address': address, 'end_customer': end_customer, 'city': city, 'country': country}
+                  ^^
+UnboundLocalError: cannot access local variable 'id' where it is not associated with a value
+2023-12-11 17:16:14,229 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-11 17:16:38,108 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 65, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 273, in Create_core_qb_main
+    services = Insert_services_into_existent_core(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 70, in Insert_services_into_existent_core
+    results = list(filter(None, executor.map(process_service, services)))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 57, in process_service
+    service_info = Get_service_info(service)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py", line 104, in Get_service_info
+    print('result', result)
+       ^^^^^^^^^^^^^^
+KeyError: 'data'
+2023-12-11 17:16:56,385 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-11 17:55:40,957 - ERROR - Exception (client): Error reading SSH protocol banner
+2023-12-11 17:55:41,290 - ERROR - Traceback (most recent call last):
+2023-12-11 17:55:41,290 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\transport.py", line 2292, in _check_banner
+2023-12-11 17:55:41,297 - ERROR -     buf = self.packetizer.readline(timeout)
+2023-12-11 17:55:41,297 - ERROR -           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2023-12-11 17:55:41,297 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\packet.py", line 374, in readline
+2023-12-11 17:55:41,298 - ERROR -     buf += self._read_timeout(timeout)
+2023-12-11 17:55:41,298 - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2023-12-11 17:55:41,298 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\packet.py", line 603, in _read_timeout
+2023-12-11 17:55:41,298 - ERROR -     raise EOFError()
+2023-12-11 17:55:41,298 - ERROR - EOFError
+2023-12-11 17:55:41,298 - ERROR - 
+2023-12-11 17:55:41,298 - ERROR - During handling of the above exception, another exception occurred:
+2023-12-11 17:55:41,298 - ERROR - 
+2023-12-11 17:55:41,298 - ERROR - Traceback (most recent call last):
+2023-12-11 17:55:41,298 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\transport.py", line 2113, in run
+2023-12-11 17:55:41,298 - ERROR -     self._check_banner()
+2023-12-11 17:55:41,298 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\transport.py", line 2296, in _check_banner
+2023-12-11 17:55:41,301 - ERROR -     raise SSHException(
+2023-12-11 17:55:41,301 - ERROR - paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+2023-12-11 17:55:41,324 - ERROR - 
+2023-12-11 18:28:47,116 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-11 18:30:03,444 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\Send_emails.py changed, reloading.
+2023-12-11 18:33:08,212 - ERROR - Exception (client): Error reading SSH protocol banner
+2023-12-11 18:33:08,221 - ERROR - Traceback (most recent call last):
+2023-12-11 18:33:08,221 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\transport.py", line 2292, in _check_banner
+2023-12-11 18:33:08,221 - ERROR -     buf = self.packetizer.readline(timeout)
+2023-12-11 18:33:08,221 - ERROR -           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2023-12-11 18:33:08,221 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\packet.py", line 374, in readline
+2023-12-11 18:33:08,221 - ERROR -     buf += self._read_timeout(timeout)
+2023-12-11 18:33:08,222 - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2023-12-11 18:33:08,222 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\packet.py", line 603, in _read_timeout
+2023-12-11 18:33:08,222 - ERROR -     raise EOFError()
+2023-12-11 18:33:08,222 - ERROR - EOFError
+2023-12-11 18:33:08,222 - ERROR - 
+2023-12-11 18:33:08,222 - ERROR - During handling of the above exception, another exception occurred:
+2023-12-11 18:33:08,222 - ERROR - 
+2023-12-11 18:33:08,222 - ERROR - Traceback (most recent call last):
+2023-12-11 18:33:08,222 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\transport.py", line 2113, in run
+2023-12-11 18:33:08,222 - ERROR -     self._check_banner()
+2023-12-11 18:33:08,223 - ERROR -   File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\paramiko\transport.py", line 2296, in _check_banner
+2023-12-11 18:33:08,223 - ERROR -     raise SSHException(
+2023-12-11 18:33:08,223 - ERROR - paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+2023-12-11 18:33:08,223 - ERROR - 
+2023-12-11 18:33:19,490 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:19,571 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:19,592 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:19,692 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:19,692 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:19,784 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:19,786 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:19,904 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:19,922 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:20,003 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:20,018 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:20,116 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:20,129 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:20,271 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:20,290 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:20,372 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:20,387 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:20,506 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:20,537 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:20,648 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:20,677 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:20,840 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:20,874 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:20,891 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,005 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,041 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,072 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,206 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,293 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,308 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,324 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,393 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,500 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,526 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,545 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,601 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,690 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,724 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,742 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,773 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,867 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,941 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,944 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,956 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:21,979 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:22,145 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:22,229 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:22,278 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:22,351 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:22,458 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:22,493 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:22,486 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:22,519 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:22,560 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:22,689 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:22,721 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:22,737 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:22,769 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:22,807 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:22,894 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:22,970 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,000 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,019 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,063 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,163 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,190 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,232 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,296 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,321 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,408 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,432 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,455 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,478 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,537 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,678 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,701 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,715 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,756 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,784 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,895 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,907 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,935 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:23,976 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,010 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,110 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,128 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,143 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,190 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,271 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,312 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,433 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,459 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,484 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,526 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,584 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,708 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,752 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,782 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,782 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:33:24,797 - ERROR - Internal Server Error: /perform_troubleshooting_services/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 231, in perform_troubleshooting_services
+    result = Service_Validation(id)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in Service_Validation
+    futures = [executor.submit(TestService, service)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\test_cpe.py", line 257, in <listcomp>
+    futures = [executor.submit(TestService, service)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2023-12-11 18:38:10,655 - ERROR - the customer TSY is not registreted in quickbase
+2023-12-11 18:40:14,238 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-11 18:42:31,186 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 65, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 157, in Create_core_qb_main
+    services = Insert_services_into_existent_core(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 70, in Insert_services_into_existent_core
+    results = list(filter(None, executor.map(process_service, services)))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 57, in process_service
+    service_info = Get_service_info(service)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py", line 88, in Get_service_info
+    time.sleep(0.3)
+    ^^^^^^^^^^^^
+TypeError: time.sleep() takes exactly one argument (0 given)
+2023-12-11 18:42:31,686 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 65, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 157, in Create_core_qb_main
+    services = Insert_services_into_existent_core(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 70, in Insert_services_into_existent_core
+    results = list(filter(None, executor.map(process_service, services)))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 57, in process_service
+    service_info = Get_service_info(service)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py", line 88, in Get_service_info
+    time.sleep(0.3)
+    ^^^^^^^^^^^^
+TypeError: time.sleep() takes exactly one argument (0 given)
+2023-12-11 18:44:25,030 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-11 18:45:04,945 - ERROR - Internal Server Error: /core/
+Traceback (most recent call last):
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\django_janela_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\views.py", line 65, in core
+    core_result = Create_core_qb_main(request.POST)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 157, in Create_core_qb_main
+    services = Insert_services_into_existent_core(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 70, in Insert_services_into_existent_core
+    results = list(filter(None, executor.map(process_service, services)))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Lucas Fontini\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\create_core_quickbase.py", line 57, in process_service
+    service_info = Get_service_info(service)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py", line 105, in Get_service_info
+    if result['data']:
+       ~~~~~~^^^^^^^^
+KeyError: 'data'
+2023-12-11 18:45:10,051 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-11 18:45:22,745 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-11 18:46:58,368 - ERROR - the customer TSY is not registreted in quickbase
+2023-12-11 18:48:25,142 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\quickbase_requests.py changed, reloading.
+2023-12-11 22:26:24,984 - WARNING - Not Found: /favicon.ico
+2023-12-11 22:29:00,181 - WARNING - Not Found: /favicon.ico
+2023-12-11 22:32:41,370 - WARNING - Not Found: /favicon.ico
+2023-12-11 22:34:01,927 - WARNING - Not Found: /favicon.ico
+2023-12-11 22:35:41,711 - WARNING - Not Found: /favicon.ico
+2023-12-11 22:38:35,911 - WARNING - Not Found: /favicon.ico
+2023-12-11 22:45:34,754 - WARNING - Not Found: /favicon.ico
+2023-12-11 22:47:03,515 - WARNING - Not Found: /favicon.ico
+2023-12-11 22:47:33,476 - WARNING - Not Found: /favicon.ico
+2023-12-11 22:48:14,893 - WARNING - Not Found: /favicon.ico
+2023-12-12 09:19:55,637 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\Send_emails.py changed, reloading.

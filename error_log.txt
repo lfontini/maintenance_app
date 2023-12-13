@@ -3554,3 +3554,13 @@ Traceback (most recent call last):
     return result[0]
            ~~~~~~^^^
 IndexError: list index out of range
+2023-12-13 08:55:30,974 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\Send_emails.py changed, reloading.
+2023-12-13 08:55:40,020 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\Send_emails.py changed, reloading.
+2023-12-13 08:55:50,542 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\Send_emails.py changed, reloading.
+2023-12-13 08:56:04,415 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\Send_emails.py changed, reloading.
+2023-12-13 08:58:47,717 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-12-13 08:58:58,455 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-12-13 08:59:28,974 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-12-13 09:16:52,794 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\generate_tickets_zendesk.py changed, reloading.
+2023-12-13 09:17:06,802 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\Send_emails.py changed, reloading.
+2023-12-13 09:17:15,858 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\core_activity\Send_emails.py changed, reloading.

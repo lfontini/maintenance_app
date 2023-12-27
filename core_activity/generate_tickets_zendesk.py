@@ -231,10 +231,10 @@ def prepare_tickets_worker(args):
         customer_raw_data = get_customers_contact(customer)
         if customer_raw_data:
             contact_list, customer_name = get_customers_contact(customer)
-            # requester_id = contact_list.split(",")[0]
-            # contact_copy = contact_list
-            requester_id = 1266469881070
-            contact_copy = 1266469881070
+            requester_id = contact_list.split(",")[0]
+            contact_copy = contact_list
+            # requester_id = 1266469881070
+            # contact_copy = 1266469881070
             customer_info = Get_service_info(customers[customer][0])
             id = customer_info['id']
             address = customer_info['address']

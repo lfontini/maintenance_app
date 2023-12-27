@@ -1,7 +1,7 @@
 // Function to color rows of a table based on the content of the second cell
 function Paint_table() {
     var table = document.getElementsByClassName('table');
-
+    console.log("chamou paint funcion")
     // Get all rows of the table, excluding the header
     var rows = table[0].getElementsByTagName('tbody')[0].getElementsByTagName('tr');
 
@@ -12,7 +12,7 @@ function Paint_table() {
         if (ping.innerHTML.includes("DOWN") || status.innerHTML.includes("DOWN")) {
             console.log("entrou aqui down")
             // If the text is 'DOWN', color the row red
-            rows[i].style.backgroundColor = 'rgba(108, 117, 125, 0.59)';
+            rows[i].style.backgroundColor = 'rgba(108, 500, 125, 0.59)';
             rows[i].style.color = 'white';
         } else {
             // Otherwise, color the row green
@@ -88,7 +88,7 @@ const Send_services_to_be_tested = async (id) => {
                 if (data) {  // Check if there is data before adding to the table
                     const row = document.createElement('tr');
                     headers.forEach(header => {
-                        console.log(header)
+                        console.log('header', header)
                         const td = document.createElement('td');
                         const cellValue = data[header]; // Access the property directly
                         td.textContent = cellValue;
@@ -172,10 +172,10 @@ function createTable(tableId) {
 
                 // Set the row color based on the presence of "DOWN"
                 if (hasDown) {
-                    row.style.backgroundColor = 'rgb(38 223 116 / 56%)';
+                    row.style.backgroundColor = 'rgb(108, 117, 125, 0.59)';
                     row.style.color = 'white';
                 } else {
-                    row.style.backgroundColor = '#6c757d96';
+                    row.style.backgroundColor = 'rgb(108, 500, 125, 0.59)';
                     row.style.color = 'white';
                 }
             });

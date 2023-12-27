@@ -42,9 +42,14 @@ def Make_quickbase_request(data):
     return None
 
 
-def Insert_services_into_existent_core(core_id, services_raw):
+def identify_services(raw_data):
     services = re.findall(
-        r'[a-zA-Z0-9]{3}\.[0-9]{3,5}\.[a-zA-Z][0-9]{3}', services_raw)
+        r'[a-zA-Z0-9]{3}\.[0-9]{3,5}\.[a-zA-Z][0-9]{3}', raw_data)
+    return services
+
+
+def Insert_services_into_existent_core(core_id, services_raw):
+    services = identify_services(services_raw)
 
     headers = {
         'QB-Realm-Hostname': HOSTNAME_QB,
@@ -153,7 +158,8 @@ def Create_core_qb_main(data):
             }
             core_id = Make_quickbase_request(core_data)
             if core_id:
-                if common_fields['affected_services']:
+                # if services affected were identify it will renerate tickets
+                if identify_services(common_fields['affected_services']):
                     services = Insert_services_into_existent_core(
                         core_id, common_fields['affected_services'])
                     tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
@@ -184,7 +190,7 @@ def Create_core_qb_main(data):
 
                         return {'core_id': core_id, 'tickets': tickets,  'errors': errors}
                 else:
-                    return None
+                    return {'core_id': core_id, 'tickets': 'No tickets were created', 'errors': ''}
             return None
 
         if activity_related_to == 'network_link':
@@ -211,7 +217,9 @@ def Create_core_qb_main(data):
             }
             core_id = Make_quickbase_request(core_data)
             if core_id:
-                if common_fields['affected_services']:
+                # if services affected were identify it will renerate tickets
+
+                if identify_services(common_fields['affected_services']):
                     services = Insert_services_into_existent_core(
                         core_id, common_fields['affected_services'])
                     tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
@@ -242,7 +250,7 @@ def Create_core_qb_main(data):
 
                         return {'core_id': core_id, 'tickets': tickets, 'errors': errors}
                 else:
-                    return None
+                    return {'core_id': core_id, 'tickets': 'No tickets were created', 'errors': ''}
             return None
 
         if activity_related_to == 'pop':
@@ -269,7 +277,10 @@ def Create_core_qb_main(data):
             }
             core_id = Make_quickbase_request(core_data)
             if core_id:
-                if common_fields['affected_services']:
+                # if services affected were identify it will renerate tickets
+                if identify_services(common_fields['affected_services']):
+                    print('services afeted ',
+                          common_fields['affected_services'])
                     services = Insert_services_into_existent_core(
                         core_id, common_fields['affected_services'])
                     tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
@@ -300,7 +311,7 @@ def Create_core_qb_main(data):
 
                         return {'core_id': core_id, 'tickets': tickets, 'errors': errors}
                 else:
-                    return None
+                    return {'core_id': core_id, 'tickets': 'No tickets were created', 'errors': ''}
             return None
 
     return None

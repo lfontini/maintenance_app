@@ -48,7 +48,8 @@ for id, name in zip(network_link_values[0], network_link_values[1]):
 
 
 for value in ign_eng_values[1]:
-    IGN_ENG_CHOICES.append((value['id'], value['name']))
+    if value != None:
+        IGN_ENG_CHOICES.append((value['id'], value['name']))
 
 STATUS_CHOICES = [("Not Started", "Not Started"),
                   ("dismissed", "Dismissed"), ("completed", "Completed")]

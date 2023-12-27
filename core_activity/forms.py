@@ -15,6 +15,13 @@ class BootstrapSelect(forms.Select):
 
 
 class CoreForm(forms.ModelForm):
+
+    affected_services = forms.CharField(
+        widget=forms.Textarea(
+            attrs={'class': 'form-control', 'style': 'height: 90px;'}),
+        initial='No services affected'
+    )
+
     class Meta:
         model = Core
         fields = [
@@ -49,7 +56,6 @@ class CoreForm(forms.ModelForm):
             'downtime': BootstrapTextInput(),
             'start_date': forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'datetime-local', 'value': "YYYY-MM-DDTHH:mm:ss"}),
             'end_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'datetime-local'}),
-            'affected_services': forms.Textarea(attrs={'class': 'form-control', 'style': 'height: 90px;'}),
             'Description': forms.Textarea(attrs={'class': 'form-control', 'style': 'height: 90px;'}),
             'Description_to_customers': forms.Textarea(attrs={'class': 'form-control', 'style': 'height: 90px;'}),
             'location': BootstrapTextInput,

@@ -18,8 +18,8 @@ class EmailNotification:
         self.smtp_port = 587
         self.smtp_username = os.getenv('SMTP_USERNAME')
         self.smtp_password = os.getenv('SMTP_PASSWORD')
-        self.to_email = 'noc@ignetworks.com'  # prod
-        # self.to_email = 'lucasfacsul@hotmail.com'  # test
+        # self.to_email = 'noc@ignetworks.com'  # prod
+        self.to_email = 'lucasfacsul@hotmail.com'  # test
 
         self.logo_url = 'https://static.wixstatic.com/media/7e4e6f_29d3996755c4460ab5fed99424c9db85~mv2.png/v1/crop/x_57,y_221,w_1446,h_369/fill/w_255,h_65,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Logotipo%20IG_Mesa%20de%20trabajo%201.png'
 

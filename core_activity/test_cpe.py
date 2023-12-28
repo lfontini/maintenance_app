@@ -133,7 +133,7 @@ def TestService(circuito):
         if ip != 'none':
             ping = PingTest(ip)
             treated_ip = ip.split("/")[0]
-            if 'Enviados = 4, Recebidos = 4, Perdidos' in ping:
+            if '4 packets transmitted, 4 received' in ping:
                 result['resultadoping'] = f'Ping to {treated_ip} UP'
 
             else:

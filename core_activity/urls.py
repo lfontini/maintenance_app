@@ -43,5 +43,9 @@ urlpatterns = [
     path('close_tickets_zendesk/', views.close_tickets_zendesk,
          name='close_tickets_zendesk'),
 
+    path('cancel_tickets_view/', views.cancel_tickets_view,
+         name='cancel_tickets_view'),
+    path('cancel_tickets_zendesk/', views.cancel_tickets_zendesk,
+         name='cancel_tickets'),
 
 ]

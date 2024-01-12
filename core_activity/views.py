@@ -11,8 +11,10 @@ from .troubleshooting_services import get_services_affecteds
 import datetime
 from datetime import datetime
 from .close_tickets_zendesk import close_ticket
+from .cancel_tickets_zendesk import cancel_tickets
 from .test_cpe import Service_Validation
 import logging
+from .zabbix_maintenance_delete import delete_maintenance_zabbix
 
 
 def troubleshooting_results(request):
@@ -64,15 +66,18 @@ def core(request):
         if form.is_valid():
             core_result = Create_core_qb_main(request.POST)
             logging.info('core_result: %s', core_result)
-
+            print('core_result', core_result)
             if core_result:
                 core_id = core_result.get('core_id')
+                zabbix_maintenance_id = core_result.get(
+                    'zabbix_maintenance_id')
                 tickets = core_result.get('tickets')
                 errors = core_result.get('errors')
 
                 if core_id:
                     formulario = form.save(commit=False)
                     formulario.core_quickbase_id = core_id
+                    formulario.zabbix_maintenance_id = zabbix_maintenance_id
                     formulario.tickets_zendesk_generated = tickets
                     formulario.save()
 
@@ -210,9 +215,14 @@ def close_tickets_zendesk(request):
 
             # Process the tickets
             tickets = core_instance.tickets_zendesk_generated.strip().split(',')
+            zabbix_maintenance_id = core_instance.zabbix_maintenance_id
 
             result = close_ticket(tickets)
-
+            # check if contains zabbix mantenanceid registered into zabbix
+            if zabbix_maintenance_id.isdigit():
+                zabbix_result = delete_maintenance_zabbix(
+                    zabbix_maintenance_id)
+                print(zabbix_result)
             if result is not None:
                 # Update the status of the retrieved instance
                 core_instance.status = "completed"
@@ -232,3 +242,38 @@ def perform_troubleshooting_services(request):
     result = Service_Validation(id)
     print(result)
     return JsonResponse({'results': result})
+
+
+def cancel_tickets_view(request):
+    core = Core.objects.filter(status='Not Started')
+    context = {'core': core}
+    return render(request, 'cancel_tickets.html', context)
+
+
+def cancel_tickets_zendesk(request):
+    if request.method == 'POST':
+        id = request.POST.get('id')
+        query = Core.objects.filter(id=id)
+
+        # Check if the query returned any results
+        if query.exists():
+            # Retrieve the first instance from the query
+            core_instance = query.first()
+
+            # Process the tickets
+            tickets = core_instance.tickets_zendesk_generated.strip().split(',')
+            print('ticketssssssssssssssssssssssss', tickets)
+            result = cancel_tickets(tickets)
+
+            if result is not None:
+                # Update the status of the retrieved instance
+                core_instance.status = "completed"
+
+                # Save the changes to the database
+                core_instance.save()
+
+                return JsonResponse({'success': 'Ticket(s) {} zendesk for core {} were closed'.format(result, id)})
+
+        return JsonResponse({'error': 'Core with ID {} not found'.format(id)}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)

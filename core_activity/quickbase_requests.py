@@ -37,7 +37,11 @@ def fetch_activity_data(database, fields, where):
 
 
 def get_paths_from_quickbase(netword_id):
-    print("nl ", netword_id)
+    '''
+        This function receive the network link id from front end and retrive paths from quickbase record 
+
+    '''
+
     body = {
         "from": "bmh9sizyd",
         "select": [],
@@ -63,51 +67,83 @@ def get_paths_from_quickbase(netword_id):
 
 # com base no path ele retorna os servicos associados
 def get_serves_from_paths(path):
-    body = {"from": "bfwgbisz4", "select": [
-        7, 36, 409, 410, 334, 335], "where": "{'36'.EX.'delivered'}AND{335.CT." + f"'{path}'"+"}", "sortBy": [{"fieldId": 335, "order": "ASC"}]}
-    # abaixo o que funciona
-    # body = {"from":"bfwgbisz4","select":[7,36,409,410,334,335],"where":"{'36'.EX.'delivered'}AND{'335'.CT.'BOG1-MIA1-DFW1&NYC1'}","sortBy":[{"fieldId":335,"order":"ASC"}]}
-    r = requests.post(
-        'https://api.quickbase.com/v1/records/query',
-        headers=headers,
-        json=body
-    )
+    '''
 
-    result = r.json()
-    services = []
-    for field in result['data']:
-        if field['7']['value'] is not services:
-            services.append(field['7']['value'])
+    This function receive path id and return services attached to this path recorded in quickbase 
 
-    data = {'services': services}
+    '''
 
-    return data
+    attempts = 1
+    waitfor = 1
+
+    while attempts <= 3:
+        time.sleep(waitfor)
+
+        # Function that returns services associated with a given path
+        body = {"from": "bfwgbisz4", "select": [
+            7, 36, 409, 410, 334, 335], "where": "{'36'.EX.'delivered'}AND{335.CT." + f"'{path}'" + "}", "sortBy": [{"fieldId": 335, "order": "ASC"}]}
+
+        r = requests.post(
+            'https://api.quickbase.com/v1/records/query',
+            headers=headers,  # Make sure you have defined this variable in your code
+            json=body
+        )
+
+        if r.status_code == 200:
+            result = r.json()
+            services = []
+            for field in result['data']:
+                if field['7']['value'] not in services:
+                    services.append(field['7']['value'])
+
+            data = {'services': services}
+            return data
+        else:
+            print(f"Attempt {attempts} failed. Status code: {r.status_code}")
+            attempts += 1
+            waitfor *= 2
+
+    print("All attempts failed. Exiting.")
+    return None
 
 
 def Get_service_info(service_id):
-    time.sleep(1)
-    '''
+    attempts = 1
+    waitfor = 1
+    while attempts <= 3:
+        time.sleep(waitfor)
 
-    That Function receive the service_id and return quickbase id and service id
+        body = {"from": "bfwgbisz4", "select": [
+            465, 467, 337, 36, 25, 3], "where": "{7.CT." + f"'{service_id}'" + "}"}
 
-    '''
+        r = requests.post(
+            'https://api.quickbase.com/v1/records/query',
+            headers=headers,
+            json=body
+        )
 
-    body = {"from": "bfwgbisz4", "select": [465, 467, 337, 25,
-                                            3], "where": "{7.CT." + f"'{service_id}'"+"}"}
+        if r.status_code == 200:
+            result = r.json()
+            if result['data']:
+                for field in result['data']:
+                    id = field['3']['value']
+                    address = field['25']['value']
+                    end_customer = field['337']['value']
+                    city = field['465']['value']
+                    country = field['467']['value']
+                    status = field['36']['value']
+                return {'id': id, 'address': address, 'end_customer': end_customer, 'city': city, 'country': country, 'status': status}
+            else:
+                print("None data retrived")
+                return None
+        else:
+            print(
+                f"Attempts {attempts} failed. status code: {r.status_code}")
+            attempts += 1
+            waitfor *= 2
 
-    r = requests.post(
-        'https://api.quickbase.com/v1/records/query',
-        headers=headers,
-        json=body
-    )
-    result = r.json()
-    print('result', result)
-    if result['data']:
-        for field in result['data']:
-            id = field['3']['value']
-            address = field['25']['value']
-            end_customer = field['337']['value']
-            city = field['465']['value']
-            country = field['467']['value']
+    print("Function Get_service_info failed to get data from qb")
+    return None
 
-    return {'id': id, 'address': address, 'end_customer': end_customer, 'city': city, 'country': country}
+
+

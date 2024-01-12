@@ -403,7 +403,7 @@ function Click_button_submit_core() {
 
 
 
-id_affected_services.addEventListener('change', function (event) {
+id_affected_services.addEventListener('focus', function (event) {
     var padrao = /\b[0-9A-Z]{3}\.[0-9]{3,6}\.[A-Z0-9]{4}\b/g;
 
     var correspondencias = this.value.match(padrao);

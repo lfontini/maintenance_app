@@ -18,8 +18,8 @@
 </div>
 
 <h2> Choose the core that you'd like to cancel the tickets in zendesk </h2>
+<div style="margin-bottom: 50px;">Note: Customer will be informed regards cancelation</div>
 
-Note: Customer will be informed regards cancelation
 <table class="table">
     <thead>
         <tr>
@@ -42,7 +42,8 @@ Note: Customer will be informed regards cancelation
     <tbody>
         {% for core_obj in core %}
         <tr>
-            <td> <button id="button_close" value="{{ core_obj.id }}" title="Click to close the zendesk tickets ">Close
+            <td> <button id="button_cancel" value="{{ core_obj.id }}"
+                    title="Click to cancel the zendesk tickets ">Cancel
                     Tickets CORE {{ core_obj.id }} </button></td>
             <td>{{ core_obj.activity_type }}</td>
             <td>{{ core_obj.activity_related_to }}</td>

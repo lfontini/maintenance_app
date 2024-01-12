@@ -80,8 +80,9 @@ def generate_notification_template():
             
             
             <p style="margin-bottom: 20px;"class="title">We would like to inform you that the maintenance windows has been completed </p>
-            <p style="margin-bottom: 50px;">If you are experincing some issue and any service relate in this window, please reply this email
-            and we will check. </p>
+            <p style="margin-bottom: 50px;">If you are experincing some issue and any service relate in this window, please contact our team 
+            tickets@ignetworks.com and we will check it. </p>
+            <br>
             <p>Thank you,</p>
 
         </div>

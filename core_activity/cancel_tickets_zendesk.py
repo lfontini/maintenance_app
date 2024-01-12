@@ -107,9 +107,8 @@ def make_request_zendesk(method, url, body):
     return response
 
 
-def close_ticket(tickets):
-    print(type(tickets))
-    print(len(tickets))
+def cancel_tickets(tickets):
+    print('tickets', tickets)
     if len(tickets) < 1:
         print("Nenhum ticket encontrado")
         return None

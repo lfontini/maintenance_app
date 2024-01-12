@@ -53,7 +53,7 @@ class CoreForm(forms.ModelForm):
             'pop': BootstrapSelect,
             'status': BootstrapSelect,
             'duration': BootstrapTextInput(attrs={'readonly': ' true'}),
-            'downtime': BootstrapTextInput(),
+            'downtime': BootstrapTextInput(attrs={'placeholder': 'example 00:30'}),
             'start_date': forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'datetime-local', 'value': "YYYY-MM-DDTHH:mm:ss"}),
             'end_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'datetime-local'}),
             'Description': forms.Textarea(attrs={'class': 'form-control', 'style': 'height: 90px;'}),

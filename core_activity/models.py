@@ -94,7 +94,10 @@ class Core(models.Model):
 
     core_quickbase_id = models.CharField(
         max_length=6)
-    tickets_zendesk_generated = models.TextField(max_length=100, default='')
+    tickets_zendesk_generated = models.TextField(max_length=1000, default='')
+
+    zabbix_maintenance_id = models.CharField(
+        max_length=6)
 
     def __str__(self):
         return self.activity_type

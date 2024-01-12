@@ -67,8 +67,6 @@ def Get_pops_gogs(device_name):
 
     raw_file_url = f'https://{user}:{password}@gogs.ignetworks.com/IG_Networks/POPs/raw/main/{device_name}'
 
-    # get data from gogs
-    print(raw_file_url)
     response = requests.get(raw_file_url)
     print("gogsss ", response)
 

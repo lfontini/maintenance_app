@@ -9,7 +9,7 @@ from .generate_tickets_zendesk import generate_tickets_zendesk
 from .Send_emails import EmailNotification
 from .google_calendar_create_events import EventCreator
 from .quickbase_requests import fetch_activity_data
-
+from .zabbix_maintenance_create import create_zabbix_maintenance
 # load enviroments variables
 load_dotenv()
 HOSTNAME_QB = os.environ.get("HOSTNAME_QB")
@@ -43,8 +43,9 @@ def Make_quickbase_request(data):
 
 
 def identify_services(raw_data):
-    services = re.findall(
-        r'[a-zA-Z0-9]{3}\.[0-9]{3,5}\.[a-zA-Z][0-9]{3}', raw_data)
+    services = set(re.findall(
+        r'[a-zA-Z0-9]{3}\.[0-9]{3,5}\.[a-zA-Z][0-9]{3}', raw_data))
+
     return services
 
 
@@ -60,20 +61,25 @@ def Insert_services_into_existent_core(core_id, services_raw):
     def process_service(service):
         print("service", service)
         service_info = Get_service_info(service)
-        print(service_info)
-        id = service_info.get('id')
-        print(id)
-        if id:
-            body = {"to": "bmniuvke2", "data": [{"8": {"value": id}, "10": {"value": core_id}}],
-                    "fieldsToReturn": [10, 9]}
-            response = requests.post(
-                'https://api.quickbase.com/v1/records', headers=headers, json=body).json()
+        if service_info is not None:
+            status = service_info.get('status', None)
+            id = service_info.get('id', None)
+            if id and status == 'Delivered':
+                body = {"to": "bmniuvke2", "data": [{"8": {"value": id}, "10": {"value": core_id}}],
+                        "fieldsToReturn": [10, 9]}
+                response = requests.post(
+                    'https://api.quickbase.com/v1/records', headers=headers, json=body).json()
 
-            return f'Service included successfully: {service}' if response.get('code') == 0 else None
+                print('include quickbase core ', response)
+                print(f'Service included successfully: {service}' if response.get(
+                    'code') == 0 else None)
+                return f'Service included successfully: {service}' if response.get('code') == 0 else None
+            else:
+                print(f"service {service} is not delivered STATUS:", status)
+                return None
 
     with concurrent.futures.ThreadPoolExecutor() as executor:
         results = list(filter(None, executor.map(process_service, services)))
-
     return results
 
 
@@ -142,7 +148,7 @@ def Create_core_qb_main(data):
             duration_activity = Calc_duration_time_core(
                 common_fields['start_date'], common_fields['end_date'])
             ign_engineer = data.get('ign_engineer')
-
+            print('data normal ', common_fields['start_date'])
             core_data = {
                 "6": {"value": new_date_formatted},
                 "8": {"value": common_fields['Description']},
@@ -156,41 +162,53 @@ def Create_core_qb_main(data):
                 "98": {"value": remote_hands_information}
 
             }
+            print('core_data', core_data)
             core_id = Make_quickbase_request(core_data)
             if core_id:
                 # if services affected were identify it will renerate tickets
-                if identify_services(common_fields['affected_services']):
+                identified_services = identify_services(
+                    common_fields['affected_services'])
+                if identified_services:
                     services = Insert_services_into_existent_core(
                         core_id, common_fields['affected_services'])
-                    tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
-                                                               common_fields['start_date'], common_fields['end_date'],
-                                                               common_fields['downtime'],  common_fields['location'], description=common_fields['Description_to_customers'])
-                    if tickets:
-                        email = EmailNotification()
-                        email.send_notification(
-                            core_id=core_id, tickets=tickets, date=common_fields['start_date'])
+                    if services is not None:
+                        tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
+                                                                   common_fields['start_date'], common_fields['end_date'],
+                                                                   common_fields['downtime'],  common_fields['location'], description=common_fields['Description_to_customers'])
 
-                        description_calendar = f''' 
-                        A core activity will be perform and will affect services below \n
-                        {common_fields['affected_services']}
+                        if tickets:
+                            email = EmailNotification()
+                            email.send_notification(
+                                core_id=core_id, tickets=tickets, date=common_fields['start_date'])
 
-                        '''
-                        print(common_fields['start_date'],
-                              common_fields['end_date'])
-                        formated_start_data = Ajust_Core_date(
-                            common_fields['start_date'])
-                        formated_end_data = Ajust_Core_date(
-                            common_fields['end_date'])
+                            description_calendar = f''' 
+                            A core activity will be perform and will affect services below \n
+                            {common_fields['affected_services']}
 
-                        event_creator = EventCreator(calendar_title=f'Planned Work Maintenance DIA {internet_name[0][0]}',
-                                                     start_time=formated_start_data,
-                                                     end_time=formated_end_data,
-                                                     description=description_calendar)
-                        event_creator.create_event()
+                            '''
+                            formated_start_data = Ajust_Core_date(
+                                common_fields['start_date'])
+                            formated_end_data = Ajust_Core_date(
+                                common_fields['end_date'])
 
-                        return {'core_id': core_id, 'tickets': tickets,  'errors': errors}
+                            # create a event into google calendar informed 10 min before the maintenance period - gmt-3
+                            event_creator = EventCreator(calendar_title=f'Planned Work Maintenance DIA {internet_name[0][0]}',
+                                                         start_time=formated_start_data,
+                                                         end_time=formated_end_data,
+                                                         description=description_calendar)
+                            event_creator.create_event()
+
+                            # create a maintenance window into zabbix during the maitenance period, it helps zabbix do not
+                            # create alarm
+                            zabbix_maintenance_id = create_zabbix_maintenance(services=identified_services,
+                                                                              start_maintenance=common_fields['start_date'],
+                                                                              end_maintenance=common_fields['end_date'],
+                                                                              core_id=core_id)
+
+                            return {'core_id': core_id, 'tickets': tickets,  'errors': errors, 'zabbix_maintenance_id': zabbix_maintenance_id}
                 else:
-                    return {'core_id': core_id, 'tickets': 'No tickets were created', 'errors': ''}
+                    print("entrou aqui1")
+                    return {'core_id': core_id, 'tickets': 'No tickets were created', 'errors': '', 'zabbix_maintenance_id': 'No services to include '}
             return None
 
         if activity_related_to == 'network_link':
@@ -218,8 +236,9 @@ def Create_core_qb_main(data):
             core_id = Make_quickbase_request(core_data)
             if core_id:
                 # if services affected were identify it will renerate tickets
-
-                if identify_services(common_fields['affected_services']):
+                identified_services = identify_services(
+                    common_fields['affected_services'])
+                if identified_services:
                     services = Insert_services_into_existent_core(
                         core_id, common_fields['affected_services'])
                     tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
@@ -247,8 +266,13 @@ def Create_core_qb_main(data):
                                                      end_time=formated_end_data,
                                                      description=description_calendar)
                         event_creator.create_event()
+                        zabbix_maintenance_id = None
+                        zabbix_maintenance_id = create_zabbix_maintenance(services=identified_services,
+                                                                          start_maintenance=formated_start_data,
+                                                                          end_maintenance=formated_end_data,
+                                                                          core_id=core_id)
 
-                        return {'core_id': core_id, 'tickets': tickets, 'errors': errors}
+                        return {'core_id': core_id, 'tickets': tickets,  'errors': errors, 'zabbix_maintenance_id': zabbix_maintenance_id}
                 else:
                     return {'core_id': core_id, 'tickets': 'No tickets were created', 'errors': ''}
             return None
@@ -278,9 +302,9 @@ def Create_core_qb_main(data):
             core_id = Make_quickbase_request(core_data)
             if core_id:
                 # if services affected were identify it will renerate tickets
-                if identify_services(common_fields['affected_services']):
-                    print('services afeted ',
-                          common_fields['affected_services'])
+                identified_services = identify_services(
+                    common_fields['affected_services'])
+                if identified_services:
                     services = Insert_services_into_existent_core(
                         core_id, common_fields['affected_services'])
                     tickets, errors = generate_tickets_zendesk(common_fields['affected_services'],
@@ -308,8 +332,14 @@ def Create_core_qb_main(data):
                                                      end_time=formated_end_data,
                                                      description=description_calendar)
                         event_creator.create_event()
+                        zabbix_maintenance_id = None
 
-                        return {'core_id': core_id, 'tickets': tickets, 'errors': errors}
+                        zabbix_maintenance_id = create_zabbix_maintenance(services=identified_services,
+                                                                          start_maintenance=formated_start_data,
+                                                                          end_maintenance=formated_end_data,
+                                                                          core_id=core_id)
+
+                        return {'core_id': core_id, 'tickets': tickets,  'errors': errors, 'zabbix_maintenance_id': zabbix_maintenance_id}
                 else:
                     return {'core_id': core_id, 'tickets': 'No tickets were created', 'errors': ''}
             return None

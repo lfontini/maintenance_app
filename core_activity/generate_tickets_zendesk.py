@@ -102,6 +102,7 @@ def generate_notification_template(context):
             <img src="https://static.wixstatic.com/media/7e4e6f_29d3996755c4460ab5fed99424c9db85~mv2.png/v1/crop/x_57,y_221,w_1446,h_369/fill/w_255,h_65,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Logotipo%20IG_Mesa%20de%20trabajo%201.png" alt="Logo">
             <h2>Maintenance Activities Notification</h2>
             <p> Dear Team {{ customer_name }}  </p>
+            <br>
             <p class="title">This ticket is to notify you of maintenance activities we will be performing on our network
                 which will affect your service with sporadic flaps or outage for the following period of time.</p>
         </div>
@@ -145,6 +146,7 @@ def generate_notification_template(context):
             </tr>
         </table>
         <div>
+        <br>
             <p>If we do not receive any response regarding the activity we will consider it as accepted</p>
         </div>
     </div>
@@ -166,14 +168,14 @@ def Mount_tickets(data):
     if data:
         ticket["comment"] = {"html_body": data['body'],
                              "public": True, }
-        ticket["subject"] = "Planned work" + data['start_date']
+        ticket["subject"] = "Planned work " + data['start_date']
         ticket["assignee_id"] = 16632994687
         ticket["status"] = "pending"
         ticket["priority"] = 'normal'
         ticket["requester_id"] = data['requester_id']
         ticket["submitter_id"] = 16632994687
         ticket["organization_id"] = 14099514728
-        ticket["collaborator_ids"] = [1266469881070]
+        ticket["collaborator_ids"] = data['collaborator_ids']
         ticket["tags"] = ["a", "maintenance_window"]
         ticket["custom_fields"] = [
             {"id": 48746547, "value": "maintenance_window"},
@@ -230,43 +232,57 @@ def prepare_tickets_worker(args):
         print('customers')
         customer_raw_data = get_customers_contact(customer)
         if customer_raw_data:
-            contact_list, customer_name = get_customers_contact(customer)
+            contact_list, customer_name = customer_raw_data
+            print('contact_list', contact_list)
+            print('customer_name', customer_name)
             requester_id = contact_list.split(",")[0]
-            contact_copy = contact_list
+            contact_copy = [contact_list]
             # requester_id = 1266469881070
-            # contact_copy = 1266469881070
-            customer_info = Get_service_info(customers[customer][0])
-            id = customer_info['id']
-            address = customer_info['address']
-            end_customer = customer_info['end_customer']
-            city = customer_info['city']
-            country = customer_info['country']
+            # contact_copy = [21200390635547]
+            service = customers[customer][0]
+            customer_info = Get_service_info(service)
+            if customer_info and customer_info.get('status') == 'Delivered':
+                print('customer_info', customer_info)
+                id, address, end_customer, city, country = (
+                    customer_info.get('id'),
+                    customer_info.get('address'),
+                    customer_info.get('end_customer'),
+                    customer_info.get('city'),
+                    customer_info.get('country')
+                )
 
-            context = {
-                'customer_name': customer_name,
-                'start_date': start_date,
-                'end_date': end_date,
-                'downtime': down_time,
-                'location': location,
-                'services': services,
-                'description': description,
-            }
+                context = {
+                    'customer_name': customer_name,
+                    'start_date': start_date,
+                    'end_date': end_date,
+                    'downtime': down_time,
+                    'location': location,
+                    'services': services,
+                    'description': description,
+                }
 
-            ventana_body = generate_notification_template(context)
+                ventana_body = generate_notification_template(context)
 
-            data = {
-                "requester_id": requester_id,
-                "cc": contact_copy,
-                "end_date": end_date,
-                "start_date": start_date,
-                "city": city,
-                "country": country,
-                "service": service,
-                "end_customer": end_customer,
-                "body": ventana_body
-            }
+                data = {
+                    "requester_id": requester_id,
+                    'collaborator_ids': contact_copy,
+                    'follower_ids': contact_copy,
+                    "end_date": end_date,
+                    "start_date": start_date,
+                    "city": city,
+                    "country": country,
+                    "service": service,
+                    "end_customer": end_customer,
+                    "body": ventana_body
+                }
 
-            tickets.append(Mount_tickets(data))
+                tickets.append(Mount_tickets(data))
+        elif customer_info:
+            if customer_info.get('status') != 'Delivered':
+                logging.error(
+                    f'the service {service} is not Delivered in quickbase or it does not exist')
+                errors.append(
+                    f'the service {service} is not Delivered in quickbase')
         else:
             logging.error(
                 f'the customer {customer} is not registreted in quickbase')
@@ -300,23 +316,26 @@ def prepare_tickets(services_raw, start_date, end_date, down_time, location, des
 
 
 def create_tickets(data_tickets):
-    payload = {"tickets": data_tickets}
+    if data_tickets:
+        payload = {"tickets": data_tickets}
 
-    # Used requests.post instead of requests.request
-    response = requests.post(url, headers=headers, json=payload)
-    status_request = response.json()['job_status']['status']
-    request_url = response.json()['job_status']['url']
-    if True:
-        if response.ok:
-            while (status_request != "completed"):
-                response1 = requests.get(request_url, headers=headers)
-                status_request = response1.json()['job_status']['status']
-                time.sleep(1)
-            if status_request == "completed":
-                ticket_ids = ','.join(
-                    [str(item['id']) for item in response1.json()['job_status']['results']])
+        # Used requests.post instead of requests.request
+        response = requests.post(url, headers=headers, json=payload)
+        status_request = response.json()['job_status']['status']
+        request_url = response.json()['job_status']['url']
+        if True:
+            if response.ok:
+                while (status_request != "completed"):
+                    response1 = requests.get(request_url, headers=headers)
+                    status_request = response1.json()['job_status']['status']
+                    time.sleep(1)
+                if status_request == "completed":
+                    ticket_ids = ','.join(
+                        [str(item['id']) for item in response1.json()['job_status']['results']])
 
-            return ticket_ids
+                return ticket_ids
+    else:
+        return None
 
 
 def Ajust_date(date):
@@ -351,5 +370,11 @@ def generate_tickets_zendesk(services, start_date, end_date, down_time, location
     end_date_zendesk_format = Ajust_date(end_date)
     data_tickets, all_errors = prepare_tickets(services_raw=services, start_date=start_date_zendesk_format,
                                                end_date=end_date_zendesk_format, down_time=down_time, location=location, description=description)
-    ticket_numbers = create_tickets(data_tickets)
-    return ticket_numbers, all_errors
+
+    print('all_errors', all_errors)
+    if data_tickets:
+        ticket_numbers = create_tickets(data_tickets)
+        return ticket_numbers, all_errors
+    else:
+        ticket_numbers = None
+        return ticket_numbers, all_errors

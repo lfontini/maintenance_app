@@ -2,15 +2,16 @@
 
 
 
-// this routine below get core id and send to backand to check in database and perform a close ticket 
+// this routine below get core id and send to backend to check in database and perform a close ticket 
 
-const buttons_close = document.querySelectorAll('#button_close');
+const buttons_cancel = document.querySelectorAll('#button_cancel');
+console.log("incluiu cancel js ")
 
 
-const Close_zendesk_ticket = async (id) => {
-    const url = '/close_tickets_zendesk/';
+const Cancel_zendesk_ticket = async (id) => {
+    const url = '/cancel_tickets_zendesk/';
     const data = new FormData();
-    var resposta = window.confirm("Are you sure that you want to close the zendesk tickets?");
+    var resposta = window.confirm("Are you sure that you want to cancel the zendesk tickets?");
     if (resposta) {
         data.append('id', id);
         $('#spinner').addClass('show');
@@ -35,6 +36,7 @@ const Close_zendesk_ticket = async (id) => {
             else {
                 alert("An Error has occurred during the fetch data");
                 $('#spinner').removeClass('show');
+
             }
 
         } catch (error) {
@@ -48,11 +50,11 @@ const Close_zendesk_ticket = async (id) => {
 }
 
 
-buttons_close.forEach(button => {
+buttons_cancel.forEach(button => {
     // Add a click event listener to each button
     button.addEventListener('click', () => {
         const id = button.value;
-        Close_zendesk_ticket(id)
+        Cancel_zendesk_ticket(id)
 
     });
 });

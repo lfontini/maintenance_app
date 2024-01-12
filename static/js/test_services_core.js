@@ -12,13 +12,13 @@ function Paint_table() {
         if (ping.innerHTML.includes("DOWN") || status.innerHTML.includes("DOWN")) {
             console.log("entrou aqui down")
             // If the text is 'DOWN', color the row red
-            rows[i].style.backgroundColor = 'rgba(108, 500, 125, 0.59)';
+            rows[i].style.backgroundColor = 'gray';
             rows[i].style.color = 'white';
         } else {
             // Otherwise, color the row green
             console.log("entrou aqui up")
 
-            rows[i].style.backgroundColor = 'rgba(38, 223, 116, 0.56)';
+            rows[i].style.backgroundColor = 'green';
             rows[i].style.color = 'white';
         }
     }

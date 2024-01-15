@@ -321,14 +321,17 @@ def create_tickets(data_tickets):
 
         # Used requests.post instead of requests.request
         response = requests.post(url, headers=headers, json=payload)
+        print(response.json())
         status_request = response.json()['job_status']['status']
         request_url = response.json()['job_status']['url']
         if True:
             if response.ok:
                 while (status_request != "completed"):
                     response1 = requests.get(request_url, headers=headers)
-                    status_request = response1.json()['job_status']['status']
-                    time.sleep(1)
+                    if 'job_status' in response1.json():
+                        status_request = response1.json()[
+                            'job_status']['status']
+                        time.sleep(1)
                 if status_request == "completed":
                     ticket_ids = ','.join(
                         [str(item['id']) for item in response1.json()['job_status']['results']])

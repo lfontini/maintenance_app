@@ -277,12 +277,12 @@ def prepare_tickets_worker(args):
                 }
 
                 tickets.append(Mount_tickets(data))
-        elif customer_info:
-            if customer_info.get('status') != 'Delivered':
-                logging.error(
-                    f'the service {service} is not Delivered in quickbase or it does not exist')
-                errors.append(
-                    f'the service {service} is not Delivered in quickbase')
+            elif customer_info:
+                if customer_info.get('status') != 'Delivered':
+                    logging.error(
+                        f'the service {service} is not Delivered in quickbase or it does not exist')
+                    errors.append(
+                        f'the service {service} is not Delivered in quickbase')
         else:
             logging.error(
                 f'the customer {customer} is not registreted in quickbase')

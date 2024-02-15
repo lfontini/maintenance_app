@@ -100,7 +100,7 @@ DATABASES = {
         "NAME": "core",
         "USER": "postgres",
         "PASSWORD": "ADMIN",
-        "HOST": "localhost",
+        "HOST": "db",
 
     }
 }

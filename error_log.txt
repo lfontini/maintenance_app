@@ -73,3 +73,7 @@
 2024-02-15 08:42:29,913 - ERROR - the service GCX.1603.A002 is not Delivered in quickbase or it does not exist
 2024-02-15 08:42:29,916 - ERROR - the service TLS.5511.A014 is not Delivered in quickbase or it does not exist
 2024-02-15 10:04:21,703 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\tasks.py changed, reloading.
+2024-02-15 14:38:56,437 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\maintenance_django\settings.py changed, reloading.
+2024-02-15 14:38:56,505 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\maintenance_django\settings.py changed, reloading.
+2024-02-15 14:39:09,892 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\maintenance_django\settings.py changed, reloading.
+2024-02-15 14:39:10,068 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\maintenance_django\settings.py changed, reloading.

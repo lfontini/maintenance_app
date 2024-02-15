@@ -1,0 +1,8 @@
+ligar o beat 
+ celery -A  maintenance_django  beat -l INFO
+
+ligar o worker  no windows
+celery -A  maintenance_django  worker --pool=solo --loglevel=info
+
+linux
+celery -A  maintenance_django  worker  --loglevel=info

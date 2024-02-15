@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% block conteudo %}
+
+
+<h2 style="text-align: center;"> CHOOSE THE CORE THAT YOU WOULD LIKE TO CLOSE ZENDESKTICKETS</h2>
+
+<table class="table">
+    <thead style="text-align: justify;">
+        <tr>
+            <th>ID</th>
+            <th>Activity Type</th>
+            <th>Activity Related To</th>
+            <th>IGN Engineer</th>
+            <th>Type </th>
+            <th>Status</th>
+            <th>Date Start Activity</th>
+            <th>Date End Activity</th>
+            <th>Duration</th>
+            <th>Affected Services</th>
+            <th>Location</th>
+            <th>Core</th>
+            <th>Tickets Zendesk Generated</th>
+
+        </tr>
+    </thead>
+    <tbody style="text-align: justify;">
+        {% for core_obj in core %}
+        <tr>
+            <td> <button id="button_close" value="{{ core_obj.id }}" title="Click to close the zendesk tickets ">Close
+                    Tickets CORE {{ core_obj.id }}
+                </button>
+            </td>
+            <td>{{ core_obj.activity_type }}</td>
+            <td>{{ core_obj.activity_related_to }}</td>
+            <td>{{ core_obj.get_ign_engineer_display }}</td>
+
+            <td>
+                {% if core_obj.network_link %}
+                {{ core_obj.get_network_link_display }}
+                {% endif %}
+
+                {% if core_obj.internet_id %}
+                {{ core_obj.get_internet_id_display }}
+                {% endif %}
+
+
+                {% if core_obj.pop %}
+                {{ core_obj.get_pop_display }}
+                {% else %}
+
+                Nenhum dado disponível
+                {% endif %}
+            </td>
+            <td>{{ core_obj.status }}</td>
+            <td>{{ core_obj.start_date }}</td>
+            <td>{{ core_obj.end_date }}</td>
+            <td>{{ core_obj.duration }}</td>
+            <td>{{ core_obj.affected_services }}</td>
+            <td>{{ core_obj.Description }}</td>
+            <td>{{ core_obj.core_quickbase_id }}</td>
+            <td>{{ core_obj.tickets_zendesk_generated }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<script>
+    // use for fetch to post form DO NOT ERASE IT
+    var csrftoken = '{{ csrf_token }}';
+</script>
+
+
+{% endblock %}
+
+
+</html>

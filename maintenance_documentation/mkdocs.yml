@@ -1,0 +1,6 @@
+site_name: Maintenance Documentation
+nav:
+  - Página Inicial: index.md
+  - Page: homepage.md
+theme:
+  name: material

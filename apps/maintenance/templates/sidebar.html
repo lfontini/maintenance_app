@@ -1,0 +1,39 @@
+{% load static %}
+
+<div class="sidebar">
+    <div>
+        <a href="/">
+            <img src="https://static.wixstatic.com/media/7e4e6f_29d3996755c4460ab5fed99424c9db85~mv2.png/v1/crop/x_57,y_221,w_1446,h_369/fill/w_255,h_65,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Logotipo%20IG_Mesa%20de%20trabajo%201.png"
+                alt="Logotipo IG">
+        </a>
+    </div>
+    <div>
+        <a href="{% url 'core' %}"> <i class="fa fa-tachometer-alt me-2"></i> Create Core </a>
+    </div>
+    <div>
+        <a href="{% url 'validation_core' %}"> <i class="fa fa-laptop me-2"></i>Registered Cores </a>
+    </div>
+    <div>
+        <a href="{% url 'close_tickets' %}"><i class="fa fa-table me-2"></i>Close Tickets Zendesk </a>
+    </div>
+    <div>
+        <a href="{% url 'troubleshooting_results' %}"> <i class="fa fa-table me-2"></i>Troubleshooting
+            Core
+        </a>
+    </div>
+    <div>
+        <a href="{% url 'troubleshooting_services' %}"><i class="fa fa-table me-2"></i>Troubleshooting
+            services
+        </a>
+    </div>
+    <div>
+        <a href="{% url 'cancel_tickets_view' %}"> <i class="fa fa-table me-2"></i>Cancel maintenance
+            tickets
+        </a>
+    </div>
+    <div>
+        <a href="/admin"> <i class="fa fa-table me-2"></i>Administrator
+        </a>
+    </div>
+</div>
+</div>

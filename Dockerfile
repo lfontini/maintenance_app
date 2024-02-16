@@ -6,11 +6,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Install necessary dependencies
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip redis-server
-
-RUN apt-get install -y postgresql postgresql-contrib 
-
-RUN apt-get install -y tzdata && \
+    apt-get install -y python3 python3-pip redis-server postgresql postgresql-contrib tzdata && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -18,8 +14,8 @@ USER postgres
 
 #define database in postgres 
 RUN /etc/init.d/postgresql start \ 
-    && psql --command "CREATE DATABASE core;" \
-    && psql --command "CREATE USER postgres WITH PASSWORD 'ADMIN';" \ 
+    && psql --command "CREATE DATABASE IF NOT EXISTS core;" \
+    && psql --command "CREATE USER IF NOT EXISTS postgres WITH PASSWORD 'ADMIN';" \ 
     && psql --command "GRANT ALL PRIVILEGES ON DATABASE core TO postgres;"
 
 USER root
@@ -30,7 +26,8 @@ WORKDIR /app
 
 # Copy the requirements files into the container and install dependencies
 COPY requirements.txt /app/
-RUN pip3 install -r requirements.txt
+RUN pip3 install -r requirements.txt && \
+    pip cache purge
 
 # Install ping 
 RUN apt-get install -y iputils-ping

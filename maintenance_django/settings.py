@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.core_activity',
-    'users',
+    'apps.users',
     'apps.maintenance',
     'django_celery_beat',
     'celery',
@@ -100,7 +100,7 @@ DATABASES = {
         "NAME": "core",
         "USER": "postgres",
         "PASSWORD": "ADMIN",
-        "HOST": "db",
+        "HOST": "localhost",
 
     }
 }

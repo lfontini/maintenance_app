@@ -1,9 +1,31 @@
 # Use a base image of Ubuntu
 FROM ubuntu:20.04
 
+ENV TZ=America/Sao_Paulo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Install necessary dependencies
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip postgresql postgresql-contrib redis-server
+    apt-get install -y python3 python3-pip 
+
+RUN apt-get install -y postgresql postgresql-contrib 
+
+RUN redis-server && \ 
+    apt-get clean && \ 
+    rm -rf /var/lib/apt/lists/* \ 
+    && pip3 install psycopg2-binary \ 
+    && apt-get install -y tzdata  
+
+USER postgres
+
+#define database in postgres 
+RUN /etc/init.d/postgresql start \ 
+    && psql --command "CREATE DATABASE core;" \
+    && psql --command "CREATE USER postgres WITH PASSWORD 'ADMIN';" \ 
+    && psql --command "GRANT ALL PRIVILEGES ON DATABASE core TO postgres;"
+
+USER root
+RUN sed -i 's/bind 127.0.0.1/bind 0.0.0.0/' /etc/redis/redis.conf
 
 # Set the working directory in the container
 WORKDIR /app
@@ -24,5 +46,7 @@ RUN python3 manage.py migrate
 # Expose the port on which the Django server will run (default is 8000)
 EXPOSE 8000
 
-# Initialize the Django server
-CMD ["./start_celery.sh"]
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+CMD [ "/start.sh" ]

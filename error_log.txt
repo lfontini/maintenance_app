@@ -77,3 +77,8 @@
 2024-02-15 14:38:56,505 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\maintenance_django\settings.py changed, reloading.
 2024-02-15 14:39:09,892 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\maintenance_django\settings.py changed, reloading.
 2024-02-15 14:39:10,068 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\maintenance_django\settings.py changed, reloading.
+2024-02-15 17:15:06,100 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\maintenance_django\settings.py changed, reloading.
+2024-02-15 17:15:06,451 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\maintenance_django\settings.py changed, reloading.
+2024-02-15 17:15:54,922 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\maintenance_django\settings.py changed, reloading.
+2024-02-15 17:15:55,006 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\maintenance_django\settings.py changed, reloading.
+2024-02-15 17:15:55,541 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\maintenance_django\settings.py changed, reloading.

@@ -1,21 +1,27 @@
 # Use a base image of Ubuntu
-FROM ubuntu:20.04
+FROM ubuntu:latest
 
 ENV TZ=America/Sao_Paulo
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Install necessary dependencies
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip redis-server postgresql postgresql-contrib tzdata && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get install -y python3 python3-pip 
+
+RUN apt-get install -y postgresql postgresql-contrib 
+
+RUN redis-server && \ 
+    apt-get clean && \ 
+    rm -rf /var/lib/apt/lists/* \ 
+    && pip3 install psycopg2-binary \ 
+    && apt-get install -y tzdata  
 
 USER postgres
 
 #define database in postgres 
-RUN /etc/init.d/postgresql start \
+RUN /etc/init.d/postgresql start \ 
     && psql --command "CREATE DATABASE core;" \
-    && psql --command "CREATE USER postgres WITH PASSWORD 'ADMIN';" \
+    && psql --command "CREATE USER postgres WITH PASSWORD 'ADMIN';" \ 
     && psql --command "GRANT ALL PRIVILEGES ON DATABASE core TO postgres;"
 
 USER root
@@ -39,5 +45,4 @@ EXPOSE 8000
 
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
-
 CMD [ "/start.sh" ]

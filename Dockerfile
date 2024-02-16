@@ -6,7 +6,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Install necessary dependencies
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip 
+    apt-get install -y python3 python3-pip iputils-ping
 
 RUN apt-get install -y postgresql postgresql-contrib redis-server
 
@@ -37,9 +37,6 @@ WORKDIR /app
 # Copy the requirements files into the container and install dependencies
 COPY requirements.txt /app/
 RUN pip3 install -r requirements.txt
-
-# Install ping 
-RUN apt-get install -y iputils-ping
 
 # Copy the application source code into the container
 COPY . /app/

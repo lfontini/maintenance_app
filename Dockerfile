@@ -6,15 +6,13 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Install necessary dependencies
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip 
+    apt-get install -y python3 python3-pip redis-server
 
 RUN apt-get install -y postgresql postgresql-contrib 
 
-RUN redis-server && \ 
-    apt-get clean && \ 
-    rm -rf /var/lib/apt/lists/* \ 
-    && pip3 install psycopg2-binary \ 
-    && apt-get install -y tzdata  
+RUN apt-get install -y tzdata && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 USER postgres
 
@@ -39,9 +37,6 @@ RUN apt-get install -y iputils-ping
 
 # Copy the application source code into the container
 COPY . /app/
-
-# Run Django migrations
-RUN python3 manage.py migrate
 
 # Expose the port on which the Django server will run (default is 8000)
 EXPOSE 8000

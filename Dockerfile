@@ -21,7 +21,6 @@ USER postgres
 RUN /etc/init.d/postgresql start \ 
     && psql --command "DROP DATABASE IF EXISTS core;" \
     && psql --command "CREATE DATABASE core;" \
-    && psql --command "DROP USER IF EXISTS postgres;" \
     && psql --command "CREATE USER postgres WITH PASSWORD 'ADMIN';" \ 
     && psql --command "GRANT ALL PRIVILEGES ON DATABASE core TO postgres;"
 

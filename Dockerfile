@@ -19,10 +19,11 @@ USER postgres
 
 #define database in postgres 
 RUN /etc/init.d/postgresql start \ 
-    && psql --command "CREATE DATABASE IF NOT EXISTS core;" \
-    && psql --command "CREATE USER IF NOT EXISTS postgres WITH PASSWORD 'ADMIN';" \ 
-    && psql --command "GRANT ALL PRIVILEGES ON DATABASE core TO postgres;" \
-    && psql --command "ALTER USER postgres WITH SUPERUSER;" 
+    && psql --command "DROP DATABASE IF EXISTS core;" \
+    && psql --command "CREATE DATABASE core;" \
+    && psql --command "DROP USER IF EXISTS postgres;" \
+    && psql --command "CREATE USER postgres WITH PASSWORD 'ADMIN';" \ 
+    && psql --command "GRANT ALL PRIVILEGES ON DATABASE core TO postgres;"
 
 USER root
 RUN sed -i 's/bind 127.0.0.1/bind 0.0.0.0/' /etc/redis/redis.conf

@@ -19,6 +19,7 @@ USER postgres
 
 #define database in postgres 
 RUN /etc/init.d/postgresql start \ 
+    && psql --command "ALTER USER postgres WITH PASSWORD 'admin';" \
     && psql --command "DROP DATABASE IF EXISTS core;" \
     && psql --command "CREATE DATABASE core;" \
     && psql --command "GRANT ALL PRIVILEGES ON DATABASE core TO postgres;"

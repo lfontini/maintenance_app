@@ -8,10 +8,9 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update && \
     apt-get install -y python3 python3-pip 
 
-RUN apt-get install -y postgresql postgresql-contrib 
+RUN apt-get install -y postgresql postgresql-contrib redis-server
 
-RUN redis-server && \ 
-    apt-get clean && \ 
+RUN apt-get clean && \ 
     rm -rf /var/lib/apt/lists/* \ 
     && pip3 install psycopg2-binary \ 
     && apt-get install -y tzdata  

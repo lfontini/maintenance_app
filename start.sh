@@ -9,8 +9,9 @@ service redis-server start
 python3 manage.py migrate 
 
 #create user 
-echo "from django.contrib.auth.models import User; \ 
-User.objects.create_superuser('admin','admin@test.com', 'admin')" | python3 manage.py shell 
+
+echo "from django.contrib.auth.models import User; \
+User.objects.create_superuser('admin','admin@test.com', 'admin')" | python3 manage.py shell
 
 #start celery beat e worker 
 celery -A maintenance_django  beat -l INFO &

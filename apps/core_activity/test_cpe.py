@@ -109,8 +109,8 @@ def PingTest(ip):
      '''
     treated_ip = ip.split("/")[0]
     print(treated_ip, 'treated_ip')
-    # ping = subprocess.getoutput(f"ping  {treated_ip} -c 4") linux
-    ping = subprocess.getoutput(f"ping  {treated_ip} ")  # windows
+    ping = subprocess.getoutput(f"ping  {treated_ip} -c 4")  # linux
+    # ping = subprocess.getoutput(f"ping  {treated_ip} ")  # windows
 
     print(ping)
     return ping
@@ -135,7 +135,7 @@ def TestService(circuito):
         if ip != 'none':
             ping = PingTest(ip)
             treated_ip = ip.split("/")[0]
-            if 'Enviados = 4, Recebidos = 4, Perdidos = 0' in ping:
+            if '4 packets transmitted, 4 received' in ping:
                 result['resultadoping'] = f'Ping to {treated_ip} UP'
 
             else:

@@ -2245,7 +2245,7 @@ progress {
     color: #ffffff;
     background-color: #ffffff0f;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: 1px;
     appearance: none;
     border-radius: 5px;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
@@ -2285,7 +2285,7 @@ progress {
 .form-control:disabled,
 .form-control:read-only {
     color: white;
-    background-color: #e9ecef08;
+    background-color: #ffffff0f;
     opacity: 1
 }
 

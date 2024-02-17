@@ -3,7 +3,6 @@ from datetime import datetime
 from time import sleep
 from .models import Core, Troubleshooting_registration
 from .troubleshooting_services import get_services_affecteds
-import schedule
 import re
 from .close_tickets_zendesk import close_ticket
 from .zabbix_maintenance_delete import delete_maintenance_zabbix

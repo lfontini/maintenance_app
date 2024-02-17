@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 #inicialize postgres and redis 
 service postgresql start 
 service redis-server start 

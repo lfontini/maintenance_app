@@ -86,10 +86,11 @@ def identify_services(raw_data):
             for future in concurrent.futures.as_completed(future_to_service):
                 service = future_to_service[future]
                 print("completou a task ")
-                try:
-                    service_info[service] = future.result()
-                except Exception as e:
-                    print(f"Error fetching info for {service}: {e}")
+                service_info[service] = future.result()
+                # try:
+                #     service_info[service] = future.result()
+                # except Exception as e:
+                #     print(f"Error fetching info for {service}: {e}")
 
         return service_info, prefixes_and_contacts
     else:

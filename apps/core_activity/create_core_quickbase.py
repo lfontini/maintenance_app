@@ -85,6 +85,7 @@ def identify_services(raw_data):
             # Wait for the tasks to complete and collect the results
             for future in concurrent.futures.as_completed(future_to_service):
                 service = future_to_service[future]
+                print("completou a task ")
                 try:
                     service_info[service] = future.result()
                 except Exception as e:

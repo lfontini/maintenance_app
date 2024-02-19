@@ -108,75 +108,44 @@ def get_serves_from_paths(path):
     return None
 
 
-# def Get_service_info(service_id):
-#     print("testando ... ", service_id)
-#     attempts = 1
-#     waitfor = 3
-#     while attempts <= 3:
-#         time.sleep(waitfor)
-#         print("waiting for ", waitfor)
-
-#         body = {"from": "bfwgbisz4", "select": [
-#             465, 467, 337, 36, 25, 3,  511, 700], "where": "{7.CT." + f"'{service_id}'" + "}"}
-
-#         r = requests.post(
-#             'https://api.quickbase.com/v1/records/query',
-#             headers=headers,
-#             json=body
-#         )
-#         print("response ", r.json(), r.status_code)
-#         if r.status_code == 200:
-#             result = r.json()
-#             if result['data']:
-#                 for field in result['data']:
-#                     id = field['3']['value']
-#                     address = field['25']['value']
-#                     end_customer = field['337']['value']
-#                     city = field['465']['value']
-#                     country = field['467']['value']
-#                     status = field['36']['value']
-#                     diversity = field['511']['value']
-#                     related_diverse_service = field['700']['value']
-#                 return {'id': id, 'address': address, 'end_customer': end_customer, 'city': city, 'country': country, 'status': status, 'diversity': diversity, 'related_diverse_service': related_diverse_service}
-#             else:
-#                 print("None data retrived")
-#                 return None
-#         else:
-#             print(
-#                 f"Attempts {attempts} failed. status code: {r.status_code}")
-#             attempts += 1
-#             waitfor *= 2
-#         print("passando aqui ")
-#     print("Function Get_service_info failed to get data from qb")
-#     return None
 def Get_service_info(service_id):
     print("testando ... ", service_id)
+    attempts = 1
+    waitfor = 3
+    while attempts <= 3:
+        time.sleep(waitfor)
 
-    body = {"from": "bfwgbisz4", "select": [
-        465, 467, 337, 36, 25, 3,  511, 700], "where": "{7.CT." + f"'{service_id}'" + "}"}
+        body = {"from": "bfwgbisz4", "select": [
+            465, 467, 337, 36, 25, 3,  511, 700], "where": "{7.CT." + f"'{service_id}'" + "}"}
 
-    r = requests.post(
-        'https://api.quickbase.com/v1/records/query',
-        headers=headers,
-        json=body
-    )
-    print("response ", r.json(), r.status_code)
-    if r.status_code == 200:
-        result = r.json()
-        if result['data']:
-            for field in result['data']:
-                id = field['3']['value']
-                address = field['25']['value']
-                end_customer = field['337']['value']
-                city = field['465']['value']
-                country = field['467']['value']
-                status = field['36']['value']
-                diversity = field['511']['value']
-                related_diverse_service = field['700']['value']
-            return {'id': id, 'address': address, 'end_customer': end_customer, 'city': city, 'country': country, 'status': status, 'diversity': diversity, 'related_diverse_service': related_diverse_service}
+        r = requests.post(
+            'https://api.quickbase.com/v1/records/query',
+            headers=headers,
+            json=body
+        )
+        print("response ", r.json(), r.status_code)
+        if r.status_code == 200:
+            result = r.json()
+            if result['data']:
+                for field in result['data']:
+                    id = field['3']['value']
+                    address = field['25']['value']
+                    end_customer = field['337']['value']
+                    city = field['465']['value']
+                    country = field['467']['value']
+                    status = field['36']['value']
+                    diversity = field['511']['value']
+                    related_diverse_service = field['700']['value']
+                return {'id': id, 'address': address, 'end_customer': end_customer, 'city': city, 'country': country, 'status': status, 'diversity': diversity, 'related_diverse_service': related_diverse_service}
+            else:
+                print("None data retrived")
+                return None
         else:
-            print("None data retrived")
-            return None
+            print(
+                f"Attempts {attempts} failed. status code: {r.status_code}")
+            attempts += 1
+            waitfor *= 2
+        print("passando aqui ")
     print("Function Get_service_info failed to get data from qb")
     return None
 

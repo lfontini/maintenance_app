@@ -122,10 +122,10 @@ def Get_service_info(service_id):
             headers=headers,
             json=body
         )
+        print(r.json())
         if r.status_code == 200:
             result = r.json()
             if result['data']:
-                print("data", result['data'])
                 for field in result['data']:
                     id = field['3']['value']
                     address = field['25']['value']

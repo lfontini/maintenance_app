@@ -109,6 +109,7 @@ def get_serves_from_paths(path):
 
 
 def Get_service_info(service_id):
+    print("testando ... ", service_id)
     attempts = 1
     waitfor = 1
     while attempts <= 3:

@@ -90,3 +90,5 @@
 2024-02-17 16:58:47,841 - WARNING - Not Found: /favicon.ico
 2024-02-17 16:58:50,361 - WARNING - Not Found: /favicon.ico
 2024-02-17 17:00:37,151 - WARNING - Not Found: /favicon.ico
+2024-02-19 12:59:30,967 - WARNING - Not Found: /favicon.ico
+2024-02-19 14:15:20,758 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\maintenance_django\settings.py changed, reloading.

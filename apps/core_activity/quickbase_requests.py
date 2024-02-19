@@ -111,9 +111,10 @@ def get_serves_from_paths(path):
 def Get_service_info(service_id):
     print("testando ... ", service_id)
     attempts = 1
-    waitfor = 1
+    waitfor = 3
     while attempts <= 3:
         time.sleep(waitfor)
+        print("waiting for ", waitfor)
 
         body = {"from": "bfwgbisz4", "select": [
             465, 467, 337, 36, 25, 3,  511, 700], "where": "{7.CT." + f"'{service_id}'" + "}"}
@@ -145,7 +146,7 @@ def Get_service_info(service_id):
                 f"Attempts {attempts} failed. status code: {r.status_code}")
             attempts += 1
             waitfor *= 2
-
+        print("passando aqui ")
     print("Function Get_service_info failed to get data from qb")
     return None
 

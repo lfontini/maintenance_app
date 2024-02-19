@@ -122,7 +122,7 @@ def Get_service_info(service_id):
             headers=headers,
             json=body
         )
-        print(r.json())
+        print("response ", r.json(), r.status_code)
         if r.status_code == 200:
             result = r.json()
             if result['data']:

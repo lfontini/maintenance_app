@@ -82,7 +82,6 @@ def identify_services(raw_data):
             # Submit tasks for each service to the executor
             future_to_service = {executor.submit(
                 Get_service_info, service): service for service in services}
-
             # Wait for the tasks to complete and collect the results
             for future in concurrent.futures.as_completed(future_to_service):
                 service = future_to_service[future]
@@ -126,7 +125,8 @@ def insert_service(service, core_id, service_data):
 
 
 def Insert_services_into_existent_core(core_id, services):
-    num_threads = 4  # Ajuste conforme necessário
+    yield f"inserindo servicos"
+    num_threads = 4
 
     def insert_service_wrapper(service):
         return insert_service(service, core_id, services[service])

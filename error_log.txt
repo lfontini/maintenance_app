@@ -265,3 +265,5 @@
 2024-02-19 17:38:13,992 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\create_core_quickbase.py changed, reloading.
 2024-02-19 17:38:29,478 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\create_core_quickbase.py changed, reloading.
 2024-02-19 17:38:41,528 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\create_core_quickbase.py changed, reloading.
+2024-02-19 21:36:43,812 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\create_core_quickbase.py changed, reloading.
+2024-02-19 21:37:56,548 - INFO - C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\create_core_quickbase.py changed, reloading.

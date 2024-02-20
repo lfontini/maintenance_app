@@ -89,7 +89,6 @@ def identify_services(raw_data):
                     service_info[service] = future.result()
                 except Exception as e:
                     print(f"Error fetching info for {service}: {e}")
-        print("chegou aqui")
         return service_info, prefixes_and_contacts
     else:
         return None, None
@@ -254,7 +253,8 @@ def Create_core_qb_main(data):
 
                     identified_services, prefixes_and_contacts = identify_services(
                         common_fields['affected_services'])
-
+                    print("identifiedddddddddd",
+                          identified_services, prefixes_and_contacts)
                     yield f'Fetching data for identified services'
                     if identified_services:
                         services = Insert_services_into_existent_core(

@@ -9,37 +9,53 @@ from .zabbix_maintenance_delete import delete_maintenance_zabbix
 # help to setup celery https://www.youtube.com/watch?v=EfWa6KH8nVI
 
 
-def verificar_circuitos(services_ok, services_nok, services_inconclusive):
-    percentual_ok = 0
-    percentual_nok = 0
-    percentual_inc = 0
-    if len(services_ok) != 0:
-        percentual_ok = (len(services_ok) /
-                         (len(services_ok) + len(services_nok) + len(services_inconclusive))) * 100
-    if len(services_nok) != 0:
-        percentual_nok = (len(services_nok) /
-                          (len(services_ok) + len(services_nok) + len(services_inconclusive))) * 100
-    if len(services_inconclusive) != 0:
-        percentual_inc = (len(services_inconclusive) /
-                          (len(services_ok) + len(services_nok) + len(services_inconclusive))) * 100
+def check_services(services_ok, services_nok):
+    """
+    Checks the status of services and calculates percentages.
 
-    if len(services_ok):
-        print("services OK:", len(services_ok), services_ok)
-    if len(services_nok):
-        print("services NOK:", len(services_nok), services_nok)
-    if len(
-            services_inconclusive):
-        print("services inconclusivo:", len(
-            services_inconclusive), services_inconclusive)
+    Args:
+    services_ok (list): List of services marked as OK.
+    services_nok (list): List of services marked as NOK.
 
-    print('Percentual de services OK: {:.2f}%'.format(percentual_ok))
-    print('Percentual de services NOK: {:.2f}%'.format(percentual_nok))
-    print('Percentual de services INC : {:.2f}%'.format(percentual_inc))
-    if percentual_ok >= 50:
-        print("More then 50% of services are OK")
-        return True, 'Percentual of services OK: {:.2f}%'.format(percentual_ok)
-    else:
-        return False, 'Percentual of services OK: {:.2f}%'.format(percentual_ok)
+    Returns:
+    tuple: A tuple containing a boolean indicating whether more than 50% of services are OK,
+           and a message with the percentage of services marked as OK.
+    """
+    total_services = len(services_ok) + len(services_nok)
+    try:
+        percentual_ok = 0
+        percentual_nok = 0
+
+        # Calculate percentages only if lists are not empty to avoid division by zero
+        if len(services_ok) != 0:
+            percentual_ok = (len(services_ok) / total_services) * 100
+        if len(services_nok) != 0:
+            percentual_nok = (len(services_nok) / total_services) * 100
+
+        # Print information about the services
+        if services_ok:
+            print("Services OK:", len(services_ok), services_ok)
+        if services_nok:
+            print("Services NOK:", len(services_nok), services_nok)
+
+        # Print percentages
+        print('Percentage of services OK: {:.2f}%'.format(percentual_ok))
+        print('Percentage of services NOK: {:.2f}%'.format(percentual_nok))
+
+        # Check if more than 50% of services are OK
+        if percentual_ok >= 30:
+            print("More than 30% of services are OK")
+            return True, 'Percentage of services OK: {:.2f}%'.format(percentual_ok)
+        else:
+            print("Less than 50% of services are OK")
+            return False, 'Percentage of services OK: {:.2f}%'.format(percentual_ok)
+
+    except ZeroDivisionError:
+        print("Error: Division by zero.")
+        return False, "Error: Division by zero."
+    except Exception as e:
+        print("An error occurred:", e)
+        return False, "An error occurred."
 
 
 def compare_service_tests(anterior_test_service, posterior_test_service):
@@ -101,7 +117,6 @@ def valid_services(id):
     ex 
     services ok = list           -----> services who have traffic before and after act
     service nok = list            -----> services who do not have traffic before and after act
-    services_inconclusive = list  -----> services who it was impossible to access or test properly
 
     '''
     core = Core.objects.filter(id=id)[0]
@@ -136,7 +151,6 @@ def valid_services(id):
 
     services_ok = set()
     services_nok = set()
-    services_inconclusive = set()
 
     print('after_acitivity_list', len(after_acitivity_list))
     print('previous_activity_list', len(previous_activity_list))
@@ -150,15 +164,13 @@ def valid_services(id):
                     previous_activity.interfacestatus, after_acitivity.interfacestatus)
                 if result_comparation is True:
                     services_ok.add(previous_activity.circuito)
-                elif result_comparation is False:
-                    services_nok.add(previous_activity.circuito)
                 else:
-                    services_inconclusive.add(previous_activity.circuito)
+                    services_nok.add(previous_activity.circuito)
             else:
                 print("services are different")
 
-    final_result = verificar_circuitos(
-        services_ok, services_nok, services_inconclusive)
+    final_result = check_services(
+        services_ok, services_nok, )
     if final_result[0] == True:
         # only change the maintenance status if tests performed well
         core.status = "completed"

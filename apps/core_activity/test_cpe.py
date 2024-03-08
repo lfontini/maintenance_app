@@ -109,8 +109,8 @@ def PingTest(ip):
      '''
     treated_ip = ip.split("/")[0]
     print(treated_ip, 'treated_ip')
-    ping = subprocess.getoutput(f"ping  {treated_ip} -c 4")  # linux
-    # ping = subprocess.getoutput(f"ping  {treated_ip} ")  # windows
+    # ping = subprocess.getoutput(f"ping  {treated_ip} -c 4")  # linux
+    ping = subprocess.getoutput(f"ping  {treated_ip} ")  # windows
 
     print(ping)
     return ping
@@ -135,7 +135,7 @@ def TestService(circuito):
         if ip != 'none':
             ping = PingTest(ip)
             treated_ip = ip.split("/")[0]
-            if '4 packets transmitted, 4 received' in ping:
+            if 'Enviados = 4, Recebidos = 4, Perdidos' in ping:
                 result['resultadoping'] = f'Ping to {treated_ip} UP'
 
             else:
@@ -147,8 +147,7 @@ def TestService(circuito):
         print("Try connecting... ", fabricante, ip.split("/")[0])
         if net_connect:
             try:
-                if fabricante.lower() == 'mikrotik':
-                    print("entrou rotina mikrotik")
+                if 'mikrotik' in fabricante.lower().strip():
                     traffic_measure = net_connect.send_command(
                         "interface monitor-traffic ether5 once", use_textfsm=True)
                     treated_bandwidth = traffic_measure.split()
@@ -177,7 +176,7 @@ def TestService(circuito):
                         result['status'] = "Mikrotik UP"
                         result['interfacestatus'] = f'Upload: {tx_numbers}, Download: {rx_numbers}'
 
-                if 'accedian' in fabricante.lower():
+                elif 'accedian' in fabricante.lower().strip():
                     output = net_connect.send_command(
                         "port show statistics Client").splitlines()
                     rx = output[3].split()
@@ -198,28 +197,25 @@ def TestService(circuito):
                         result['status'] = "Accedian UP"
                         result['interfacestatus'] = f'Upload: {bytes_good_tx}, Download: {bytes_good_rx}'
 
-                elif fabricante.lower() == 'cisco':
+                elif 'cisco' in fabricante.lower().strip():
                     output_raw = net_connect.send_command(
                         "show interfaces FastEthernet0")
                     input_match = re.search(r"(\d+) bits/sec", output_raw)
                     output_match = re.search(r"(\d+) bits/sec", output_raw)
 
                     if input_match and output_match:
-                        print("entrou aqui 2 ")
                         input_rate = input_match.group(1)
                         output_rate = output_match.group(1)
                         result['interfacestatus'] = f'Upload: {output_rate}, Download :{input_rate}'
                         result['status'] = "Cisco Systems UP"
                     else:
-                        print("entrou aqui 2 ")
-
                         result['status'] = "Cisco Systems DOWN"
                         result['interfacestatus'] = "None data retrived"
-                # else:
-                # if we have some problem with cisco we have to change this lines below
-                #     # result['circuito'] = f"{circuito}"
-                #     # result['status'] = "Equipment unreacheable or not in Netbox DOWN"
-                #     # result['interfacestatus'] = "None data retrived"
+                else:
+                    # if we have some problem with cisco we have to change this lines below
+                    result['circuito'] = f"{circuito}"
+                    result['status'] = f"Not identify manufacture {fabricante.lower()}"
+                    result['interfacestatus'] = "None data retrived"
 
             except:
                 result['circuito'] = f"{circuito}"
@@ -269,5 +265,4 @@ def Service_Validation(dados_raw):
             except Exception as e:
                 print(f"An error occurred: {e}")
 
-    print(full_result_list)
     return full_result_list

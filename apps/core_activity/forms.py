@@ -16,12 +16,6 @@ class BootstrapSelect(forms.Select):
 
 class CoreForm(forms.ModelForm):
 
-    affected_services = forms.CharField(
-        widget=forms.Textarea(
-            attrs={'class': 'form-control', 'style': 'height: 90px;'}),
-        initial='services'
-    )
-
     class Meta:
         model = Core
         fields = [
@@ -36,7 +30,6 @@ class CoreForm(forms.ModelForm):
             'downtime',
             'start_date',
             'end_date',
-            'affected_services',
             'Description',
             'Description_to_customers',
             'location',

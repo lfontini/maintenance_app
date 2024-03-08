@@ -1,3 +1,58 @@
+#add_services {
+    background-color: #009CFF;
+    color: rgb(0, 0, 0);
+    border-radius: 30px;
+}
+
+#add_services_input {
+    line-height: inherit;
+    background: #c3c3da42;
+    color: white;
+    border: none;
+}
+
+#feedback_create_core {
+    max-width: 700px;
+    max-height: 400px;
+    overflow: auto;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(45deg, #000000, #192655);
+    padding: 50px;
+    z-index: 1000;
+    display: none;
+    border-radius: 10px;
+    position: relative;
+}
+
+#feedback_create_core:hover {
+    background: linear-gradient(45deg, #000000, #192655);
+    /* Estilo de fundo alterado quando o mouse passa sobre a div */
+}
+
+#feedback_create_core div {
+    padding: 5px;
+    background: #5a70766e;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+
+#close_button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#close_button:hover {
+    color: #ccc;
+}
+
+
 /* Estilos para a janela de diálogo no meio da tela */
 .dialog-box {
     width: 500px;
@@ -30,4 +85,109 @@
 
 h5 {
     color: white;
+}
+
+
+.service-group {
+    border: 1px solid #ccc;
+    padding: 10px;
+
+}
+
+.service-group h6 {
+    margin-top: 0;
+    cursor: pointer;
+    color: white;
+}
+
+.service-group h6:hover {
+    background-color: rgba(43, 150, 226, 0.615);
+    border-radius: 2px;
+}
+
+.service-table {
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+.service-table th,
+.service-table td {
+    border-radius: 15px;
+    border: 1px #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.service-table th {
+    background-color: #f2f2f2;
+}
+
+.hidden {
+    display: none;
+}
+
+.tabela_data {
+    color: white;
+    font-size: 15px;
+    margin: 2px;
+    overflow-y: scroll;
+    /* Adiciona uma barra de rolagem vertical quando o conteúdo excede a altura da div */
+    height: 700px;
+    scrollbar-width: thin;
+    /* Define a largura da barra de rolagem para ser mais fina */
+    scrollbar-color: rgba(0, 156, 255, 0.5) transparent;
+    /* Define a cor da barra de rolagem e do polegar */
+}
+
+.tabela_data::-webkit-scrollbar {
+    width: 8px;
+    /* Largura da barra de rolagem para navegadores WebKit */
+}
+
+.tabela_data::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 156, 255, 0.5);
+    /* Cor do polegar */
+    border-radius: 4px;
+    /* Borda arredondada */
+}
+
+.tabela_data::-webkit-scrollbar-track {
+    background-color: transparent;
+    /* Cor da trilha da barra de rolagem */
+}
+
+.tabela_data h6 {
+    color: white;
+}
+
+.service-table th,
+.service-table td {
+    border: 1px #ddd;
+    padding: 8px;
+    text-align: center;
+
+
+}
+
+.service-table tr {
+    border-radius: 30px;
+}
+
+.service-table td.cancelled {
+    background-color: rgba(199, 81, 81, 0.712);
+    color: white;
+}
+
+.progress-container {
+    margin-top: 20px;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color: #009CFF;
+    text-align: center;
+    line-height: 20px;
+    color: rgb(251, 251, 251);
 }

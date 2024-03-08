@@ -1,6 +1,13 @@
 site_name: Maintenance Documentation
+
 nav:
   - Página Inicial: index.md
-  - Page: homepage.md
+  - Creating core tutorial: create_core.md
+  - Closing tickets tutorial: closing_ticket.md
+  - Testing services: troubleshooting_results.md
+  - Code Explanation: code_explanation.md
+  - Zabbix Maintenance: zabbix_maintenance.md
 theme:
-  name: material
+  name: readthedocs
+  hljs_languages:
+    - python

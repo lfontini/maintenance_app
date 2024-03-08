@@ -15,10 +15,9 @@ function Paint_table() {
             rows[i].style.backgroundColor = 'gray';
             rows[i].style.color = 'white';
         } else {
-            // Otherwise, color the row green
-            console.log("entrou aqui up")
 
-            rows[i].style.backgroundColor = 'green';
+
+            rows[i].style.backgroundColor = 'rgba(38, 223, 116, 0.56)';
             rows[i].style.color = 'white';
         }
     }
@@ -32,7 +31,10 @@ const Send_services_to_be_tested = async (id) => {
     const url = '/test_services/';
     const modal = document.getElementById('optionsModal');
     const resultsContainer = document.getElementById('results');
-    $('#spinner').addClass('show');
+    var spinner = document.getElementById("spinner");
+    var load = document.getElementById("load");
+    spinner.style.display = "block";
+    load.style.display = "block";
     const data = new FormData();
     data.append('id', id);
     try {
@@ -45,6 +47,8 @@ const Send_services_to_be_tested = async (id) => {
         });
 
         if (response.ok) {
+            spinner.style.display = "none";
+            load.style.display = "none";
             const responseData = await response.json();
             console.log(responseData.services);
 
@@ -61,7 +65,8 @@ const Send_services_to_be_tested = async (id) => {
             const headers = [];
 
             responseData.services.forEach(data => {
-                $('#spinner').removeClass('show');
+                spinner.style.display = "none";
+                load.style.display = "none";
                 console.log(data);
                 console.log(typeof (data))
                 if (data) {  // Check if data is not null or undefined
@@ -164,7 +169,7 @@ function createTable(tableId) {
                     const cell = row.insertCell();
                     cell.textContent = value;
 
-                    if (value.includes("DOWN")) {
+                    if (value.includes("DOWN") || value.includes("None")) {
                         console.log("contains down ");
                         hasDown = true;
                     }

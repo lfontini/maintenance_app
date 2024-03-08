@@ -1,16 +1,11 @@
 from jinja2 import Template
-from .quickbase_requests import Get_service_info
-import json
-import re
 import requests
-import time
 from datetime import datetime
 from dotenv import load_dotenv
 import os
-import concurrent.futures
-import multiprocessing
 import logging
 from datetime import datetime, timedelta
+from .models import Core
 
 # Configure the logging system
 logging.basicConfig(filename='error_log.txt', level=logging.ERROR,
@@ -22,7 +17,7 @@ load_dotenv()
 ZENDESK_URL = os.environ.get("ZENDESK_URL")
 TOKEN_ZD = os.environ.get("TOKEN_ZD")
 
-url = ZENDESK_URL+"/api/v2/tickets/create_many"
+url = ZENDESK_URL+"/api/v2/tickets"
 
 headers = {
     # Replace 'YOUR_API_KEY' with your actual API key
@@ -160,6 +155,53 @@ def generate_notification_template(context):
     output = template.render(context)
 
     return output
+
+
+def update_tickets_and_affected_services_for_core(id, new_ticket_info, new_affected_services):
+    """
+    Update ticket information and affected services for a specific Core.
+
+    Args:
+        core_id (int): The ID of the Core to be updated.
+        new_ticket_info (str): The new ticket information to be added.
+        new_affected_services (str): The new affected services to be updated.
+
+    Returns:
+        bool: True if the update is successful, False if the Core is not found.
+
+    Raises:
+        ValueError: If `core_id` is less than or equal to zero.
+    """
+
+    try:
+        core = Core.objects.get(id=id)
+        print("core ", core.tickets_zendesk_generated)
+    except Core.DoesNotExist:
+        # Core with the provided ID not found
+        return False
+
+    # Append or update the ticket information
+    print("condicional if ", core.tickets_zendesk_generated)
+    print("vars  ", new_ticket_info, new_affected_services)
+    print("type  ", type(new_ticket_info), type(new_affected_services))
+
+    if core.tickets_zendesk_generated:
+        # If there are existing tickets, append the new ticket information
+        core.tickets_zendesk_generated += ", " + new_ticket_info
+        print("core cadastrado ", core.tickets_zendesk_generated)
+
+    else:
+        # If no existing tickets, set the new ticket information
+        core.tickets_zendesk_generated = new_ticket_info
+
+    # Update affected services
+    core.affected_services += " ".join(new_affected_services) + " "
+
+    # Save the changes
+    core.save()
+
+    # Return True if the update is successful
+    return True
 
 
 def Mount_tickets(data):
@@ -309,83 +351,88 @@ def prepare_tickets_worker(args):
     return None, errors
 
 
-def prepare_tickets(services, start_date, end_date, down_time, location, description, prefixes_and_contacts):
-    # Convert services_raw to a string
+def prepare_tickets(services_info, start_date, end_date, down_time, location, description, customer_contact_info):
+    customer_contact, customer_name = customer_contact_info
+    services = []
+    # the service who will be create main ticket
+    customer_service = list(services_info.keys())[0]
 
-    # Use ThreadPoolExecutor for parallel processing
-    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
-        # Map the worker function to the chunks
-        results = list(executor.map(prepare_tickets_worker, [
-            (services, start_date, end_date, down_time, location, description, prefixes_and_contacts)]))
+    # get the first customer id (email id zendesk)
+    # requester_id = customer_contact.split(",")[0]
+    requester_id = 1266469881070  # REQUEST FOR TEST
+    contact_copy = [21200390635547]      # EMAIL IN COPY
+    # get the other ids to send as a copy the ticket
+    # contact_copy = customer_contact
+    for service in services_info:
+        status = services_info[service]['status'].lower()
+        if 'delivered' in status:
+            services.append(service)
 
-    # Initialize lists to store tickets and errors
-    tickets = []
-    all_errors = []
+    city = services_info[customer_service].get('cidade')
+    country = services_info[customer_service].get('pais')
+    end_customer = services_info[customer_service].get('clienteFinal')
+    context = {
+        'customer_name': customer_name,
+        'start_date': start_date,
+        'end_date': end_date,
+        'downtime': down_time,
+        'location': location,
+        'services': services,
+        'description': description,
+    }
 
-    # Iterate over results to access tickets and errors
-    for result in results:
-        result_tickets, errors = result
-        tickets.extend(result_tickets)  # Add tickets to the list
-        if errors:
-            all_errors.extend(errors)  # Add errors to the list
+    ventana_body = generate_notification_template(context)
+    data = {
+        "requester_id": requester_id,
+        'collaborator_ids': contact_copy,
+        'follower_ids': contact_copy,
+        "end_date": end_date,
+        "start_date": start_date,
+        "city": city,
+        "country": country,
+        "service": service,
+        "end_customer": end_customer,
+        "body": ventana_body
+    }
 
-    return tickets, all_errors
+    ticket_data = Mount_tickets(data)
+
+    return ticket_data, services
 
 
-# def update_tickets(tickets, core_id):
-#     if tickets and core_id:
-#         payload = {"ticket": {"comment": {
-#             "body": f"Ticket gerado sobre a atividade da core {core_id}.", "public": False}}}
-#         url_update = ZENDESK_URL + \
-#             "/api/v2/tickets/update_many.json?ids={tickets}"
-#         response = requests.post(url, headers=headers, json=payload)
-#         print(response.json())
-
-def update_tickets(tickets, core_id):
+def update_tickets(ticket, core_id, core_data_activity):
     """
     Update Zendesk tickets with information about maintenance window and core activity.
 
     :param tickets: Comma-separated string of ticket IDs.
     :param core_id: ID of the core associated with the activity.
     """
-    if tickets and core_id:
+    core_date = datetime.fromisoformat(core_data_activity)
+    if ticket and core_id:
         payload = {
             "ticket": {
                 "comment": {
-                    "html_body": f"<p align='center'><b>MAINTENANCE WINDOW - Core Activity {core_id}.</b></p>",
+                    "html_body": f"<p align='center'><b>MAINTENANCE WINDOW - Core Activity {core_id} - {core_date.strftime('%Y-%m-%d %H:%M')} GMT-3 .</b></p>",
                     "public": False
                 }
             }
         }
 
-        url_update = f"{ZENDESK_URL}/api/v2/tickets/update_many.json?ids={tickets}"
+        url_update = f"{ZENDESK_URL}/api/v2/tickets/{ticket}"
 
         response = requests.put(url_update, headers=headers, json=payload)
         print(response.json())
 
 
-def create_tickets(data_tickets):
-    if data_tickets:
-        payload = {"tickets": data_tickets}
+def create_ticket(data_ticket):
+    if data_ticket:
+        payload = {"ticket": data_ticket}
 
         # Used requests.post instead of requests.request
-        response = requests.post(url, headers=headers, json=payload)
-        print(response.json())
-        status_request = response.json()['job_status']['status']
-        request_url = response.json()['job_status']['url']
-        if True:
-            if response.ok:
-                while (status_request != "completed"):
-                    response1 = requests.get(request_url, headers=headers)
-                    if 'job_status' in response1.json():
-                        status_request = response1.json()[
-                            'job_status']['status']
-                        time.sleep(1)
-                    if status_request == "completed":
-                        ticket_ids = ','.join(
-                            [str(item['id']) for item in response1.json()['job_status']['results']])
+        response = requests.post(url=url, headers=headers, json=payload)
+        ticket_id = response.json()['ticket']['id']
 
-                return ticket_ids
+        return ticket_id
     else:
         return None
 
@@ -417,20 +464,53 @@ def Ajust_date(date):
         return None
 
 
-def generate_tickets_zendesk(services, start_date, end_date, down_time, location, description, prefixes_and_contacts, core_id):
+def generate_tickets_zendesk(data):
+    ''' this function will receive data type dict from frontend 
+
+    data = {'form_core''core_form', 'services':dict(all service for the same customer and their info neeeded, 'contacts': 'customer info from qb to generate tickets) }
+
+    return error and tickets 
+
+    core in quickbase is generated in GMT-3, but our customer receive the tickets in UTC, so that we have to ajust the data and add +3 to reach the UTC TIME
+
+
+    '''
+    print(data)
+    id = data.get('id')
+    core_id = data.get('core_id')
+    start_date = data.get('form_core').get('start_date')
+    end_date = data.get('form_core').get('end_date')
     start_date_zendesk_format = Ajust_date(start_date)
     end_date_zendesk_format = Ajust_date(end_date)
-    data_tickets, all_errors = prepare_tickets(services=services, start_date=start_date_zendesk_format,
-                                               end_date=end_date_zendesk_format, down_time=down_time, location=location, description=description, prefixes_and_contacts=prefixes_and_contacts)
+    services = data.get('services').get('attributes')
+    down_time = data.get('form_core').get('downtime')
+    location = data.get('form_core').get('location')
 
-    print('all_errors', all_errors)
-    print(data_tickets)
-    print('lenght', len(data_tickets))
+    # this description for ticket is different with core descriptions, because the customer will receive
+    description = data.get('form_core').get('Description_to_customers')
+    customer_contact_info = data.get('services').get('contacts')
+
+    # print("Services:", services)
+    # print("Start Date:", start_date_zendesk_format)
+    # print("End Date:", end_date_zendesk_format)
+    # print("Down Time:", down_time)
+    # print("Location:", location)
+    # print("Description:", description)
+    # print("customer_contact_info:", customer_contact_info)
+
+    data_tickets, services = prepare_tickets(services_info=services, start_date=start_date_zendesk_format,
+                                             end_date=end_date_zendesk_format, down_time=down_time, location=location, description=description, customer_contact_info=customer_contact_info)
 
     if data_tickets:
-        ticket_numbers = create_tickets(data_tickets)
-        update_tickets(ticket_numbers, core_id)
-        return ticket_numbers, all_errors
+        ticket_number = create_ticket(data_tickets)
+        print("Ticket Number:", ticket_number)
+        print("Ticket Number:", type(ticket_number))
+
+        # ticket_number = '1010'
+        update_tickets_and_affected_services_for_core(
+            id=id, new_ticket_info=str(ticket_number), new_affected_services=services)
+        update_tickets(ticket_number, core_id, core_data_activity=start_date)
+        return ticket_number
     else:
         ticket_numbers = 'None Ticket generated'
-        return ticket_numbers, all_errors
+        return ticket_numbers

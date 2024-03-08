@@ -2,7 +2,9 @@
 {% load static %}
 {% block conteudo %}
 
+
 <link href="{% static 'css/core_activity.css' %}" rel="stylesheet">
+
 
 {% if messages %}
 <div class="container mt-3">
@@ -14,6 +16,8 @@
     {% endfor %}
 </div>
 {% endif %}
+
+
 
 
 <!-- Modal para mostrar as opções -->
@@ -31,38 +35,59 @@
                     some exceptions</div>
                 <div id="checkboxContainer" class="form-check"></div>
             </div>
+            <button class="btn btn-primary" id="load_services">Load Services</button>
         </div>
     </div>
 </div>
 
+
 <div class="container-lg text-justify">
     <h5 style="text-align: center;">Core Activity Registration</h5>
 
-    <form action="{% url 'core' %}" method="post" class="form" id="form_core">
+    <form class="form" id="form_core">
         {% csrf_token %}
         <div class="row">
             <div class="col-md-6">
 
-                {% for field in form.visible_fields|slice:":11" %}
+                {% for field in form.visible_fields %}
                 <div class="form-group">
                     <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
                     <div>{{ field }}</div>
                 </div>
                 {% endfor %}
+                <button class="btn btn-primary" id="btn-create_core">Create Core</button>
             </div>
             <div class="col-md-6">
-                <div id="services_affected_counter">SERVICES AFFECTED COUNTER: 0</div>
-                {% for field in form.visible_fields|slice:"11:" %}
-                <div class="form-group">
-                    <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
-                    <div>{{ field }}</div>
+                <!-- Service Data Section -->
+                <div>
+                    <div>
+                        <button id="add_services">Add Services </button>
+                        <input id="add_services_input" type="text" name="add_service_input">
+                    </div>
+
+                    <div class="tabela_data" id="serviceData">
+
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progressBar">0%</div>
+                        </div>
+                    </div>
+
+                    <div id="feedback_create_core">
+                        <button id="close_button">&#x2716;</button>
+                    </div>
+
                 </div>
-                {% endfor %}
+
+
             </div>
-        </div>
-        <button type="submit" class="btn btn-primary" onclick="Click_button_submit_core()">Create Core</button>
     </form>
+
+
+
+
+
 </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script>
     // use for fetch to post form 

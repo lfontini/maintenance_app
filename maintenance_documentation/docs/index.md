@@ -1,17 +1,17 @@
-# Welcome to MkDocs
+<img src="/media/logo.jpg" alt="Maintenance App Logo" width="50" height="50">
+## Overview 
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+The Maintenance App is a user-friendly application designed to facilitate maintenance operations for clients. It allows users to easily create maintenance windows, cancel them if necessary, perform circuit tests, and manage services. Additionally, the app features a scheduler that conducts circuit tests before the maintenance window and automatically terminates services after the window ends.
 
-## Commands
+## Features
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+### Maintenance Window Management:
+- Create new maintenance windows.
+- Cancel existing maintenance windows.
+- Close maintenance windows after completion.
+- Create Zabbix maintenance for the affected services.
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+### Circuit Testing:
+- Test circuits before the maintenance window.
+- Perform circuit tests after the maintenance window.
+- Schedule validation tests (access the CPE and get the LAN traffic).

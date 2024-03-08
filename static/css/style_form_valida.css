@@ -80,3 +80,52 @@ table button {
 button:hover {
   background-color: #93abc6;
 }
+
+#load {
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  display: none;
+  /* Inicialmente oculto */
+}
+
+.spinner {
+  display: none;
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+  background-color: #2196F3;
+  border-radius: 50%;
+  position: relative;
+  animation: spin 2s linear infinite;
+}
+
+.spinner::before,
+.spinner::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 2px;
+  background-color: white;
+
+}
+
+.spinner::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.spinner::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

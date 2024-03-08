@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.views.generic import RedirectView
 
 
 # This file is responsable for the urls provided
@@ -45,10 +46,30 @@ urlpatterns = [
 
     path('cancel_tickets_view/', views.cancel_tickets_view,
          name='cancel_tickets_view'),
+
     path('cancel_tickets_zendesk/', views.cancel_tickets_zendesk,
          name='cancel_tickets'),
-    path('valid_services/', views.valid_services,
-         name='valid_services'),
+ 
 
+    path('create_core/', views.create_core,
+         name='create_core'),
+
+    path('create_tickets/', views.create_tickets,
+         name='create_tickets'),
+
+    path('insert_services/', views.InsertServices,
+         name='insert_services'),
+
+     path('send_email/', views.SendEmail,
+         name='send_email'),
+
+   
+
+     path('create_event_calendar/', views.CreateEventCalendar,
+         name='create_event_calendar'),
+
+     path('create_zabbix_maintenance/', views.CreateZabbixMaintenance,
+         name='create_zabbix_maintenance'),
+     path('documentation/', RedirectView.as_view(url='http://localhost:8001/'), name='documentation'),     
 
 ]

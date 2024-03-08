@@ -10,6 +10,11 @@ from .models import Core
 
 @receiver(post_save, sender=Core)
 def criar_scheduler_para_novo_core(sender, instance, created, **kwargs):
+    '''
+    This signal is a listener, it will be check every core change and if new cores 
+    were create it will create a task to be executed for a test service using celery 
+    
+    '''
     if created:
         formatted_start_date = instance.start_date.strftime("%Y-%m-%d %H:%M")
         formatted_end_date = instance.end_date.strftime("%Y-%m-%d %H:%M")

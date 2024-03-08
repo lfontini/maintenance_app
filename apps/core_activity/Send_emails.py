@@ -18,12 +18,16 @@ class EmailNotification:
         self.smtp_port = 587
         self.smtp_username = os.getenv('SMTP_USERNAME')
         self.smtp_password = os.getenv('SMTP_PASSWORD')
-        # self.to_email = 'noc@ignetworks.com'  # prod
-        self.to_email = 'lucasfacsul@hotmail.com'  # test
-
+        self.to_email = os.getenv('EMAIL')
         self.logo_url = 'https://static.wixstatic.com/media/7e4e6f_29d3996755c4460ab5fed99424c9db85~mv2.png/v1/crop/x_57,y_221,w_1446,h_369/fill/w_255,h_65,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Logotipo%20IG_Mesa%20de%20trabajo%201.png'
 
     def generate_notification_template(self, core_id, tickets):
+
+        '''
+        
+        Create a template 
+        
+        '''
         template_string = """
         <!DOCTYPE html>
         <html>
@@ -39,13 +43,14 @@ class EmailNotification:
                 }
 
                 .container {
-                    width: 80%;
-                    max-width: 1000px;
-                    background-color: #fff;
-                    margin: 0 auto;
-                    padding: 20px;
-                    border-radius: 10px;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                        color: black;
+                        width: 80%;
+                        max-width: 1000px;
+                        background-color: #2196F3;
+                        margin: 0 auto;
+                        padding: 10px;
+                        border-radius: 10px;
+                        box-shadow: 17px 20px 20px 20px rgba(0,0,0,0.2);
                 }
 
                 .header {
@@ -91,7 +96,15 @@ class EmailNotification:
                     <h3> CORE {{ core_id }}  </h3>
                     
                     <h3> Generated Tickets  </h3>      
-                    <div>    {{ tickets }}  <div>  
+                    {% if tickets %}
+                    <ul>
+                        {% for ticket in tickets %}
+                            <li>{{ ticket }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                        <p>No generated tickets</p>
+                    {% endif %}
                 </div>
             </div>
         </body>
@@ -105,10 +118,16 @@ class EmailNotification:
         return output
 
     def send_notification(self, core_id, tickets, date):
+        ''' This function receive data when it`s callled and create a template 
+        email and send to noc informing the core maintenance and the tickets generated
+        
+        '''
         logging.info(
             "data received from send_notification function %s %s", core_id, tickets)
 
-        subject = f'PLANNED ACTIVITY CORE {core_id} {date}'
+        date_formated = date.split("T")[0]
+        hours = date.split("T")[1]
+        subject = f'PLANNED ACTIVITY CORE {core_id} {date_formated} {hours} GMT-3'
         content = self.generate_notification_template(core_id, tickets)
 
         msg = EmailMessage()

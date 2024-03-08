@@ -120,10 +120,16 @@ def make_request_zendesk(method, url, body):
 
 
 def close_ticket(tickets):
-    print(type(tickets))
-    print(len(tickets))
+    '''
+    this function will receive list of tickets from fron-end and close the tickets, we have two url for  close one and close many 
+    the function check if its one or manu tickets to choose the right one. 
+
+
+    a template is create informing the customer that the mw has been completed and will be closed 
+
+    '''
     if len(tickets) < 1:
-        print("Nenhum ticket encontrado")
+        print("None ticket found")
         return None
     elif len(tickets) == 1:
         print("one tickets")
@@ -145,7 +151,6 @@ def close_ticket(tickets):
     else:
         print("many tickets")
         tickets_str = ','.join(tickets)
-        # Removida a barra dupla
         url = f"https://ignetworks.zendesk.com/api/v2/tickets/update_many.json?ids={tickets_str}"
         template = generate_notification_template()
         body = {

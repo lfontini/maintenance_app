@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+from .models import Core
 from pyzabbix import ZabbixAPI, ZabbixAPIException
 from datetime import datetime
 import pytz
@@ -8,6 +10,33 @@ load_dotenv()
 ZABBIX_URL = os.environ.get("ZABBIX_URL")
 USER_ZABBIX = os.environ.get("USER_ZABBIX")
 PASS_ZABBIX = os.environ.get("PASS_ZABBIX")
+
+
+def update_zabbix_id_into_core(id, zabbix_id):
+    """
+    Include zabbix id into existent core db
+
+    """
+
+    try:
+        core = Core.objects.get(id=id)
+    except Core.DoesNotExist:
+        # Core with the provided ID not found
+        return False
+
+    # Append or update the ticket information
+    if core.zabbix_maintenance_id:
+        # If there are existing tickets, append the new ticket information
+        core.zabbix_maintenance_id = zabbix_id
+    else:
+        # If no existing tickets, set the new ticket information
+        core.zabbix_maintenance_id = zabbix_id
+
+    # Save the changes
+    core.save()
+
+    # Return True if the update is successful
+    return True
 
 
 def get_host_ids(services):
@@ -45,7 +74,7 @@ def get_host_ids(services):
 
 
 def adjust_date(date):
-    """Adjust the date format and convert it to UTC.
+    """Adjust the date format and add 3 hours to convert it to UTC.
 
     Args:
         date (str): Input date string.
@@ -53,19 +82,19 @@ def adjust_date(date):
     Returns:
         datetime: Adjusted date in UTC.
     """
-    current_date_format = date
     entry_format_date = "%Y-%m-%dT%H:%M"
 
     try:
         # Convert the input date string to a datetime object in GMT-3
         local_tz = pytz.timezone('America/Sao_Paulo')  # Assuming GMT-3
-        converted_date = local_tz.localize(
-            datetime.strptime(current_date_format, entry_format_date))
+        converted_date = datetime.strptime(date, entry_format_date)
+        localized_date = local_tz.localize(converted_date, is_dst=None)
 
-        # Convert to UTC
-        converted_date_utc = converted_date.astimezone(pytz.utc)
+        # Add 3 hours
+        adjusted_date = localized_date + timedelta(hours=3)
 
-        return converted_date_utc
+        print('adjusted_date', adjusted_date)
+        return adjusted_date
     except ValueError as e:
         print(f"Error parsing date: {e}")
         return None
@@ -117,7 +146,7 @@ def create_maintenance_window(name, start_time, end_time, host_ids=None):
             zapi.user.logout()
 
 
-def create_zabbix_maintenance(services, start_maintenance, end_maintenance, core_id):
+def create_zabbix_maintenance(id, services, start_maintenance, end_maintenance, core_id):
     """Create a Zabbix maintenance window for specified services.
 
     Args:
@@ -141,7 +170,9 @@ def create_zabbix_maintenance(services, start_maintenance, end_maintenance, core
     print("hostid ", host_ids)
     print("numero de ids ", len(host_ids))
 
+    print("start_maintenance", start_maintenance)
     adjusted_date_start = adjust_date(start_maintenance)
+    print("end_maintenance", end_maintenance)
     adjusted_date_end = adjust_date(end_maintenance)
 
     if adjusted_date_start and adjusted_date_end:
@@ -157,6 +188,8 @@ def create_zabbix_maintenance(services, start_maintenance, end_maintenance, core
         )
 
         if result is not None:
+            update_zabbix_id_into_core(
+                id=id, zabbix_id=result['maintenanceids'][0])
             print(
                 f"Maintenance window created with ID: {result['maintenanceids'][0]}")
             return result['maintenanceids'][0]

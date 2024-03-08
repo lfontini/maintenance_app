@@ -1,3 +1,4 @@
+from datetime import datetime
 import os
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -75,3 +76,38 @@ class EventCreator:
         except HttpError as error:
             print(f"An error occurred: {error}")
 
+
+def Ajust_Core_date(date):
+    ''' 
+
+        This function receive a date and return a new date 
+
+    '''
+    currunt_date = datetime.strptime(date, "%Y-%m-%dT%H:%M")
+    new_date_formatted = currunt_date.strftime("%Y-%m-%dT%H:%M:%S")
+
+    return new_date_formatted
+
+
+def CreateCalendarEvent(**kwargs):
+    get_services_affecteds = kwargs.get('get_services_affecteds')
+    start_date = kwargs.get('start_date')
+    end_date = kwargs.get('end_date')
+
+    description_calendar = f''' 
+    A core activity will be performed and will affect services below \n
+    {get_services_affecteds}
+
+    '''
+    formated_start_data = Ajust_Core_date(
+        start_date)
+
+    formated_end_data = Ajust_Core_date(
+        end_date)
+
+    event_creator = EventCreator(calendar_title=f'Planned Work Maintenance ',
+                                 start_time=formated_start_data,
+                                 end_time=formated_end_data,
+                                 description=description_calendar)
+    event_creator.create_event()
+    return event_creator

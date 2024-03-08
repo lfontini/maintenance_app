@@ -11,7 +11,12 @@ TOKEN_NETBOX = os.getenv('TOKEN_NETBOX')
 
 
 def list_all_devices_pop(host_pop):
-    url = f"https://netbox.master.ignetworks.com/api/dcim/devices/?q={host_pop}"
+    ''' 
+    This Function receive host_pop name as SAO3, MIA1, and it will return all device core and access 
+    routers and switches, this data will be used into the select in front end
+    
+    '''
+    url = f"https://netbox.master.ignetworks.com/api/dcim/devices/?q={host_pop}&status=active&role_id=11&role_id=12&role_id=13"
     print(url)
     payload = {}
     headers = {
@@ -22,7 +27,7 @@ def list_all_devices_pop(host_pop):
     resposta_json = response.json()
     results = resposta_json["results"]
 
-    devices = []
+    devices = [] 
     for device in results:
         devices.append(device['name'])
 

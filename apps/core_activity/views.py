@@ -1,5 +1,7 @@
-from django.http import StreamingHttpResponse
-
+from .zabbix_maintenance_create import create_zabbix_maintenance
+from .google_calendar_create_events import CreateCalendarEvent
+import time
+from .Send_emails import EmailNotification
 import json
 from django.shortcuts import render
 from django.http import JsonResponse
@@ -16,6 +18,8 @@ from .close_tickets_zendesk import close_ticket
 from .cancel_tickets_zendesk import cancel_tickets
 from .test_cpe import Service_Validation
 from .zabbix_maintenance_delete import delete_maintenance_zabbix
+from .insert_services_core import insert_services_into_existent_core
+from .generate_tickets_zendesk import generate_tickets_zendesk
 
 
 def troubleshooting_results(request):
@@ -51,60 +55,38 @@ def validation_core(request):
 
 def close_tickets(request):
     ''' 
-        This function is only used for render template html 
+    View to render a template displaying all 'Not Started' core tickets.
 
+    This function queries the Core model to retrieve all tickets with a status of 'Not Started'.
+    Then, it renders a template named 'close_tickets.html', passing the retrieved tickets as context.
+
+    Args:
+        request: HTTP request object.
+
+    Returns:
+        HTTP response with the rendered template.
     '''
+    # Filter all cores with status not Started
     core = Core.objects.filter(status='Not Started')
+    # get all data and send to template html
     context = {'core': core}
     return render(request, 'close_tickets.html', context)
 
 
 def core(request):
+    ''' 
+    View to render a template displaying a form for creating a Core object.
+
+    This function initializes a new instance of CoreForm, which is used to render
+    a form in the template 'create_core.html'.
+
+    Args:
+        request: HTTP request object.
+
+    Returns:
+        HTTP response with the rendered template containing the form.
+    '''
     form = CoreForm()
-
-    if request.method == 'POST':
-        result = Create_core_qb_main(request.POST)
-
-        def stream_response():
-            yield """
-            <html>
-            <head>
-                <meta charset='utf-8'>
-            </head>
-            <body style='background: linear-gradient(#000000, #192655); margin: 0; padding: 0; display: flex; align-items: center; justify-content: center; height: 100vh;'>
-                <div style='background-color: rgb(255 255 255 / 36%); '>
-                    <h1 style='text-align: center; color: rgb(255 255 255 / 36%) ;'>Core Processing Results</h1>
-                    <ul style='list-style-type: none; padding: 0;'>
-
-            """
-            error_format = ";[]'',"
-            for chunk in result:
-                if 'Errors' in chunk:
-                    data = chunk.split(",")
-                    for item in data:
-                        yield f"<li style='color: black; min-width: 1000px;max-width: 1000px; padding: 5px; background-color: rgb(255 255 255 / 36%);font-family: sans-serif; '>{item}<span style='margin-left: 20px;'>❌</span></li>\n"
-                else:
-                    yield f"                        <li style='color: black; min-width: 1000px;max-width: 1000px; padding: 5px;  background-color: rgb(255 255 255 / 36%);font-family: sans-serif; '>{chunk}<span style='margin-left: 20px;'>&#10003</span></li>\n"
-
-            yield """
-                    </ul>
-                                <button onclick='goBack()' style='margin-top: 20px; background-color: #39A7FF; color: black; padding: 10px; border: none; cursor: pointer;'>Go Back</button>
-                            </div>
-
-                            <script>
-                                function goBack() {
-                                    window.location.href = "/core";
-                                }
-                            </script>
-                        </body>
-                        </html>
-                """
-
-        response = StreamingHttpResponse(
-            streaming_content=stream_response(), content_type="text/html")
-        response["Cache-Control"] = "no-cache"
-
-        return response
 
     context = {'form': form}
 
@@ -112,8 +94,15 @@ def core(request):
 
 
 def get_service_list(request):
+    ''' 
+        this function receive the element network link or router or DIA or POP and 
+        get the services from quickbase in case network link or gogs in case router or pop 
 
-    DEVICE_NAME_STANDARD = r'^[A-Z0-9]{3,}-[A-Z]+[0-9]{0,}$'
+        return path if network were choosen 
+        return router if DIA or POP were choosen 
+
+    '''
+    DEVICE_NAME_STANDARD = r'[a-zA-Z0-9]{4}-[ARASWLSRLER]{2,3}[0-9]'
 
     DIA_STANDARD = r'[a-zA-Z0-9].{3,4}DIA[0-9]{1,2}'
     PATH_STANDARD = r'[a-zA-Z0-9]{4}(?:-[a-zA-Z0-9]{4})+'
@@ -177,16 +166,24 @@ def test_services(request):
             print(len(results))
             for result in results:
                 print(type(result), 'result')
+                print(result, 'result')
                 if result != None:
-                    registros = Troubleshooting_registration(
-                        core_quickbase_id=data_id,
-                        circuito=result['circuito'],
-                        resultadoping=result['resultadoping'],
-                        status=result['status'],
-                        interfacestatus=result['interfacestatus'],
-                        statusquickbase=result['statusquickbase'],
-                    )
-                    registros.save()
+                    core_quickbase_id = data_id,
+                    circuito = result.get('circuito'),
+                    resultadoping = result.get('resultadoping'),
+                    status = result.get('status'),
+                    interfacestatus = result.get('interfacestatus'),
+                    statusquickbase = result.get('statusquickbase'),
+                    if core_quickbase_id and circuito and resultadoping and status and interfacestatus and statusquickbase:
+                        registros = Troubleshooting_registration(
+                            core_quickbase_id=data_id,
+                            circuito=result.get('circuito'),
+                            resultadoping=result.get('resultadoping'),
+                            status=result.get('status'),
+                            interfacestatus=result.get('interfacestatus'),
+                            statusquickbase=result.get('statusquickbase'),
+                        )
+                        registros.save()
 
             data = {'services': results}
 
@@ -257,10 +254,8 @@ def cancel_tickets_zendesk(request):
         if query.exists():
             # Retrieve the first instance from the query
             core_instance = query.first()
-
             # Process the tickets
             tickets = core_instance.tickets_zendesk_generated.strip().split(',')
-            print('ticketssssssssssssssssssssssss', tickets)
             result = cancel_tickets(tickets)
 
             if result is not None:
@@ -277,116 +272,118 @@ def cancel_tickets_zendesk(request):
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
 
-def comparar_strings(string_anterior, string_posterior):
-
-    pattern = re.compile(r'Upload: (\d+), Download: (\d+)')
-
-    # Encontrar correspondências nas strings
-    match_anterior = pattern.search(string_anterior)
-    match_posterior = pattern.search(string_posterior)
-
-    # Verificar se houve correspondências e extrair os números
-    if match_anterior and match_posterior:
-        upload_anterior = int(match_anterior.group(1))
-        download_anterior = int(match_anterior.group(2))
-
-        upload_posterior = int(match_posterior.group(1))
-        download_posterior = int(match_posterior.group(2))
-
-        # Verificar se os valores estão próximos
-        if upload_anterior and upload_posterior and download_anterior and download_posterior != 0:
-            return True
+def create_core(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        error = None
+        result = Create_core_qb_main(data)
+        if 'core_id' and 'id' in result:
+            core_id = result.get('core_id')
+            id = result.get('id')
+            response_data = {
+                'core_id': core_id,
+                'id': id,
+                'error': error}
+            print(response_data)
+            return JsonResponse(response_data)
         else:
-            return False
-    elif 'None data retrived' in string_anterior and string_posterior:
-        print("None data retrived")
-        return None
+            response_data = {
+                'result': result}
+            return JsonResponse(response_data, status=400)
+
+    return JsonResponse({'error': 'Método não permitido'}, status=405)
+
+
+def create_tickets(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+
+        ticket = generate_tickets_zendesk(data)
+        customer_prefix = data.get('prefix')
+
+        response_data = {
+            'result': f'Successfully generated  {ticket} customer {customer_prefix}',
+            'ticket_id': ticket}
+        return JsonResponse(response_data)
+
+    return JsonResponse({'error': 'Invalid post '}, status=405)
+
+
+def InsertServices(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        services = data.get('services')
+        core_id = data.get('core_id')
+        services = insert_services_into_existent_core(
+            core_id=core_id, service_data=services)
+        core_id = core_id
+        response_data = {
+            'result': f'Insered services into core {core_id} successfully'}
+        return JsonResponse(response_data)
     else:
-        print("nao foi possivel avaliar as strings")
-        return False
+        return JsonResponse({'error': 'Invalid post '}, status=400)
 
 
-def verificar_circuitos(circuitos_ok, circuitos_nok, circuitos_inconclusive):
-    percentual_ok = (len(circuitos_ok) /
-                     (len(circuitos_ok) + len(circuitos_nok) + len(circuitos_inconclusive))) * 100
+def SendEmail(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        core_id = data.get('core_id')
+        tickets = data.get('tickets')
+        start_date = data.get('start_date')
 
-    percentual_nok = (len(circuitos_nok) /
-                      (len(circuitos_ok) + len(circuitos_nok) + len(circuitos_inconclusive))) * 100
+        email = EmailNotification()
+        email.send_notification(core_id=core_id,
+                                tickets=tickets,
+                                date=start_date)
 
-    percentual_inc = (len(circuitos_inconclusive) /
-                      (len(circuitos_ok) + len(circuitos_nok) + len(circuitos_inconclusive))) * 100
-    print("Circuitos OK:", len(circuitos_ok))
-    print("Circuitos NOK:", len(circuitos_nok))
-    print("Circuitos inconclusivo:", len(circuitos_inconclusive))
+        response_data = {
+            'result': f'Genetated Email successfully for core {core_id}'}
+        return JsonResponse(response_data)
 
-    print('Percentual de circuitos OK: {:.2f}%'.format(percentual_ok))
-    print('Percentual de circuitos NOK: {:.2f}%'.format(percentual_nok))
-    print('Percentual de circuitos INC : {:.2f}%'.format(percentual_inc))
-    if percentual_ok >= 50:
-        print("Mais de 50% dos circuitos estão OK. Tudo OK!")
-        response = "Tudo OK!"
     else:
-        response = "Percentual abaixo de 50%."
-
-    return 'Percentual de circuitos OK: {:.2f}%'.format(percentual_ok)
+        return JsonResponse({'error': 'Invalid post '}, status=400)
 
 
-def valid_services(request):
-    # Supondo que Core seja um modelo Django
-    core = Core.objects.filter(id="44")
+def CreateEventCalendar(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        affected_services = data.get('affected_services')
+        start_date = data.get('start_date')
+        end_date = data.get('end_date')
+        print(data)
+        kwargs = {
+            'get_services_affecteds': affected_services,
+            'start_date': start_date,
+            'end_date': end_date,
+        }
 
-    # Convert start and end date strings to datetime objects
-    start_date_activity_core = datetime.strptime(
-        core[0].start_date.strftime("%Y-%m-%d %H:%M"), "%Y-%m-%d %H:%M"
-    )
-    end_date_activity_core = datetime.strptime(
-        core[0].end_date.strftime("%Y-%m-%d %H:%M"), "%Y-%m-%d %H:%M"
-    )
+        response = CreateCalendarEvent(**kwargs)
+        print(response)
+        response_data = {
+            'result': f'Generated Calendar event successfullly '}
+        return JsonResponse(response_data)
+    else:
+        return JsonResponse({'error': 'Invalid post '}, status=400)
 
-    tests = Troubleshooting_registration.objects.filter(
-        core_quickbase_id="44").order_by('-circuito')
 
-    atividade_anterior_list = []
-    atividade_posterior_list = []
+def CreateZabbixMaintenance(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        print(data)
+        core_id = data.get('core_id')
+        start_maintenance = data.get('start_date')
+        end_maintenance = data.get('end_date')
+        services = data.get('services')
+        id = data.get('id')
 
-    for test in tests:
-        # Convert test.date to datetime object if needed
-        test_date = datetime.strptime(
-            test.date.strftime("%Y-%m-%d %H:%M:%S"), "%Y-%m-%d %H:%M:%S"
-        )
+        zabbix_maintenance_id = create_zabbix_maintenance(id=id,
+                                                          services=services,
+                                                          start_maintenance=start_maintenance,
+                                                          end_maintenance=end_maintenance,
+                                                          core_id=core_id)
 
-        if test_date < start_date_activity_core:
-            atividade_anterior_list.append(test)
-            print("Test realizado antes da atividade")
-        elif test_date > end_date_activity_core:
-            atividade_posterior_list.append(test)
-            print("Test realizado depois da atividade")
-
-    circuitos_ok = set()
-    circuitos_nok = set()
-    circuitos_inconclusive = set()
-
-    print(len(atividade_anterior_list), len(atividade_posterior_list))
-    for atividade_posterior in atividade_posterior_list:
-        for atividade_anterior in atividade_anterior_list:
-            print(atividade_posterior.circuito, atividade_anterior.circuito)
-            if atividade_posterior.circuito == atividade_anterior.circuito:
-                # Supondo que comparar_strings seja uma função adequada
-                print("Interface status inicial:", atividade_anterior.interfacestatus,
-                      "Interface status Final:", atividade_posterior.interfacestatus)
-
-                result_comparation = comparar_strings(
-                    atividade_anterior.interfacestatus, atividade_posterior.interfacestatus)
-                if result_comparation is True:
-                    circuitos_ok.add(atividade_anterior.circuito)
-                elif result_comparation is False:
-                    circuitos_nok.add(atividade_anterior.circuito)
-                else:
-                    circuitos_inconclusive.add(atividade_anterior.circuito)
-            else:
-                print("As strings são diferentes.")
-        else:
-            print("circuitos diferentes")
-    verificar_circuitos(circuitos_ok, circuitos_nok, circuitos_inconclusive)
-
-    return None
+        response_data = {
+            'result': f'Generated Zabbix Maintenance {zabbix_maintenance_id} '}
+        return JsonResponse(response_data)
+    else:
+        return JsonResponse({'error': 'Invalid post '}, status=400)

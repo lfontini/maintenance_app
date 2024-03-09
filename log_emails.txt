@@ -195,3 +195,14 @@
 2024-03-09 11:09:58,470 Not Found: /favicon.ico
 2024-03-09 11:21:19,987 C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\urls.py changed, reloading.
 2024-03-09 11:22:24,535 C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\urls.py changed, reloading.
+2024-03-09 13:03:45,445 C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\maintenance_django\settings.py changed, reloading.
+2024-03-09 13:06:06,710 Not Found: /docs
+2024-03-09 13:08:05,077 C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\views.py changed, reloading.
+2024-03-09 13:08:19,588 C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\views.py changed, reloading.
+2024-03-09 13:09:58,585 C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\urls.py changed, reloading.
+2024-03-09 13:10:16,876 C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\urls.py changed, reloading.
+2024-03-09 13:10:27,206 C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\urls.py changed, reloading.
+2024-03-09 13:10:35,152 C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\urls.py changed, reloading.
+2024-03-09 13:11:23,448 C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\maintenance_django\urls.py changed, reloading.
+2024-03-09 13:11:35,962 C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\maintenance_django\urls.py changed, reloading.
+2024-03-09 15:17:26,149 C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\test_cpe.py changed, reloading.

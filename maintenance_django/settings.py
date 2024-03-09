@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'apps.maintenance',
     'django_celery_beat',
     'celery',
-    'django_celery_results'
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -170,3 +170,6 @@ CELERY_TIMEZONE = 'UTC'
 
 
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+
+
+MKDOCS_CONFIG_FILE = 'docs/mkdocs.yml'

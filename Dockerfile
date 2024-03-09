@@ -44,7 +44,6 @@ COPY . /app/
 
 # Expose the port on which the Django server will run (default is 8000)
 EXPOSE 8000
-EXPOSE 8080
 
 
 COPY start.sh /start.sh

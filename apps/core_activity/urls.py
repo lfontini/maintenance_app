@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from django.views.generic import RedirectView
 import os
-from dotenv import load_dotenv
+
 
 # This file is responsable for the urls provided
 
@@ -50,7 +50,7 @@ urlpatterns = [
 
     path('cancel_tickets_zendesk/', views.cancel_tickets_zendesk,
          name='cancel_tickets'),
- 
+
 
     path('create_core/', views.create_core,
          name='create_core'),
@@ -61,18 +61,15 @@ urlpatterns = [
     path('insert_services/', views.InsertServices,
          name='insert_services'),
 
-     path('send_email/', views.SendEmail,
+    path('send_email/', views.SendEmail,
          name='send_email'),
 
-   
 
-     path('create_event_calendar/', views.CreateEventCalendar,
+    path('create_event_calendar/', views.CreateEventCalendar,
          name='create_event_calendar'),
 
-     path('create_zabbix_maintenance/', views.CreateZabbixMaintenance,
+    path('create_zabbix_maintenance/', views.CreateZabbixMaintenance,
          name='create_zabbix_maintenance'),
-     
-     path('documentation/', RedirectView.as_view(url=os.environ['DOCS_URL']), name='documentation'),
 
 
 ]

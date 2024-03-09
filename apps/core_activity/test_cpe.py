@@ -109,8 +109,8 @@ def PingTest(ip):
      '''
     treated_ip = ip.split("/")[0]
     print(treated_ip, 'treated_ip')
-    # ping = subprocess.getoutput(f"ping  {treated_ip} -c 4")  # linux
-    ping = subprocess.getoutput(f"ping  {treated_ip} ")  # windows
+    ping = subprocess.getoutput(f"ping  {treated_ip} -c 4")  # linux
+    # ping = subprocess.getoutput(f"ping  {treated_ip} ")  # windows
 
     print(ping)
     return ping

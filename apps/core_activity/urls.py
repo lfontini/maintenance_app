@@ -71,5 +71,8 @@ urlpatterns = [
     path('create_zabbix_maintenance/', views.CreateZabbixMaintenance,
          name='create_zabbix_maintenance'),
 
+    path('documentation/', RedirectView.as_view(
+        url='http://maintenance-application-doc-maintenance-app-project.master.ignetworks.com/'), name='documentation'),
+
 
 ]

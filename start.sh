@@ -14,9 +14,21 @@ echo "from django.contrib.auth.models import User; \
 User.objects.create_superuser('admin','admin@test.com', 'admin')" | python3 manage.py shell
 
 #start celery beat e worker 
+# celery -A maintenance_django  beat -l INFO &
+# celery -A  maintenance_django  worker  --loglevel=info &
+
+
+# #start django server 
+# python3 manage.py runserver 0.0.0.0:8000 
+
+#start celery beat e worker 
 celery -A maintenance_django  beat -l INFO &
 celery -A  maintenance_django  worker  --loglevel=info &
+cd maintenance_documentation/ mkdocs serve -a 0.0.0.0:8080 &
+
 
 #start django server 
+cd ../ &
 python3 manage.py runserver 0.0.0.0:8000 
+
 

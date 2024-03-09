@@ -1,7 +1,8 @@
 from django.urls import path
 from . import views
 from django.views.generic import RedirectView
-
+import os
+from dotenv import load_dotenv
 
 # This file is responsable for the urls provided
 
@@ -70,6 +71,8 @@ urlpatterns = [
 
      path('create_zabbix_maintenance/', views.CreateZabbixMaintenance,
          name='create_zabbix_maintenance'),
-     path('documentation/', RedirectView.as_view(url='http://localhost:8001/'), name='documentation'),     
+     
+     path('documentation/', RedirectView.as_view(url=os.environ['DOCS_URL']), name='documentation'),
+
 
 ]

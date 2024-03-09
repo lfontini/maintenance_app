@@ -156,3 +156,42 @@
 2024-03-08 14:50:59,473 Zabbix API version is: 5.2.6
 2024-03-08 14:51:05,183 JSON-RPC Server Endpoint: https://zabbix.ignetworks.com/zabbix/api_jsonrpc.php
 2024-03-08 14:51:05,276 Zabbix API version is: 5.2.6
+2024-03-08 15:43:19,676 data received from send_notification function 2863 [220499, 220500, 220501, 220502, 220503]
+2024-03-08 15:43:26,793 file_cache is only supported with oauth2client<4.0.0
+2024-03-08 15:43:28,273 JSON-RPC Server Endpoint: https://zabbix.ignetworks.com/zabbix/api_jsonrpc.php
+2024-03-08 15:43:28,652 Zabbix API version is: 5.2.6
+2024-03-08 15:43:32,267 JSON-RPC Server Endpoint: https://zabbix.ignetworks.com/zabbix/api_jsonrpc.php
+2024-03-08 15:43:32,360 Zabbix API version is: 5.2.6
+2024-03-08 17:28:22,647 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,640 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,746 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,758 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,761 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,770 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,774 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,779 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,802 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,809 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,814 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,815 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,822 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,826 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,827 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,829 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,834 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,855 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,856 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,856 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,859 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,896 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,913 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:22,941 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:23,005 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:23,052 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:23,063 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:23,079 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:23,079 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-08 17:28:23,080 Socket exception: Foi forçado o cancelamento de uma conexão existente pelo host remoto (10054)
+2024-03-09 11:09:58,470 Not Found: /favicon.ico
+2024-03-09 11:21:19,987 C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\urls.py changed, reloading.
+2024-03-09 11:22:24,535 C:\Users\Lucas Fontini\Desktop\DJANGO_JANELA\maintenance_django\apps\core_activity\urls.py changed, reloading.

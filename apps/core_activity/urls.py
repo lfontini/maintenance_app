@@ -72,7 +72,7 @@ urlpatterns = [
          name='create_zabbix_maintenance'),
 
     path('documentation/', RedirectView.as_view(
-        url='http://maintenance-application-doc-maintenance-app-project.master.ignetworks.com/'), name='documentation'),
+        url='http://doc-maintenance-app-project.master.ignetworks.com/'), name='documentation'),
 
 
 ]

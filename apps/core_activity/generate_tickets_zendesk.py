@@ -304,10 +304,10 @@ def prepare_tickets_worker(args):
                     # print('customer_name', customer_name)
                     # print('requester_id', contact_list.split(",")[0])
                     # print('contact_copy', contact_list.split(","))
-            #         # requester_id = contact_list.split(",")[0]
-            #         # contact_copy = [contact_list]
-                    requester_id = 1266469881070
-                    contact_copy = [21200390635547]
+                    requester_id = contact_list.split(",")[0]
+                    contact_copy = [contact_list]
+                    # requester_id = 1266469881070
+                    # contact_copy = [21200390635547]
                     service = customers[customer][0]
                     service_info = services_info.get(service, None)
 

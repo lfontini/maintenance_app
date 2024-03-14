@@ -121,8 +121,8 @@ def Create_core_qb_main(data):
 
                 }
 
-                core_id = Make_quickbase_request(core_data)
-                # core_id = '2863'
+                # core_id = Make_quickbase_request(core_data)
+                core_id = '2863'
                 if core_id:
                     formulario = form.save(commit=False)
                     formulario.core_quickbase_id = core_id
@@ -154,8 +154,8 @@ def Create_core_qb_main(data):
                 "97": {"value": common_fields['location']},
                 "98": {"value": remote_hands_information}
             }
-            core_id = Make_quickbase_request(core_data)
-            # core_id = '2863'
+            # core_id = Make_quickbase_request(core_data)
+            core_id = '2863'
             if core_id:
                 formulario = form.save(commit=False)
                 formulario.core_quickbase_id = core_id

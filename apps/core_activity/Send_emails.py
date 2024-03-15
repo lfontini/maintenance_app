@@ -17,10 +17,6 @@ load_dotenv()
 
 def Auth_Gmail():
 
-    current_directory = os.getcwd()
-
-    credentials_file_path = os.path.join(current_directory, 'credentials_gmail.json')
-
     CLIENT_ID = os.getenv('CLIENT_ID_MAIL_MW')
 
     CLIENT_SECRET = os.getenv('SECRET_MAIL_MW')
@@ -29,8 +25,8 @@ def Auth_Gmail():
 
     REDIRECT_URI = 'urn:ietf:wg:oauth:2.0:oob'
 
-    storage = Storage(credentials_file_path)
-    
+    storage = Storage("/app/apps/core_activity/credentials_gmail.json")
+
     credentials = storage.get()
     if not credentials:
         # Run through the OAuth flow and retrieve credentials

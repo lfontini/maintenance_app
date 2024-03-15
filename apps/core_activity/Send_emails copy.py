@@ -3,52 +3,30 @@ from email.message import EmailMessage
 from dotenv import load_dotenv
 import os
 from jinja2 import Template
-from googleapiclient.discovery import build
-import httplib2
-from oauth2client.client import OAuth2WebServerFlow
-from oauth2client.file import Storage
-import base64
-from googleapiclient.errors import HttpError
-from email.message import EmailMessage
-
-# Load environment variables from the .env file
-load_dotenv()
+import logging
 
 
-def Auth_Gmail():
-    CLIENT_ID = os.getenv('CLIENT_ID_MAIL_MW')
-    CLIENT_SECRET = os.getenv('SECRET_MAIL_MW')
-    OAUTH_SCOPE = 'https://mail.google.com/'
-    REDIRECT_URI = 'urn:ietf:wg:oauth:2.0:oob'
-    storage = Storage(
-        'maintenance_django/apps/core_activity/credentials_gmail.json')
-    credentials = storage.get()
-    if not credentials:
-        # Run through the OAuth flow and retrieve credentials
-        flow = OAuth2WebServerFlow(
-            CLIENT_ID, CLIENT_SECRET, OAUTH_SCOPE, REDIRECT_URI)
-        authorize_url = flow.step1_get_authorize_url()
-        print('Go to the following link in your browser: ' + authorize_url)
-        code = input('Enter verification code: ').strip()
-        credentials = flow.step2_exchange(code)
-        storage.put(credentials)
-    http = httplib2.Http()
-    http = credentials.authorize(http)
-    return http
+logging.basicConfig(level=logging.INFO, filename='log_emails.txt',
+                    format="%(asctime)s %(message)s")
 
 
 class EmailNotification:
     def __init__(self):
-        self.to_email = os.getenv('EMAIL_TO')
-        self.from_email = os.getenv('EMAIL_FROM')
+        # Load environment variables from the .env file
+        load_dotenv()
+        self.smtp_server = 'smtp.gmail.com'
+        self.smtp_port = 587
+        self.smtp_username = os.getenv('SMTP_USERNAME')
+        self.smtp_password = os.getenv('SMTP_PASSWORD')
+        self.to_email = os.getenv('EMAIL')
         self.logo_url = 'https://static.wixstatic.com/media/7e4e6f_29d3996755c4460ab5fed99424c9db85~mv2.png/v1/crop/x_57,y_221,w_1446,h_369/fill/w_255,h_65,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Logotipo%20IG_Mesa%20de%20trabajo%201.png'
-        self.cred = Auth_Gmail()
 
     def generate_notification_template(self, core_id, tickets):
+
         '''
-
+        
         Create a template 
-
+        
         '''
         template_string = """
         <!DOCTYPE html>
@@ -142,9 +120,10 @@ class EmailNotification:
     def send_notification(self, core_id, tickets, date):
         ''' This function receive data when it`s callled and create a template 
         email and send to noc informing the core maintenance and the tickets generated
-
+        
         '''
-        service = build('gmail', 'v1', http=self.cred)
+        logging.info(
+            "data received from send_notification function %s %s", core_id, tickets)
 
         date_formated = date.split("T")[0]
         hours = date.split("T")[1]
@@ -152,26 +131,18 @@ class EmailNotification:
         content = self.generate_notification_template(core_id, tickets)
 
         msg = EmailMessage()
-
         msg.add_alternative(content, subtype='html')
 
         msg['Subject'] = subject
-        msg['From'] = self.from_email
+        msg['From'] = self.smtp_username
         msg['To'] = self.to_email
 
         try:
-            # encoded message
-            encoded_message = base64.urlsafe_b64encode(msg.as_bytes()).decode()
-            create_message = {"raw": encoded_message}
-            # pylint: disable=E1101
-            send_message = (
-                service.users()
-                .messages()
-                .send(userId="me", body=create_message)
-                .execute()
-            )
-            print(f'Message Id: {send_message["id"]}')
+            with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
+                server.starttls()  # Use TLS
+                server.login(self.smtp_username, self.smtp_password)
+                server.send_message(msg)
             print("Email sent successfully!")
         except Exception as e:
             print(f"Error sending email: {e}")
-
+            logging.error(f"Error sending email: {e}")

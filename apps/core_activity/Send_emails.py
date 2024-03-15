@@ -16,12 +16,21 @@ load_dotenv()
 
 
 def Auth_Gmail():
+
+    current_directory = os.getcwd()
+
+    credentials_file_path = os.path.join(current_directory, 'credentials_gmail.json')
+
     CLIENT_ID = os.getenv('CLIENT_ID_MAIL_MW')
+
     CLIENT_SECRET = os.getenv('SECRET_MAIL_MW')
+
     OAUTH_SCOPE = 'https://mail.google.com/'
+
     REDIRECT_URI = 'urn:ietf:wg:oauth:2.0:oob'
-    storage = Storage(
-        'maintenance_django/apps/core_activity/credentials_gmail.json')
+
+    storage = Storage(credentials_file_path)
+    
     credentials = storage.get()
     if not credentials:
         # Run through the OAuth flow and retrieve credentials
@@ -174,4 +183,3 @@ class EmailNotification:
             print("Email sent successfully!")
         except Exception as e:
             print(f"Error sending email: {e}")
-

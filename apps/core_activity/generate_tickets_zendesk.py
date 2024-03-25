@@ -357,12 +357,11 @@ def prepare_tickets(services_info, start_date, end_date, down_time, location, de
     # the service who will be create main ticket
     customer_service = list(services_info.keys())[0]
 
-    # get the first customer id (email id zendesk)
-    # requester_id = customer_contact.split(",")[0]
-    requester_id = 1266469881070  # REQUEST FOR TEST
-    contact_copy = [21200390635547]      # EMAIL IN COPY
+    # requester_id = 1266469881070  # REQUEST FOR TEST
+    # contact_copy = [21200390635547]      # EMAIL IN COPY
     # get the other ids to send as a copy the ticket
-    # contact_copy = customer_contact
+    requester_id = customer_contact.split(",")[0]  # prod
+    contact_copy = customer_contact  # prod
     for service in services_info:
         status = services_info[service]['status'].lower()
         if 'delivered' in status:

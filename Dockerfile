@@ -1,5 +1,5 @@
 # Use a base image of Ubuntu
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
 ENV TZ=America/Sao_Paulo
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone

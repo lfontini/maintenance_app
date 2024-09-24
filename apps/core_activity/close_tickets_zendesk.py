@@ -95,11 +95,12 @@ def generate_notification_template():
 
             
             
-            <p style="margin-bottom: 20px;"class="title">We would like to inform you that the maintenance windows has been completed </p>
-            <p style="margin-bottom: 50px;">If you are experincing some issue or any service relate in this window, please contact our team 
-            tickets@ignetworks.com and we will check it. </p>
+            <p style="margin-bottom: 20px;"class="title">We would like to inform you that the scheduled maintenance window has been successfully completed.</p>
+            <p style="margin-bottom: 50px;">Should you experience any issues or service disruptions related to this maintenance, please do not hesitate to contact our team at tickets@ignetworks.com, and we will promptly investigate the matter.
+Thank you for your cooperation.</p>
             <br>
-            <p>Thank you,</p>
+            <br>
+            <p>Best regards,</p>
 
         </div>
     </div>

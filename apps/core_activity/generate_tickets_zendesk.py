@@ -223,10 +223,7 @@ def Mount_tickets(data):
                              "public": True}
         ticket["subject"] = "Planned work " + data['start_date']
         ticket["assignee_id"] = 16632994687
-<<<<<<< HEAD
-=======
         ticket["status"] = "open"
->>>>>>> 8bbec9212f269790e9f24d06b0840eb9c5a4699b
         ticket["priority"] = 'normal'
         ticket["requester_id"] = data['requester_id']
         ticket["submitter_id"] = 16632994687

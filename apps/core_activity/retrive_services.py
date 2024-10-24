@@ -72,7 +72,7 @@ def Get_pops_gogs(device_name):
 
     raw_file_url = f'https://{user}:{password}@gogs.ignetworks.com/IG_Networks/POPs/raw/main/{device_name}'
     try:
-        response = requests.get(raw_file_url)
+        response = requests.get(raw_file_url, verify=False)
         print("gogsss ", response)
 
         if response.status_code == 200:

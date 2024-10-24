@@ -71,8 +71,9 @@ def Get_pops_gogs(device_name):
     '''
 
     raw_file_url = f'https://{user}:{password}@gogs.ignetworks.com/IG_Networks/POPs/raw/main/{device_name}'
+    
     try:
-        response = requests.get(raw_file_url)
+        response = requests.get(raw_file_url, verify=False)
         print("gogsss ", response)
 
         if response.status_code == 200:
@@ -82,6 +83,7 @@ def Get_pops_gogs(device_name):
             print(f"Erro: Response code is  {response.status_code}")
             return None
     except:
+        print("raw_file_url", raw_file_url)
         print("Error to access gogs, please check connection")
         return None
 

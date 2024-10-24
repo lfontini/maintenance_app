@@ -697,7 +697,7 @@ async function getServicesInfo(newServices) {
         for (const serviceId of ids) {
             const body = {
                 from: "bfwgbisz4",
-                select: [465, 467, 337, 36, 25, 3, 511, 700],
+                select: [465, 467, 337, 36, 25, 3, 511, 700, 12],
                 where: "{7.CT.'" + serviceId + "'}"
             };
 
@@ -716,7 +716,8 @@ async function getServicesInfo(newServices) {
                             pais: field['467'].value,
                             status: field['36'].value,
                             diversidade: field['511'].value,
-                            servicoDiversoRelacionado: field['700'].value
+                            servicoDiversoRelacionado: field['700'].value,
+                            customer_cid: field['12'].value
                         };
                         const atributosString = JSON.stringify(attributes[serviceId]);
                         const statusClass = field['36'].value.toLowerCase() === 'cancelled' ? 'cancelled' : '';

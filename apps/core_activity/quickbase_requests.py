@@ -15,12 +15,13 @@ headers = {
 }
 
 
-def fetch_activity_data(database, fields, where):
+def fetch_activity_data(database, fields, where, sortby):
     url = "https://api.quickbase.com/v1/records/query"
     params = {
         "from": database,
         "select": fields,
-        "where": where
+        "where": where,
+        "sortBy": sortby
     }
 
     response = requests.post(url, headers=headers, json=params)
@@ -106,4 +107,3 @@ def get_serves_from_paths(path):
 
     print("All attempts failed. Exiting.")
     return None
-

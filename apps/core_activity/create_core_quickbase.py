@@ -98,7 +98,7 @@ def Create_core_qb_main(data):
 
                 internet_name = fetch_activity_data(database="bjx5t3hbx",
                                                     fields=[6],
-                                                    where="{3.EX." + f"'{internet_id}'"+"}")
+                                                    where="{3.EX." + f"'{internet_id}'"+"}",sortby=[{"fieldId": 6, "order": "ASC"}])
 
                 new_date_formatted = Ajust_Core_date(
                     date=common_fields['start_date'])
@@ -122,7 +122,7 @@ def Create_core_qb_main(data):
                 }
 
                 core_id = Make_quickbase_request(core_data)
-                # core_id = '1010'
+                #core_id = '1010'
                 if core_id:
                     formulario = form.save(commit=False)
                     formulario.core_quickbase_id = core_id
@@ -135,7 +135,7 @@ def Create_core_qb_main(data):
         if activity_related_to == 'network_link':
             network_link = data.get('network_link')
             network_link_name = fetch_activity_data(database="bjvepudtt", fields=[
-                7], where="{3.EX." + f"'{network_link}'"+"}")
+                7], where="{3.EX." + f"'{network_link}'"+"}", sortby=[{"fieldId": 7, "order": "ASC"}])
 
             new_date_formatted = Ajust_Core_date(common_fields['start_date'])
             duration_activity = Calc_duration_time_core(
@@ -168,7 +168,7 @@ def Create_core_qb_main(data):
         if activity_related_to == 'pop':
             pop = data.get('pop')
             pop_name = fetch_activity_data(database="bjvepsjqq", fields=[
-                8], where="{3.EX." + f"'{pop}'"+"}")
+                8], where="{3.EX." + f"'{pop}'"+"}",sortby=[{"fieldId": 8, "order": "ASC"}])
             print(pop_name)
             new_date_formatted = Ajust_Core_date(common_fields['start_date'])
 

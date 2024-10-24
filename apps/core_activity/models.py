@@ -18,13 +18,13 @@ ACTIVITY_RELATED_TO_CHOICES = [
 # Field 8 = POP ID
 
 pop_values = fetch_activity_data(
-    "bjvepsjqq", [3, 8],  where="{36.CT.'Active'}")
+    "bjvepsjqq", [3, 8],  where="{36.CT.'Active'}", sortby=[{"fieldId": 8, "order": "ASC"}])
 internet_values = fetch_activity_data(
-    "bjx5t3hbx", [3, 6], where="{31.CT.'Active'}")
+    "bjx5t3hbx", [3, 6], where="{31.CT.'Active'}", sortby=[{"fieldId": 6, "order": "ASC"}])
 network_link_values = fetch_activity_data(
-    "bjvepudtt", [3, 7], where="{38.CT.'Active'}")
+    "bjvepudtt", [3, 7], where="{38.CT.'Active'}", sortby=[{"fieldId": 7, "order": "ASC"}])
 ign_eng_values = fetch_activity_data(
-    "bgcihz8py", [3, 53], where="{52.CT.'Active'}")
+    "bgcihz8py", [3, 53], where="{52.CT.'Active'}", sortby=[{"fieldId": 53, "order": "ASC"}])
 
 
 # pop list from quickbase para POP_ID_CHOICES

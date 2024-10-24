@@ -28,6 +28,7 @@ headers = {
 
 def generate_notification_template(context):
     # Defina o template HTML
+
     template_string = """
 <!DOCTYPE html>
 <html>
@@ -132,10 +133,21 @@ def generate_notification_template(context):
             </tr>
             <tr>
                 <td>Affected Service(s)</td>
-                <td>
-                    {% for service in services %}
-                        {{ service }}<br>
-                    {% endfor %}
+                 <td>
+                    {% for service_id, service_details in services.items() %}
+                                <div style="border: 1px solid black; padding: 10px; margin-bottom: 10px; background-color: lightblue;">
+                                    <strong>Affected Service:</strong> {{ service_id }}<br>
+                                    <strong>Address:</strong> {{ service_details.endereco }}<br>
+                                    <strong>City:</strong> {{ service_details.cidade }}<br>
+                                    <strong>Customer CID:</strong> 
+                                    {% if service_details.customer_cid %}
+                                        {{ service_details.customer_cid }}
+                                    {% else %}
+                                        Not identified
+                                    {% endif %}
+                                    <br>
+                                </div>
+                            {% endfor %}
                 </td>
             </tr>
         </table>
@@ -211,7 +223,6 @@ def Mount_tickets(data):
                              "public": True}
         ticket["subject"] = "Planned work " + data['start_date']
         ticket["assignee_id"] = 16632994687
-        ticket["status"] = "pending"
         ticket["priority"] = 'normal'
         ticket["requester_id"] = data['requester_id']
         ticket["submitter_id"] = 16632994687
@@ -293,7 +304,6 @@ def prepare_tickets_worker(args):
     if customers:
         for customer in customers.keys():
             service = customers[customer][0]
-            print('services', service)
             if service:
                 print("entrou aqui ")
                 services = customers[customer]
@@ -310,7 +320,6 @@ def prepare_tickets_worker(args):
                     # contact_copy = [21200390635547]
                     service = customers[customer][0]
                     service_info = services_info.get(service, None)
-
                     if service_info is not None:
                         id, address, end_customer, city, country = (
                             service_info.get('id'),
@@ -353,19 +362,19 @@ def prepare_tickets_worker(args):
 
 def prepare_tickets(services_info, start_date, end_date, down_time, location, description, customer_contact_info):
     customer_contact, customer_name = customer_contact_info
-    services = []
+    services = {}
     # the service who will be create main ticket
     customer_service = list(services_info.keys())[0]
 
     # requester_id = 1266469881070  # REQUEST FOR TEST
     # contact_copy = [21200390635547]      # EMAIL IN COPY
     # get the other ids to send as a copy the ticket
-    requester_id = customer_contact.split(",")[0]  # prod
-    contact_copy = customer_contact  # prod
+    requester_id = customer_contact.split(",")[0]  # PROD
+    contact_copy = customer_contact  # PROD
     for service in services_info:
         status = services_info[service]['status'].lower()
         if 'delivered' in status:
-            services.append(service)
+            services[service] = services_info[service]
 
     city = services_info[customer_service].get('cidade')
     country = services_info[customer_service].get('pais')
@@ -427,7 +436,6 @@ def create_ticket(data_ticket):
     if data_ticket:
         payload = {"ticket": data_ticket}
 
-        # Used requests.post instead of requests.request
         response = requests.post(url=url, headers=headers, json=payload)
         ticket_id = response.json()['ticket']['id']
 
@@ -485,7 +493,7 @@ def generate_tickets_zendesk(data):
     down_time = data.get('form_core').get('downtime')
     location = data.get('form_core').get('location')
 
-    # this description for ticket is different with core descriptions, because the customer will receive
+    # this description for ticket is different with core debecause the customer will receive
     description = data.get('form_core').get('Description_to_customers')
     customer_contact_info = data.get('services').get('contacts')
 

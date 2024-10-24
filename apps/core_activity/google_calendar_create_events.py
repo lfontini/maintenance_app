@@ -69,7 +69,7 @@ class EventCreator:
                 },
             }
             print(event)
-            event = service.events().insert(calendarId='primary', body=event).execute()
+            event = service.events().insert(calendarId='qbinterface@ignetworks.com', body=event).execute()
             print(event)
             print('Event created: %s' % (event.get('htmlLink')))
 

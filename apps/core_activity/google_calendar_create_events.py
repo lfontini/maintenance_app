@@ -67,6 +67,11 @@ class EventCreator:
                     'dateTime': self.end_time,
                     'timeZone': 'America/Sao_Paulo',
                 },
+                'attendees': [
+                    {'email': 'engineering@ignetworks.com'},
+                    {'email': 'noc@ignetworks.com'},
+                    # add to include guests 
+                ],
             }
             print(event)
             event = service.events().insert(calendarId='qbinterface@ignetworks.com', body=event).execute()

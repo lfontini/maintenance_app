@@ -8,6 +8,8 @@ load_dotenv()
 user = os.getenv('user')
 password = os.getenv('password')
 TOKEN_NETBOX = os.getenv('TOKEN_NETBOX')
+NETBOX_URI = os.getenv('URL_NETBOX')
+
 
 
 def list_all_devices_pop(host_pop):
@@ -16,8 +18,7 @@ def list_all_devices_pop(host_pop):
     routers and switches, this data will be used into the select in front end
     
     '''
-    url = f"https://netbox.master.ignetworks.com/api/dcim/devices/?q={host_pop}&status=active&role_id=11&role_id=12&role_id=13"
-    print(url)
+    url = f"{NETBOX_URI}/api/dcim/devices/?q={host_pop}&status=active&role_id=11&role_id=12&role_id=13"
     payload = {}
     headers = {
         'Content-Type': 'application/json ',

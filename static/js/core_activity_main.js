@@ -768,7 +768,7 @@ async function get_customers_contact(customer_prefix) {
         "from": "bgvi3a68b",
         "select": [20, 64, 65, 64, 69, 70, 17, 55],
         "where": `{65.EX.'${customer_prefix}'}OR{70.EX.'${customer_prefix}'}OR{7.CT.'${customer_prefix}'}AND{55.CT.'NOC'}`,
-        "sortBy": [{ "fieldId": 70, "order": "ASC" } ]
+        "sortBy": [{ "fieldId": 65, "order": "ASC" } ]
     };
 
     try {

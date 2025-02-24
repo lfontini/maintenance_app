@@ -773,7 +773,7 @@ async function get_customers_contact(customer_prefix) {
 
     try {
         const response = await axios.post('https://api.quickbase.com/v1/records/query', body, { headers });
-
+        //There was a problem involving OES and RNG, customers from orange spain (oes) were receiving ticket from RNG, problem is the fiels 70 and 65 in qb, because contains RNG in OES record, to solve that, when a query is performed, the sort by 65 field.
         if (response.status === 200 && response.data.data && response.data.data.length > 0) {
             const { '69': { value: request_ids_zendesk }, '20': { value: customer_name } } = response.data.data[0];
             return [request_ids_zendesk, customer_name]; // Retornando os dados como uma lista

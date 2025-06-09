@@ -62,7 +62,7 @@ class Core(models.Model):
     activity_related_to = models.CharField(
         max_length=100, choices=ACTIVITY_RELATED_TO_CHOICES, default='')
     ign_engineer = models.CharField(
-        max_length=100, default='', choices=IGN_ENG_CHOICES, verbose_name="Ign Enginner")
+        max_length=100, choices=IGN_ENG_CHOICES, verbose_name="Ign Enginner required " )
 
     internet_id = models.CharField(
         max_length=100, default='', choices=INTERNET_ID_CHOICES)
@@ -76,21 +76,21 @@ class Core(models.Model):
     status = models.CharField(
         max_length=100, default='not_started', choices=STATUS_CHOICES)
 
-    start_date = models.DateTimeField(null=True, blank=True)
-    end_date = models.DateTimeField(null=True, blank=True)
+    start_date = models.DateTimeField(null=True, blank=True, verbose_name="Start Date GMT-3")
+    end_date = models.DateTimeField(null=True, blank=True, verbose_name="End Date GMT-3")
     duration = models.CharField(max_length=6, default='')
     downtime = models.TextField(
         max_length=6, default='', verbose_name="Downtime who will send to customer")
     affected_services = models.TextField(max_length=10000, default='')
 
     Description = models.TextField(
-        max_length=100, default='', verbose_name="Core Description")
+        max_length=300, default='', verbose_name="Core Description for internal use (SUBJECT VENDOR IF VENDOR ACTIVITY)")
     Description_to_customers = models.TextField(
-        max_length=100, default='', verbose_name="Description to customers")
+        max_length=300, default='', verbose_name="Description to customers")
 
     location = models.CharField(max_length=100, default='')
 
-    remote_hands_information = models.TextField(max_length=100, default='')
+    remote_hands_information = models.TextField(max_length=300, default='')
 
     core_quickbase_id = models.CharField(
         max_length=6)

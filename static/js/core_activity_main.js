@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const id_pop_label = document.querySelector('label[for="id_pop"]');
 
     // Add attribute  "hidden" 
-    ignEngineerField.setAttribute('hidden', 'true', 'disable', 'true');
-    ignEngineerlabelField_id.setAttribute('hidden', 'true', 'disable', 'true');
+    // ignEngineerField.setAttribute('hidden', 'true', 'disable', 'true');
+    // ignEngineerlabelField_id.setAttribute('hidden', 'true', 'disable', 'true');
 
     id_internet_id_label.setAttribute('hidden', 'true');
     id_internet_id.setAttribute('hidden', 'true');
@@ -64,14 +64,14 @@ function hide_field(fields) {
     }
 }
 
-
-activity_type_field.addEventListener('change', function (event) {
-    if (activity_type_field.value === "from_ign") {
-        show_field([ign_engineer_field, ignEngineerlabelField_id]);
-    } else {
-        hide_field([ign_engineer_field, ignEngineerlabelField_id]);
-    }
-});
+// when core is opened the user must be the creator
+// activity_type_field.addEventListener('change', function (event) {
+//     if (activity_type_field.value === "from_ign") {
+//         show_field([ign_engineer_field, ignEngineerlabelField_id]);
+//     } else {
+//         hide_field([ign_engineer_field, ignEngineerlabelField_id]);
+//     }
+// });
 
 
 

@@ -83,9 +83,9 @@ def Get_pops_gogs(device_name):
         else:
             print(f"Erro: Response code is  {response.status_code}")
             return None
-    except:
+    except Exception as e:
         print("raw_file_url", raw_file_url)
-        print("Error to access gogs, please check connection")
+        print("Error to access gogs, please check connection" , e)
         return None
 
 
@@ -97,7 +97,7 @@ def List_services(devices):
     validated_device_name = []
     raw_data = ",".join(
         lista_devices_pop)  # Join the list into a single string\
-    devices = (re.findall(r'[a-zA-Z0-9]{4}-[ASWLSRLER]{2,3}[0-9]', raw_data))
+    devices = (re.findall(r'[a-zA-Z0-9]{4}-[ASWLSRLERCR]{2,3}[0-9]', raw_data))
     result = []
 
     for device in devices:

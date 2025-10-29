@@ -102,7 +102,7 @@ def get_service_list(request):
         return router if DIA or POP were choosen 
 
     '''
-    DEVICE_NAME_STANDARD = r'[a-zA-Z0-9]{4}-[ARASWLSRLER]{2,3}[0-9]'
+    DEVICE_NAME_STANDARD = r'[a-zA-Z0-9]{4}-[ARASWLSRLERCR]{2,3}[0-9]'
 
     DIA_STANDARD = r'[a-zA-Z0-9].{3,4}DIA[0-9]{1,2}'
     PATH_STANDARD = r'[a-zA-Z0-9]{4}(?:-[a-zA-Z0-9]{4})+'

@@ -12,7 +12,7 @@ Django-based maintenance application with Celery task queue and PostgreSQL datab
 
 1. Clone the repository:
    obs: to clone e private repo you must have a token generated, use settings on github and developer > generate a token, it could me all types
-   
+
 ```bash
 git clone https://github.com/lfontini/maintenance_app.git
 cd maintenance_app
@@ -61,4 +61,13 @@ docker-compose down
 To remove volumes as well:
 ```bash
 docker-compose down -v
+```
+
+
+## Logs
+
+```bash
+docker-compose logs -f 
+or
+docker-compose logs 
 ```

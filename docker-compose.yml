@@ -32,7 +32,7 @@ services:
     env_file:
       - .env
     ports:
-      - "${REDIS_PORT}:6379"
+      - "${REDIS_EXTERNAL_PORT}:6379"
 
   celery:
     build: .

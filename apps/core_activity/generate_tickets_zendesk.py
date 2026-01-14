@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 from .models import Core
 
 # Configure the logging system
-logging.basicConfig(filename='error_log.txt', level=logging.ERROR,
+logging.basicConfig(filename='/tmp/error_log.txt', level=logging.ERROR,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 

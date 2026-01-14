@@ -22,6 +22,9 @@ services:
       - .env
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "${POSTGRES_PORT}:5432" 
+
 
   redis:
     image: redis:7

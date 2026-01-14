@@ -23,7 +23,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - "${POSTGRES_PORT}:5432" 
+      - "${POSTGRES_EXTERNAL_PORT}:5432" 
 
 
   redis:

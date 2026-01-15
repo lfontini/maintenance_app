@@ -245,11 +245,39 @@ oc describe pod <nome-do-pod> -n maintenance
 # Listar builds
 oc get builds -n maintenance
 
+# Build a partir do diretório local (mais rápido para testes)
+oc start-build maintenance --from-dir=. --follow -n maintenance
+
+# Build a partir do repositório Git
+oc start-build maintenance --follow -n maintenance
+
 # Ver logs de um build específico
 oc logs build/maintenance-5 -n maintenance
 
 # Cancelar build em andamento
 oc cancel-build maintenance-5 -n maintenance
+```
+
+### Rollout
+
+```bash
+# Verificar status do rollout (com timeout)
+oc rollout status deployment/django-web -n maintenance --timeout=120s
+
+# Reiniciar deployment para pegar nova imagem
+oc rollout restart deployment/django-web -n maintenance
+
+# Reiniciar todos os deployments da aplicação
+oc rollout restart deployment/django-web deployment/celery-worker deployment/celery-beat -n maintenance
+
+# Ver histórico de rollouts
+oc rollout history deployment/django-web -n maintenance
+
+# Voltar para versão anterior
+oc rollout undo deployment/django-web -n maintenance
+
+# Voltar para revisão específica
+oc rollout undo deployment/django-web --to-revision=2 -n maintenance
 ```
 
 ### Scaling
@@ -273,19 +301,6 @@ oc exec deployment/django-web -n maintenance -- python3 manage.py shell
 
 # Executar migrations manualmente
 oc exec deployment/django-web -n maintenance -- python3 manage.py migrate
-```
-
-### Rollback
-
-```bash
-# Ver histórico de rollouts
-oc rollout history deployment/django-web -n maintenance
-
-# Voltar para versão anterior
-oc rollout undo deployment/django-web -n maintenance
-
-# Voltar para revisão específica
-oc rollout undo deployment/django-web --to-revision=2 -n maintenance
 ```
 
 ---

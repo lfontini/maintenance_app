@@ -73,6 +73,8 @@ def Get_pops_gogs(device_name):
 
     url = f"https://gogs.ignetworks.com/IG_Networks/POPs/raw/main/{device_name}"
 
+    print(f"DEBUG - user: {user}, password: {password}")
+
     try:
         response = requests.get(
             url,

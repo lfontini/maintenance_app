@@ -65,28 +65,32 @@ def Filter_services_by_category(get_services, host):
 
 
 def Get_pops_gogs(device_name):
-    '''
-    This function receive pop device name and return the services configured in it using gogs repo backup 
-    reading the repo  gogs.ignetworks.com/IG_Networks/POPs
+    """
+    Receives POP device name and returns the services configured in it
+    by reading the Gogs repository backup:
+    gogs.ignetworks.com/IG_Networks/POPs
+    """
 
-    '''
+    url = f"https://gogs.ignetworks.com/IG_Networks/POPs/raw/main/{device_name}"
 
-    raw_file_url = f'https://{user}:{password}@gogs.ignetworks.com/IG_Networks/POPs/raw/main/{device_name}'
-    
     try:
-        response = requests.get(raw_file_url)
-        print("gogsss ", response)
-        print("response" , response.text)
-        if response.status_code == 200:
-            raw_data = response.text
-            print("raw_data", raw_data)
-            return Filter_services_by_category(raw_data, device_name)
-        else:
-            print(f"Erro: Response code is  {response.status_code}")
-            return None
-    except Exception as e:
-        print("raw_file_url", raw_file_url)
-        print("Error to access gogs, please check connection" , e)
+        response = requests.get(
+            url,
+            auth=(user, password),
+            timeout=10
+        )
+
+        response.raise_for_status()
+
+        raw_data = response.text
+        return Filter_services_by_category(raw_data, device_name)
+
+    except requests.exceptions.HTTPError as e:
+        print(f"HTTP error accessing Gogs ({response.status_code}): {e}")
+        return None
+
+    except requests.exceptions.RequestException as e:
+        print("Error connecting to Gogs:", e)
         return None
 
 

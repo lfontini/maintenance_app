@@ -1,0 +1,34 @@
+# Environment
+.env
+venv/
+.venv/
+
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Logs
+*.log
+error_log.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Django
+*.sqlite3
+static_root/
+media/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# OpenShift secrets (não commitar)
+openshift/01-secret.yaml

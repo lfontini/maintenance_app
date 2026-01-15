@@ -111,7 +111,7 @@ def PingTest(ip):
     print(treated_ip, 'treated_ip')
 
     # Test connectivity using TCP socket on common ports
-    ports_to_test = [22, 23, 80, 443]  # SSH, Telnet, HTTP, HTTPS
+    ports_to_test = [22, 23, 53, 80, 443]  # SSH, Telnet, DNS, HTTP, HTTPS
 
     for port in ports_to_test:
         try:

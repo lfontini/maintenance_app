@@ -376,6 +376,23 @@ oc adm top pods -n maintenance
 oc get deployment django-web -n maintenance -o yaml | grep -A 10 resources
 ```
 
+### Erro de Ping (Operation not permitted)
+
+O comando ping requer a capability `NET_RAW` que é bloqueada por padrão no OpenShift.
+
+Erro:
+```
+/bin/sh: 1: ping: Operation not permitted
+```
+
+Solução - executar o comando abaixo para liberar o ping:
+
+```bash
+oc adm policy add-scc-to-user netraw-scc -z django-sa -n maintenance
+```
+
+> **Nota:** Caso não consiga aplicar este comando, entre em contato com o time de TI para solicitar a liberação da SCC.
+
 ---
 
 ## URLs Importantes

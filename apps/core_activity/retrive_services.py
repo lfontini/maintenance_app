@@ -5,8 +5,8 @@ import os
 
 load_dotenv()
 
-user = os.getenv('user')
-password = os.getenv('password')
+user = os.getenv('TACACS_USER')
+password = os.getenv('TACACS_PASSWORD')
 TOKEN_NETBOX = os.getenv('TOKEN_NETBOX')
 NETBOX_URI = os.getenv('URL_NETBOX')
 
@@ -76,7 +76,7 @@ def Get_pops_gogs(device_name):
     try:
         response = requests.get(raw_file_url)
         print("gogsss ", response)
-        print("gogs" , response.text)
+        print("response" , response.text)
         if response.status_code == 200:
             raw_data = response.text
             print("raw_data", raw_data)

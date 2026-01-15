@@ -219,11 +219,11 @@ def TestService(circuito):
 
             except:
                 result['circuito'] = f"{circuito}"
-                result['status'] = "Equipment unreacheable or not in Netbox DOWN"
+                result['status'] = "It was not possible to access CPE"
                 result['interfacestatus'] = "None data retrived"
         else:
             result['circuito'] = circuito
-            result['status'] = 'Equipment unreacheable or not in Netbox/QB DOWN'
+            result['status'] = 'It was not possible to access CPE'
             result['interfacestatus'] = "None data retrived"
 
         result['statusquickbase'] = status_qb(circuito)
@@ -232,11 +232,11 @@ def TestService(circuito):
 
         return RESULTADO_FINAL
     else:
-        print("entoru aqui")
+        print("Missing Netbox documentation")
         result['circuito'] = f"{circuito}"
-        result['status'] = 'NONE DATA FOUND, '
-        result['resultadoping'] = 'NO IP ADDRESS FOUND DOWN'
-        result['interfacestatus'] = "DOWN"
+        result['status'] = 'Missing Netbox documentation'
+        result['resultadoping'] = 'Missing Netbox documentation'
+        result['interfacestatus'] = "Missing Netbox documentation"
         result['statusquickbase'] = status_qb(circuito)
         RESULTADO_FINAL.append(result)
         return RESULTADO_FINAL

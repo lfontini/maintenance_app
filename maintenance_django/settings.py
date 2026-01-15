@@ -91,6 +91,12 @@ WSGI_APPLICATION = 'maintenance_django.wsgi.application'
 
 ALLOWED_HOSTS = ['*']
 
+# CSRF trusted origins for OpenShift
+CSRF_TRUSTED_ORIGINS = [
+    'https://maintenance-maintenance.apps.okd.ignetworks.com',
+    'https://*.apps.okd.ignetworks.com',
+]
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -172,7 +178,8 @@ REDIS_PORT = os.getenv("REDIS_PORT", "6379")  # default 6379 se não tiver no .e
 
 
 MKDOCS_CONFIG_FILE = 'docs/mkdocs.yml'
-CELERY_BROKER_URL = f"redis://redis:{REDIS_PORT}/0"
+REDIS_HOST = os.getenv("REDIS_HOST", "redis")
+CELERY_BROKER_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}/0"
 CELERY_ACCEPT_CONTENT = ["application/json"]
 CELERY_TASK_SERIALIZER = "json"
 CELERY_RESULT_SERIALIZER = "json"

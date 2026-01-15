@@ -100,20 +100,34 @@ def Access_Device(ip, manufacturer):
 
 def PingTest(ip):
     '''
-        This function will test the ping of the device
+        This function will test connectivity of the device using TCP socket
+        (ICMP ping not allowed in OpenShift containers)
         :param ip: The ip of the device
-        :return: The ping of the device
+        :return: String indicating if device is UP or DOWN
         :rtype: string
-
-
      '''
+    import socket
     treated_ip = ip.split("/")[0]
     print(treated_ip, 'treated_ip')
-    ping = subprocess.getoutput(f"ping  {treated_ip} -c 4")  # linux
-    # ping = subprocess.getoutput(f"ping  {treated_ip} ")  # windows
 
-    print(ping)
-    return ping
+    # Test connectivity using TCP socket on common ports
+    ports_to_test = [22, 23, 80, 443]  # SSH, Telnet, HTTP, HTTPS
+
+    for port in ports_to_test:
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(2)
+            result = sock.connect_ex((treated_ip, port))
+            sock.close()
+            if result == 0:
+                print(f"Host {treated_ip} is reachable on port {port}")
+                return "4 packets transmitted, 4 received"  # Simula ping UP
+        except Exception as e:
+            print(f"Error testing port {port}: {e}")
+            continue
+
+    print(f"Host {treated_ip} is not reachable on any tested port")
+    return "4 packets transmitted, 0 received"  # Simula ping DOWN
 
 
 # ... (your other imports)

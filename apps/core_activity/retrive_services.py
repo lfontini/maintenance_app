@@ -76,7 +76,7 @@ def Get_pops_gogs(device_name):
     try:
         response = requests.get(raw_file_url)
         print("gogsss ", response)
-
+        print("gogs" , response.text)
         if response.status_code == 200:
             raw_data = response.text
             print("raw_data", raw_data)

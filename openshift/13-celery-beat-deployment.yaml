@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: celery-beat
+  namespace: maintenance
+  labels:
+    app: celery-beat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: celery-beat
+  template:
+    metadata:
+      labels:
+        app: celery-beat
+    spec:
+      initContainers:
+        - name: wait-for-services
+          image: busybox:1.36
+          command:
+            - sh
+            - -c
+            - |
+              until nc -z postgres 5432 && nc -z redis 6379; do
+                echo "Aguardando Postgres e Redis..."
+                sleep 2
+              done
+              echo "Servicos disponiveis!"
+          resources:
+            requests:
+              memory: "32Mi"
+              cpu: "50m"
+            limits:
+              memory: "64Mi"
+              cpu: "100m"
+      containers:
+        - name: celery-beat
+          image: image-registry.openshift-image-registry.svc:5000/maintenance/maintenance:latest
+          command:
+            - /bin/bash
+            - -c
+            - |
+              python3 manage.py migrate django_celery_beat --noinput
+              exec celery -A maintenance_django beat -l INFO
+          envFrom:
+            - configMapRef:
+                name: maintenance-config
+            - secretRef:
+                name: maintenance-secret
+          volumeMounts:
+            - name: app-logs
+              mountPath: /app/logs
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
+      volumes:
+        - name: app-logs
+          emptyDir: {}

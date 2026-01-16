@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: celery-worker
+  namespace: maintenance
+  labels:
+    app: celery-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: celery-worker
+  template:
+    metadata:
+      labels:
+        app: celery-worker
+    spec:
+      initContainers:
+        - name: wait-for-services
+          image: busybox:1.36
+          command:
+            - sh
+            - -c
+            - |
+              until nc -z postgres 5432 && nc -z redis 6379; do
+                echo "Aguardando Postgres e Redis..."
+                sleep 2
+              done
+              echo "Servicos disponiveis!"
+          resources:
+            requests:
+              memory: "32Mi"
+              cpu: "50m"
+            limits:
+              memory: "64Mi"
+              cpu: "100m"
+      containers:
+        - name: celery-worker
+          image: image-registry.openshift-image-registry.svc:5000/maintenance/maintenance:latest
+          command:
+            - celery
+            - -A
+            - maintenance_django
+            - worker
+            - -l
+            - INFO
+          envFrom:
+            - configMapRef:
+                name: maintenance-config
+            - secretRef:
+                name: maintenance-secret
+          volumeMounts:
+            - name: app-logs
+              mountPath: /app/logs
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+      volumes:
+        - name: app-logs
+          emptyDir: {}
